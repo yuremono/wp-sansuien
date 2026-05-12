@@ -1,0 +1,18 @@
+/*
+Theme Name: 建築事務所向けカスタムサイト
+Theme URI: https://example.org/site-theme
+Author: 個人制作
+Author URI: https://example.org
+Description: 建築設計事務所向けのサイト構成です。フロントページは ACF のローカルフィールドグループで編集します（プラグイン側での手動フィールド作成は不要）。
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: site-theme
+
+Noto Sans JP を読み込み、ニュース投稿タイプ news を提供します。
+*/
+
+/* Critical tokens live in assets/theme.css (loaded via functions.php). */

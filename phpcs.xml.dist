@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="portfolio-corporate">
+	<description>PHP_CodeSniffer rules for this theme (WordPress Coding Standards).</description>
+
+	<file>.</file>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<!-- Theme templates often use hyphenated root filenames (e.g. front-page.php). -->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<severity>0</severity>
+	</rule>
+
+	<rule ref="WordPress"/>
+</ruleset>
