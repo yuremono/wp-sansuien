@@ -121,8 +121,8 @@ function theme_enqueue_assets(): void {
 
 	if ( is_front_page() ) {
 		wp_enqueue_style(
-			'theme-portfolio-tailwind-compat',
-			get_template_directory_uri() . '/assets/portfolio-tailwind-compat.css',
+			'theme-tailwind',
+			get_template_directory_uri() . '/assets/tailwind.css',
 			array( 'theme-main-css' ),
 			THEME_VERSION
 		);
