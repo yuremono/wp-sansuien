@@ -106,6 +106,234 @@
 	transform: none !important;
 }
 
+/* Tailwind の @apply を使っていた元 SCSS のうち、Live Sass だけでは展開されない Next ページ必須分。 */
+.Header.HeaderCylinder {
+	height: 100%;
+	pointer-events: none;
+}
+
+.Header.HeaderCylinder .HeaderInner {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
+	height: 100%;
+	padding-inline: 0;
+}
+
+.Header.HeaderCylinder .HeaderInner > * {
+	pointer-events: auto;
+}
+
+.Header.HeaderCylinder .HeaderCylinderLogo {
+	position: absolute;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: calc(var(--logoW) / 3 * 2);
+	height: auto;
+	padding: 0;
+	border: 0;
+	pointer-events: auto;
+	appearance: none;
+	background: var(--TR);
+	cursor: pointer;
+}
+
+.Header.HeaderCylinder .HeaderCylinderLogo .LogoCylinder,
+.Header.HeaderCylinder .HeaderCylinderLogo .LogoLoading {
+	display: grid;
+	width: calc(var(--logoW) / 3 * 2);
+	aspect-ratio: 1;
+	place-items: center;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	font-family: var(--Eng);
+	font-size: calc(var(--logoW) / 3);
+	font-weight: 100;
+	line-height: 1;
+}
+
+.Header.HeaderCylinder .HeaderAnotation {
+	position: absolute;
+	inset: 0 auto 0 0;
+	display: grid;
+	width: 100%;
+	padding-block: 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 500;
+	white-space: nowrap;
+	letter-spacing: 0;
+}
+
+.Header.HeaderCylinder .HeaderAnotation > span {
+	grid-area: 1 / 1;
+}
+
+.Header.HeaderCylinder .HeaderNav {
+	position: absolute;
+	z-index: 100;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	padding-block: 1rem;
+	padding-inline: 0;
+	pointer-events: none;
+	translate: 0 -52.5%;
+}
+
+.Header.HeaderCylinder .HeaderNav .NavUl {
+	display: grid;
+	justify-content: start;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.Header.HeaderCylinder .HeaderNav .NavLi {
+	display: block;
+	width: fit-content;
+	height: unset;
+	margin-block: 1.5lvh;
+	padding-block: 0;
+	padding-inline: 0.5rem;
+	align-content: center;
+	font-size: 1.125rem;
+	background-color: var(--foreground);
+	color: var(--background);
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(0, var(--navClosedY));
+	transition: var(--trans);
+}
+
+.Header.HeaderCylinder .HeaderNav a,
+.Header.HeaderCylinder .HeaderNav button {
+	vertical-align: top;
+	white-space: nowrap;
+	color: inherit;
+}
+
+.Header.HeaderCylinder[data-nav-open="true"] .HeaderNav {
+	background: var(--BC);
+}
+
+.Header.HeaderCylinder[data-nav-open="true"] .HeaderNav .NavLi {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateX(calc(var(--navX) * var(--logoW) / 3));
+}
+
+.Header.HeaderCylinder .DropBtn {
+	display: none;
+}
+
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl {
+	position: absolute;
+	margin: 0;
+	color: var(--background);
+	background: transparent;
+	border: 0;
+	padding: 0;
+	min-width: unset;
+	scale: 0 1;
+	transform-origin: left;
+}
+
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:popover-open {
+	scale: 1 1;
+}
+
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl > li {
+	width: fit-content;
+	margin-block: 2lvh;
+	padding-inline: 0.5em;
+	background-color: var(--foreground);
+}
+
+#experience-dialog {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: var(--foreground);
+}
+
+#experience-dialog::backdrop {
+	background: transparent;
+}
+
+:where(.Cards) {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap);
+}
+
+:where(.Cards) > .item {
+	width: var(--itemW);
+	margin-top: 0;
+}
+
+:where(.Wrap) {
+	position: relative;
+	width: auto;
+	max-width: none;
+	margin-inline: var(--out);
+	padding-block: var(--MY);
+}
+
+:where(.Wrap) > * {
+	max-width: 100%;
+	margin-inline: auto;
+}
+
+:where(.Wrap) > * + * {
+	margin-top: var(--MY5);
+}
+
+.Footer {
+	background-size: contain;
+}
+
+@media (min-width: 1024px) {
+	.Header.HeaderCylinder .HeaderCylinderLogo {
+		top: 50%;
+		width: var(--logoW);
+		translate: 0 -52.5%;
+	}
+
+	.Header.HeaderCylinder .HeaderCylinderLogo .LogoCylinder,
+	.Header.HeaderCylinder .HeaderCylinderLogo .LogoLoading {
+		width: var(--logoW);
+	}
+
+	.Header.HeaderCylinder .HeaderAnotation {
+		top: auto;
+		padding: 1rem;
+	}
+
+	.Header.HeaderCylinder .HeaderNav {
+		width: var(--logoW);
+		padding-block: 0;
+		background: var(--TR);
+	}
+
+	.Header.HeaderCylinder .HeaderNav .NavUl {
+		justify-content: end;
+	}
+
+	.Header.HeaderCylinder .HeaderNav .NavLi {
+		font-size: 1rem;
+	}
+
+	.Header.HeaderCylinder[data-nav-open="true"] .HeaderNav {
+		background: var(--TR);
+	}
+
+	.Header.HeaderCylinder[data-nav-open="true"] .HeaderNav .NavLi {
+		transform: translateX(calc(var(--navX) * var(--logoW)));
+	}
+}
+
 /* --------------------------------------------------------------------------
  * ScrollX ラッパー（Next ページ専用）
  * 他セクションは --wid だが、ここは常に「1 枚＝画面」とみなす（各 100vw × 100lvh）。
@@ -138,7 +366,19 @@
 
 
 .BunmyakuTeaserSection {
+	--background: oklch(0.16 0.055 255);
+	--foreground: oklch(0.8 0.02 235);
+	--MC: oklch(0.16 0.055 255);
+	--SC: oklch(0.22 0.9 188);
+	--AC: oklch(0.45 0.9 188);
+	--BC: oklch(0.115 0.035 255);
+	--TC: oklch(0.8 0.02 255);
+	--GR: oklch(0.62 0.025 255);
+	--Eng: var(--Ship);
+	--HFF: var(--Ship);
 	min-height: 100lvh;
+	background: var(--background);
+	color: var(--foreground);
 }
 
 .BunmyakuTeaserCanvasPlaceholder {

@@ -41,6 +41,8 @@
 .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
 .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
 .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.py-\[--PX\] { padding-top: var(--PX); padding-bottom: var(--PX); }
+.py-\[50lvh\] { padding-top: 50lvh; padding-bottom: 50lvh; }
 .pb-4 { padding-bottom: 1rem; }
 .mt-0 { margin-top: 0; }
 .mt-2 { margin-top: 0.5rem; }

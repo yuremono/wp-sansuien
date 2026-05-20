@@ -167,6 +167,16 @@
   padding-bottom: 1.25rem;
 }
 
+.py-\[--PX\] {
+  padding-top: var(--PX);
+  padding-bottom: var(--PX);
+}
+
+.py-\[50lvh\] {
+  padding-top: 50lvh;
+  padding-bottom: 50lvh;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }

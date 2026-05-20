@@ -27,7 +27,7 @@ $repulsion_items = array(
 	<header id="Header" class="Header HeaderCylinder" data-nav-open="false">
 		<div class="HeaderInner ">
 			<button type="button" class="HeaderLogo HeaderCylinderLogo" aria-expanded="false" aria-controls="HeaderNav" aria-label="Open menu" data-menu-toggle>
-				<span class="LogoLoading" aria-hidden="true"></span>
+				<span class="LogoCylinder" aria-hidden="true">y</span>
 				<span class="HeaderAnotation WTS text-[--BC] ">
 					<span>Tap or Click</span>
 					<span>Open Menu</span>
