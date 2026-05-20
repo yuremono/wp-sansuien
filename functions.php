@@ -134,6 +134,18 @@ function theme_enqueue_assets(): void {
 	);
 
 	if ( is_front_page() ) {
+		wp_enqueue_style(
+			'theme-portfolio-original',
+			get_template_directory_uri() . '/assets/portfolio-original.css',
+			array( 'theme-main-css' ),
+			THEME_VERSION
+		);
+		wp_enqueue_style(
+			'theme-portfolio-tailwind-compat',
+			get_template_directory_uri() . '/assets/portfolio-tailwind-compat.css',
+			array( 'theme-portfolio-original' ),
+			THEME_VERSION
+		);
 		wp_enqueue_script(
 			'theme-portfolio-front',
 			get_template_directory_uri() . '/assets/portfolio.js',

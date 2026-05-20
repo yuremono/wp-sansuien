@@ -2,47 +2,29 @@
   const root = document.querySelector("[data-portfolio-page]");
   if (!root) return;
 
-  const page = document.documentElement;
-  const menuButton = root.querySelector(".portfolio_menu_button");
-  const nav = root.querySelector("#portfolio_nav");
+  const header = root.querySelector(".HeaderCylinder");
+  const menuButton = root.querySelector("[data-menu-toggle]");
+  const nav = root.querySelector("#HeaderNav");
   const themeToggle = root.querySelector("[data-theme-toggle]");
-  const dialogOpeners = root.querySelectorAll("[data-dialog-open]");
-  let activeDialog = null;
+  const scrollXSections = root.querySelectorAll(".ScrollX");
 
   function setMenu(open) {
-    if (!menuButton || !nav) return;
+    if (!header || !menuButton || !nav) return;
+    header.setAttribute("data-nav-open", open ? "true" : "false");
     menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+    menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     nav.setAttribute("aria-hidden", open ? "false" : "true");
-    root.dataset.navOpen = open ? "true" : "false";
-  }
-
-  function closeDialog() {
-    if (!activeDialog) return;
-    activeDialog.hidden = true;
-    activeDialog = null;
-    document.body.classList.remove("portfolio_dialog_is_open");
-  }
-
-  function openDialog(id) {
-    const dialog = document.getElementById(id);
-    if (!dialog) return;
-    closeDialog();
-    dialog.hidden = false;
-    activeDialog = dialog;
-    document.body.classList.add("portfolio_dialog_is_open");
-    const panel = dialog.querySelector(".portfolio_dialog_panel");
-    if (panel instanceof HTMLElement) {
-      panel.focus();
+    if (open) {
+      nav.removeAttribute("inert");
+      return;
     }
+    nav.setAttribute("inert", "");
   }
 
   function updateScrollX(section) {
-    const track = section.querySelector(".portfolio_scroll_track");
-    const spacer = section.querySelector(".portfolio_scroll_spacer");
-    if (!(track instanceof HTMLElement) || !(spacer instanceof HTMLElement)) {
-      return;
-    }
-
+    const track = section.querySelector(".ScrollTrack");
+    const spacer = section.querySelector(".ScrollSpacer");
+    if (!(track instanceof HTMLElement) || !(spacer instanceof HTMLElement)) return;
     const maxX = Math.max(0, track.scrollWidth - window.innerWidth);
     spacer.style.height = `${maxX}px`;
     const start = section.getBoundingClientRect().top + window.scrollY;
@@ -51,11 +33,11 @@
   }
 
   function updateAllScrollX() {
-    root.querySelectorAll("[data-scroll-x]").forEach(updateScrollX);
+    scrollXSections.forEach(updateScrollX);
   }
 
   menuButton?.addEventListener("click", () => {
-    setMenu(root.dataset.navOpen !== "true");
+    setMenu(header?.getAttribute("data-nav-open") !== "true");
   });
 
   nav?.addEventListener("click", (event) => {
@@ -65,25 +47,49 @@
   });
 
   themeToggle?.addEventListener("click", () => {
-    const dark = page.classList.toggle("portfolio_dark");
+    const dark = document.documentElement.classList.toggle("dark");
+    root.classList.toggle("HasTheme", dark);
     themeToggle.textContent = dark ? "☼" : "☾";
   });
 
-  dialogOpeners.forEach((button) => {
+  root.querySelectorAll("[data-dialog-open]").forEach((button) => {
     button.addEventListener("click", () => {
-      openDialog(button.getAttribute("data-dialog-open") || "");
+      const id = button.getAttribute("data-dialog-open");
+      const dialog = id ? document.getElementById(id) : null;
+      if (dialog instanceof HTMLDialogElement) {
+        dialog.showModal();
+      }
     });
   });
 
-  root.addEventListener("click", (event) => {
-    if (event.target instanceof Element && event.target.closest("[data-dialog-close]")) {
-      closeDialog();
-    }
+  root.querySelectorAll("[data-dialog-close]").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.closest("dialog")?.close();
+    });
+  });
+
+  root.querySelectorAll(".repulsion-list-chip").forEach((chip) => {
+    const popup = chip.querySelector(".repulsion-list-chip-popup");
+    const open = () => {
+      chip.setAttribute("data-state", "active");
+      if (popup instanceof HTMLElement) {
+        popup.style.setProperty("--repulsion-list-chip-grid-rows", "1fr");
+      }
+    };
+    const close = () => {
+      chip.setAttribute("data-state", "idle");
+      if (popup instanceof HTMLElement) {
+        popup.style.removeProperty("--repulsion-list-chip-grid-rows");
+      }
+    };
+    chip.addEventListener("mouseenter", open);
+    chip.addEventListener("mouseleave", close);
+    chip.addEventListener("focusin", open);
+    chip.addEventListener("focusout", close);
   });
 
   document.addEventListener("keyup", (event) => {
     if (event.key === "Escape") {
-      closeDialog();
       setMenu(false);
     }
   });
