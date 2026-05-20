@@ -10,6 +10,11 @@
   const mindMaps = root.querySelectorAll(".mindMap");
   const mindWobbles = root.querySelectorAll(".mindWobble");
 
+  document.documentElement.classList.add("[--MC:--GR]");
+  root.querySelectorAll(".JsLetter, .BudouxFade, .JsRight, .JsLeft").forEach((el) => {
+    el.classList.add("show");
+  });
+
   function setMenu(open) {
     if (!header || !menuButton || !nav) return;
     header.setAttribute("data-nav-open", open ? "true" : "false");
@@ -124,10 +129,11 @@
       const nodes = Array.from(container.children).filter((el) => el instanceof HTMLElement);
       nodes.forEach((node, index) => {
         if (!(node instanceof HTMLElement)) return;
-        node.classList.add("mindMapNode");
         if (node.classList.contains("mmPin") || node.classList.contains("mmStatic")) {
+          node.classList.add("mmStatic");
           return;
         }
+        node.classList.add("mindMapNode");
         if (node.classList.contains("mm1-3") || node.classList.contains("mm2-2") || node.classList.contains("mm3-9") || node.classList.contains("mm9-6")) {
           return;
         }

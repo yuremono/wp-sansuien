@@ -80,20 +80,23 @@
 
 .mm2-2 {
 	position: absolute;
-	left: 14%;
-	top: 20%;
+	left: 9%;
+	top: 13%;
 }
 
 .mm9-6 {
 	position: absolute;
-	right: 8%;
-	bottom: 18%;
+	right: auto;
+	left: 41%;
+	bottom: 15%;
 }
 
 .mm3-9 {
 	position: absolute;
-	left: 40%;
-	bottom: 12%;
+	right: 8%;
+	left: auto;
+	top: 21%;
+	bottom: auto;
 }
 
 .mm1-3 {
@@ -104,6 +107,45 @@
 
 .mmStatic {
 	transform: none !important;
+}
+
+.experience .mm1-3 {
+	left: 12%;
+	top: 5%;
+}
+
+.experience > p.mindMapNode {
+	position: absolute !important;
+}
+
+.experience > p.mindMapNode:nth-of-type(1) {
+	left: 49% !important;
+	top: 78% !important;
+}
+
+.experience > p.mindMapNode:nth-of-type(2) {
+	left: 78% !important;
+	top: 58% !important;
+}
+
+.experience > p.mindMapNode:nth-of-type(3) {
+	left: 18% !important;
+	top: 60% !important;
+}
+
+.experience > p.mindMapNode:nth-of-type(4) {
+	left: 56% !important;
+	top: 65% !important;
+}
+
+.experience > p.mindMapNode:nth-of-type(5) {
+	left: 40% !important;
+	top: 51% !important;
+}
+
+.experience > p.mindMapNode:nth-of-type(6) {
+	left: 25% !important;
+	top: 44% !important;
 }
 
 /* Tailwind の @apply を使っていた元 SCSS のうち、Live Sass だけでは展開されない Next ページ必須分。 */
@@ -290,7 +332,7 @@
 	margin-top: var(--MY5);
 }
 
-.Footer {
+footer.Eng.Wrap {
 	background-size: contain;
 }
 
@@ -365,7 +407,7 @@
 }
 
 
-.BunmyakuTeaserSection {
+[data-l="BunmyakuTeaser"] {
 	--background: oklch(0.16 0.055 255);
 	--foreground: oklch(0.8 0.02 235);
 	--MC: oklch(0.16 0.055 255);

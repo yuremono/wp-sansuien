@@ -27,7 +27,7 @@ $repulsion_items = array(
 	<header id="Header" class="Header HeaderCylinder" data-nav-open="false">
 		<div class="HeaderInner ">
 			<button type="button" class="HeaderLogo HeaderCylinderLogo" aria-expanded="false" aria-controls="HeaderNav" aria-label="Open menu" data-menu-toggle>
-				<span class="LogoCylinder" aria-hidden="true">y</span>
+				<div class="LogoCylinder" aria-hidden="true"></div>
 				<span class="HeaderAnotation WTS text-[--BC] ">
 					<span>Tap or Click</span>
 					<span>Open Menu</span>
@@ -38,7 +38,7 @@ $repulsion_items = array(
 					<li class="NavLi"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">HOME</a></li>
 					<li class="NavLi [font-family:--Ship]"><a href="<?php echo esc_url( home_url( '/bunmyaku' ) ); ?>">文脈</a></li>
 					<li class="NavLi NavDrop">
-						<button type="button" class="DropA DropToggle" popovertarget="HeaderRepositoriesMenu-cylinder">Repositories<span class="DropIcon">⌄</span></button>
+						<button type="button" class="DropA DropToggle" popovertarget="HeaderRepositoriesMenu-cylinder">Repositories<svg class="DropIcon" aria-hidden="true" viewBox="0 0 256 256"><path d="m48 96 80 80 80-80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg></button>
 						<button type="button" class="DropBtn DropToggle" popovertarget="HeaderRepositoriesMenu-cylinder" aria-label="Toggle repositories submenu"></button>
 						<ul id="HeaderRepositoriesMenu-cylinder" class="DropUl" popover="auto" aria-label="Repositories">
 							<li class="DropLi"><a href="https://github.com/yuremono/portfolio" class=" " target="_blank" rel="noopener noreferrer">Portfolio<span class="icon-arrow-square-out" aria-hidden="true">↗</span></a></li>
@@ -52,7 +52,7 @@ $repulsion_items = array(
 						</ul>
 					</li>
 					<li class="NavLi NavDrop">
-						<button type="button" class="DropA DropToggle" popovertarget="HeaderPagesMenu-cylinder">Pages<span class="DropIcon">⌄</span></button>
+						<button type="button" class="DropA DropToggle" popovertarget="HeaderPagesMenu-cylinder">Pages<svg class="DropIcon" aria-hidden="true" viewBox="0 0 256 256"><path d="m48 96 80 80 80-80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg></button>
 						<button type="button" class="DropBtn DropToggle" popovertarget="HeaderPagesMenu-cylinder" aria-label="Toggle pages submenu"></button>
 						<ul id="HeaderPagesMenu-cylinder" class="DropUl" popover="auto" aria-label="Pages">
 							<li class="DropLi"><a href="<?php echo esc_url( home_url( '/preview' ) ); ?>">BurnYourOwnStyle</a></li>
@@ -75,7 +75,7 @@ $repulsion_items = array(
 	</header>
 
 	<div class="HeaderPagetop mix-blend-difference text-WH">
-		<a href="#">⌃</a>
+			<a href="#" aria-label="Page top"><svg aria-hidden="true" viewBox="0 0 256 256"><path d="m48 160 80-80 80 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg></a>
 	</div>
 	<button type="button" class="ThemeToggle mix-blend-difference text-WH" aria-label="Toggle dark mode" data-theme-toggle>☾</button>
 
@@ -104,7 +104,7 @@ $repulsion_items = array(
 						<div class="text-base mmPin mmStatic max-w-[calc(var(--wid)/2)] experience_tx text-left San font-light leading-[2em] static lg:absolute left-1/2 top-[--MY] z-10 p-4 bg-background/80">
 							<h3 class="text-GR text-[1.25em] inline-block mr-4">経験と依存性</h3>
 							<button type="button" class="textlink mt-6" aria-haspopup="dialog" aria-controls="experience-dialog" data-dialog-open="experience-dialog">
-								Details<span class="[--btnIFZ:1.5em] align-text-bottom">＋</span>
+								Details<svg class="[--btnIFZ:1.5em] align-text-bottom" aria-hidden="true" viewBox="0 0 256 256"><path d="M40 64h176M40 128h176M40 192h96M184 168v48M160 192h48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
 							</button>
 							<br>
 							<div class="text-left">
@@ -128,7 +128,7 @@ $repulsion_items = array(
 					</div>
 					<dialog id="experience-dialog" aria-label="Experience and Dependencies" aria-modal="true" class="min-h-lvh w-screen max-w-none overflow-y-auto overscroll-none bg-BC/90 outline-none">
 						<article class="py-[--PX] into">
-							<button type="button" class="textlink DS shrink-0 text-AC fixed top-[--PX] right-[--into] p-2" data-dialog-close>Close ×</button>
+							<button type="button" class="textlink DS shrink-0 text-AC fixed top-[--PX] right-[--into] p-2" data-dialog-close aria-label="Experience and Dependenciesを閉じる">Close<svg class="[--btnIFZ:1.25em]" aria-hidden="true" viewBox="0 0 256 256"><path d="M200 56 56 200M200 200 56 56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg></button>
 							<header class="flex items-start justify-between gap BorderB pb-4">
 								<div>
 									<p class="text-sm font-bold text-AC">Details</p>
@@ -284,10 +284,10 @@ $repulsion_items = array(
 			<div class="ScrollSpacer" aria-hidden="true"></div>
 		</section>
 
-		<section data-l="BunmyakuTeaser" class="out relative mt-0 grid BunmyakuTeaserSection">
+		<section data-l="BunmyakuTeaser" class="out relative mt-0 grid">
 			<div class="relative min-h-[112.5vw] [grid-area:1/1] max-w-[1620px] w-full mx-auto">
 				<div class="sticky h-100lvh top-0 xl:top-[-30%] grid place-items-center">
-					<div class="BunmyakuTeaserCanvasPlaceholder block w-full aspect-square" aria-hidden="true">文</div>
+					<canvas class="block w-full aspect-square" aria-hidden="true"></canvas>
 				</div>
 			</div>
 			<div class="WTS [--WTS:var(--tsw)_var(--BC50)] relative z-10 PX [grid-area:1/1] [font-family:--Ship] max-w-[48em] mx-auto">
@@ -391,7 +391,7 @@ $repulsion_items = array(
 		</section>
 	</main>
 
-	<footer class="Eng Wrap into bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom Footer" style="background-image: url(<?php echo esc_url( get_template_directory_uri() . '/images/fff2.svg' ); ?>);">
+	<footer class="Eng Wrap into bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom" style="background-image: url(<?php echo esc_url( get_template_directory_uri() . '/images/fff2.svg' ); ?>);">
 		<div class="DescList IsCenter">
 			<div>
 				<dl>
