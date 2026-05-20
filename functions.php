@@ -18,7 +18,7 @@ define('THEME_GETTEXT_DOMAIN', 'site-theme');
 define('THEME_VERSION', '1.0.0');
 
 if (!defined('THEME_BRAND_DEFAULT')) {
-	define('THEME_BRAND_DEFAULT', '坂ノ上設計');
+	define('THEME_BRAND_DEFAULT', 'yuremono works');
 }
 
 require_once get_template_directory() . '/inc/fallback-menu.php';
@@ -114,7 +114,7 @@ add_action('after_setup_theme', 'theme_setup');
 function theme_enqueue_assets(): void {
 	wp_enqueue_style(
 		'theme-google-fonts',
-		'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap',
 		array(),
 		null
 	);
@@ -132,6 +132,16 @@ function theme_enqueue_assets(): void {
 		array('theme-main-css'),
 		THEME_VERSION
 	);
+
+	if ( is_front_page() ) {
+		wp_enqueue_script(
+			'theme-portfolio-front',
+			get_template_directory_uri() . '/assets/portfolio.js',
+			array(),
+			THEME_VERSION,
+			true
+		);
+	}
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_assets');
 

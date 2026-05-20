@@ -1,6 +1,6 @@
 <?php
 /**
- * Static front page layout (ACF-driven).
+ * Portfolio front page.
  *
  * @package Theme
  */
@@ -9,259 +9,255 @@ declare(strict_types=1);
 
 get_header();
 
-$hero_kicker = theme_front_meta('hero_kicker', '箕面・大阪北部｜社寺・集合・福祉の建築設計');
-$hero_title  = theme_front_meta('hero_title', '坂ノ上設計｜社寺・集合・福祉で「場」を編む');
-$hero_lead   = theme_front_meta(
-	'hero_lead',
-	"箕面から大阪北部へ、プロセスデザインと構法設計を両輪に据えます。\n現調から監理まで伴走し、制度・構造・運用まで一枚岩でご提案します。"
-);
-
-$hero_img_field = theme_front_meta('hero_image', null);
-$hero_src       = theme_image_url($hero_img_field, 'assets/hero.jpg');
-
-$svc_heading = theme_front_meta('services_heading', '領域別サービス');
-
-$svc_defs = array(
+$experience_groups = array(
 	array(
-		'title_default' => '社寺・伝統的木造',
-		'body_default'  => "本尊・札所動線・地域行事まで見据えた平面組み替え。\n耐震・メンテ計画までワンストップでご提案します。",
-		'fallback_img'  => 'assets/studio.jpg',
-		'title_key'     => 'service_1_title',
-		'body_key'      => 'service_1_body',
-		'image_key'     => 'service_1_image',
+		array(
+			'title' => '職種・スキル概要',
+			'rows'  => array(
+				array( 'Web デザイナー', '3.5 Year' ),
+				array( 'Web コーダー', '3.5 Year' ),
+				array( 'フロントエンドエンジニア', '実務未経験' ),
+				array( 'AI駆動開発', '1 Year' ),
+			),
+		),
+		array(
+			'title' => 'エージェント / web',
+			'rows'  => array(
+				array( 'Cursor', '1 Year' ),
+				array( 'Claude Code (GLM, OpenRouter)', '4 Month' ),
+				array( 'Codex / web', '1 Month / 1 Year' ),
+				array( 'Gemini / NanoBanana', '1 Year / 6 Month' ),
+			),
+		),
+		array(
+			'title' => '言語 + ライブラリ',
+			'rows'  => array(
+				array( 'WEB SCSS+JavaScript+HTML', '4 Years' ),
+				array( 'TypeScript', 'AI 1 Year' ),
+				array( 'Python', 'AI 6 Month' ),
+				array( 'React/Next.Js/Vite', 'AI 1 Year' ),
+				array( 'vue/astro/svelte', 'AI 4 Month' ),
+				array( 'WordPress', 'Localで学習中' ),
+			),
+		),
 	),
 	array(
-		'title_default' => '集合・福祉・中小プロジェクト',
-		'body_default'  => "長寿命仕様・運営動線・ユニバーサルデザインを前提にした計画。\n行政調整やJV連携にも対応します。",
-		'fallback_img'  => 'assets/hero.jpg',
-		'title_key'     => 'service_2_title',
-		'body_key'      => 'service_2_body',
-		'image_key'     => 'service_2_image',
+		array(
+			'title' => 'デザインツール',
+			'rows'  => array(
+				array( 'PhotoShop', '4 Year' ),
+				array( 'Illustrator', '4 Year' ),
+				array( 'Figma', 'HtmlToFigmaなど補助利用' ),
+				array( 'Pencil.dev', '数回' ),
+				array( 'Stitch', '数回' ),
+				array( 'GPT Image-2.0', 'LPデザイン・アセット作成の実運用を研究' ),
+				array( 'Claude Design', '情報収集' ),
+			),
+		),
+		array(
+			'title' => '環境',
+			'rows'  => array(
+				array( 'MacOS', '4 年' ),
+				array( 'Windows', '社内利用 3.5 年' ),
+				array( '情報収集', '主にX,Zenn,+webAI ディスカバー' ),
+				array( '制作環境', '自作のtask系,memory系,実装系スキルを使用' ),
+			),
+		),
+		array(
+			'title' => 'インフラ / データベース',
+			'rows'  => array(
+				array( 'Vercel', 'AI 1 Year' ),
+				array( 'Supabase', 'AI 1 Year' ),
+				array( 'Github', 'AI 1 Year' ),
+				array( 'Xserver+MySQL', '実務 4 Year' ),
+			),
+		),
 	),
 	array(
-		'title_default' => 'リノベ・構造調査',
-		'body_default'  => "耐震診断から狭小地の増築まで局所的な構法見直し。\n竣工後の保全サイクル設計まで支援します。",
-		'fallback_img'  => 'assets/studio.jpg',
-		'title_key'     => 'service_3_title',
-		'body_key'      => 'service_3_body',
-		'image_key'     => 'service_3_image',
+		array(
+			'title' => 'その他利用履歴',
+			'rows'  => array(
+				array( 'Tailwind CSS', '6 Month, AI 1 Year' ),
+				array( 'canvas API', 'AI 1 Year' ),
+				array( 'Three.js', 'AI 1 Year' ),
+				array( 'D3.js', 'AI 6 Month' ),
+				array( 'GSAP', '3.5 Year' ),
+				array( 'VScode/Chrome Extentions', '1〜2回作成' ),
+				array( 'NanoBanana', 'スキルで頻繁に利用' ),
+				array( 'Quiver.ai/arrow-1', 'BYOS demoのsvg生成で使用' ),
+				array( 'Recraft', '高度な画像生成、SVG作成' ),
+				array( 'LottieAnimation', 'webツール試用' ),
+				array( 'memsearch', 'claude/codexで常用' ),
+				array( 'superpowers/oh-my-claudecode', '試用' ),
+				array( 'tweakpane', '/Generatorで使用' ),
+				array( 'Z.ai Coding Plan', 'Claude Codeで使用' ),
+				array( 'Open Router', 'モデル比較' ),
+				array( 'Fal AI', '動画生成で使用' ),
+				array( 'OpenClaw', '試用' ),
+				array( 'tailscale', 'スマホターミナル操作試用' ),
+			),
+		),
 	),
 );
 
-$highlight_show_raw = theme_front_meta( 'highlight_show', 1 );
-$show_highlight     = ! empty( $highlight_show_raw );
-$highlight_heading = theme_front_meta( 'highlight_heading', '設計へのスタンス' );
-$highlight_body    = theme_front_meta(
-	'highlight_body',
-	"用途と現場条件を踏まえ、法規・構造・運用のバランスを見通してから図面化します。\nワークショップや合意形成の場にも同席し、一段深い提案ができるよう伴走します。"
+$repulsion_items = array(
+	'Context Engineering',
+	'Design.md',
+	'WordPress',
+	'React',
+	'TypeScript',
+	'Three.js',
+	'Pencil.dev',
+	'Codex',
+	'Claude Code',
+	'Cursor',
+	'Supabase',
+	'GSAP',
 );
-$highlight_img_field = theme_front_meta( 'highlight_image', null );
-$highlight_src       = theme_image_url( $highlight_img_field, 'assets/studio.jpg' );
-
-$cta_strip_show_raw = theme_front_meta( 'cta_strip_show', 1 );
-$show_cta_strip     = ! empty( $cta_strip_show_raw );
-$cta_strip_heading  = theme_front_meta( 'cta_strip_heading', 'まずはお気軽にご相談ください' );
-$cta_strip_body     = theme_front_meta(
-	'cta_strip_body',
-	'用途やスケジュールが固まっていなくても構いません。オンライン面談・現地確認の調整など、運用しやすい形でご案内します。'
-);
-$cta_strip_button_label = theme_front_meta( 'cta_strip_button_label', 'お問い合わせページへ' );
-$cta_strip_button_url   = theme_front_meta( 'cta_strip_button_url', '' );
-
-$stats_show_raw = theme_front_meta( 'stats_show', 1 );
-$show_stats_row = ! empty( $stats_show_raw );
-$stat_defs      = array(
-	array(
-		'label_key' => 'stat_1_label',
-		'value_key' => 'stat_1_value',
-		'label_def' => '設立',
-		'value_def' => '2006年',
-	),
-	array(
-		'label_key' => 'stat_2_label',
-		'value_key' => 'stat_2_value',
-		'label_def' => '設計監理実績（累計・例）',
-		'value_def' => '120件超',
-	),
-	array(
-		'label_key' => 'stat_3_label',
-		'value_key' => 'stat_3_value',
-		'label_def' => '対応エリア（例）',
-		'value_def' => '大阪府北部・阪神間',
-	),
-);
-
-$greeting_show_raw = theme_front_meta( 'greeting_show', 1 );
-$show_greeting     = ! empty( $greeting_show_raw );
-$greeting_heading = theme_front_meta( 'greeting_heading', 'ごあいさつ' );
-$greeting_body    = theme_front_meta(
-	'greeting_body',
-	"私ども坂ノ上設計は、社寺から集合・福祉施設まで、地域に根差した計画や耐震・長寿命の観点を大切にしています。\n現場での対話と図面上の論理、その両面からお役に立てるよう支援いたします。"
-);
-$greeting_img_field = theme_front_meta( 'greeting_image', null );
-$greeting_has_image = false;
-$greeting_src       = '';
-if ( is_array( $greeting_img_field ) && ! empty( $greeting_img_field['url'] ) ) {
-	$greeting_has_image = true;
-	$greeting_src       = esc_url( (string) $greeting_img_field['url'] );
-} elseif ( is_string( $greeting_img_field ) && '' !== trim( $greeting_img_field ) ) {
-	$greeting_has_image = true;
-	$greeting_src       = esc_url( $greeting_img_field );
-}
-
-$news_preview_show_raw = theme_front_meta( 'news_preview_show', 1 );
-$show_news_preview     = ! empty( $news_preview_show_raw );
-$news_preview_heading  = theme_front_meta( 'news_preview_heading', 'お知らせ' );
-$news_posts_count      = (int) theme_front_meta( 'posts_count', 3 );
-$news_posts_count      = max( 1, min( 10, $news_posts_count ) );
-
 ?>
 
-<section class="hero wrap">
-	<div class="hero_inner">
-		<p class="kicker"><?php echo esc_html((string) $hero_kicker); ?></p>
-		<h1 class="hero_title"><?php echo esc_html((string) $hero_title); ?></h1>
-		<p class="lead"><?php echo nl2br(esc_html((string) $hero_lead), false); ?></p>
-	</div>
-	<div class="hero_visual">
-		<img class="hero_img" src="<?php echo esc_url($hero_src); ?>" alt="" width="1100" height="760" loading="eager" decoding="async">
-	</div>
-</section>
+<div class="portfolio_page" data-portfolio-page>
+	<header class="portfolio_header" aria-label="<?php esc_attr_e( 'サイトナビゲーション', THEME_GETTEXT_DOMAIN ); ?>">
+		<button class="portfolio_menu_button" type="button" aria-expanded="false" aria-controls="portfolio_nav">
+			<span class="portfolio_logo_orbit" aria-hidden="true"></span>
+			<span class="portfolio_menu_hint">
+				<span>Tap or Click</span>
+				<span>Open Menu</span>
+			</span>
+		</button>
+		<nav id="portfolio_nav" class="portfolio_nav" aria-hidden="true">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">HOME</a>
+			<a href="#bunmyaku">文脈</a>
+			<a href="https://github.com/yuremono/portfolio" target="_blank" rel="noopener noreferrer">Portfolio ↗</a>
+			<a href="https://github.com/yuremono/BurnYourOwnStyle/tree/react" target="_blank" rel="noopener noreferrer">BurnYourOwnStyle ↗</a>
+			<a href="https://github.com/yuremono/wp-local-demo" target="_blank" rel="noopener noreferrer">wp-local-demo ↗</a>
+		</nav>
+	</header>
 
-<section class="services" aria-labelledby="services_heading">
-	<div class="wrap">
-		<h2 id="services_heading" class="services_heading"><?php echo esc_html((string) $svc_heading); ?></h2>
-		<div class="card_grid">
-			<?php foreach ($svc_defs as $svc) : ?>
-				<?php
-				$t = theme_front_meta($svc['title_key'], $svc['title_default']);
-				$b = theme_front_meta($svc['body_key'], $svc['body_default']);
-				$img_field = theme_front_meta($svc['image_key'], null);
-				$img_src   = theme_image_url($img_field, $svc['fallback_img']);
-				?>
-				<article class="feature_card">
-					<img class="feature_card_img" src="<?php echo esc_url($img_src); ?>" alt="" loading="lazy" decoding="async" width="640" height="480">
-					<div class="feature_card_body">
-						<h3 class="feature_card_title"><?php echo esc_html((string) $t); ?></h3>
-						<p class="feature_card_text"><?php echo nl2br(esc_html((string) $b), false); ?></p>
-					</div>
-				</article>
-			<?php endforeach; ?>
-		</div>
-	</div>
-</section>
+	<a class="portfolio_pagetop" href="#primary" aria-label="<?php esc_attr_e( 'ページ上部へ戻る', THEME_GETTEXT_DOMAIN ); ?>">↑</a>
+	<button class="portfolio_theme_toggle" type="button" aria-label="<?php esc_attr_e( 'ダークモードを切り替える', THEME_GETTEXT_DOMAIN ); ?>" data-theme-toggle>☾</button>
 
-<?php if ( $show_highlight ) : ?>
-<section class="highlight" aria-labelledby="highlight_heading">
-	<div class="wrap highlight_grid">
-		<div>
-			<h2 id="highlight_heading" class="highlight_heading"><?php echo esc_html( (string) $highlight_heading ); ?></h2>
-			<p class="highlight_body"><?php echo nl2br( esc_html( (string) $highlight_body ), false ); ?></p>
-		</div>
-		<div class="highlight_visual">
-			<img class="highlight_img" src="<?php echo esc_url( $highlight_src ); ?>" alt="" width="960" height="720" loading="lazy" decoding="async">
-		</div>
-	</div>
-</section>
-<?php endif; ?>
+	<section class="portfolio_hero mind_map" aria-labelledby="portfolio_hero_title">
+		<p class="mind_pin portfolio_hero_logo">yuremono<br>works</p>
+		<h1 id="portfolio_hero_title" class="mind_pin portfolio_hero_title">
+			2025/05からAI駆動開発を開始<br>
+			ヴィジュアル表現をAIでブーストし<br>
+			コンテキストエンジニアリングに注力しています
+		</h1>
+		<p class="mind_word mind_word_context">Context</p>
+		<p class="mind_word mind_word_development">Development</p>
+		<p class="mind_word mind_word_web">Web</p>
+	</section>
 
-<?php if ( $show_greeting ) : ?>
-<section class="greeting_section" aria-labelledby="greeting_heading">
-	<div class="wrap greeting_grid<?php echo $greeting_has_image ? '' : ' is_text_only'; ?>">
-		<div>
-			<h2 id="greeting_heading" class="greeting_heading"><?php echo esc_html( (string) $greeting_heading ); ?></h2>
-			<p class="greeting_body"><?php echo nl2br( esc_html( (string) $greeting_body ), false ); ?></p>
-		</div>
-		<?php if ( $greeting_has_image ) : ?>
-		<div class="greeting_visual">
-			<img class="greeting_img" src="<?php echo esc_url( $greeting_src ); ?>" alt="" width="960" height="720" loading="lazy" decoding="async">
-		</div>
-		<?php endif; ?>
-	</div>
-</section>
-<?php endif; ?>
-
-<?php if ( $show_cta_strip ) : ?>
-<section class="cta_strip" aria-labelledby="cta_strip_heading">
-	<div class="wrap cta_strip_inner">
-		<div class="cta_strip_copy">
-			<h2 id="cta_strip_heading" class="cta_strip_title"><?php echo esc_html( (string) $cta_strip_heading ); ?></h2>
-			<p class="cta_strip_text"><?php echo nl2br( esc_html( (string) $cta_strip_body ), false ); ?></p>
-		</div>
-		<?php
-		$btn_url_raw = trim( (string) $cta_strip_button_url );
-		$btn_label   = trim( (string) $cta_strip_button_label );
-		if ( '' !== $btn_url_raw && '' !== $btn_label ) :
-			?>
-		<p class="cta_strip_action">
-			<a class="cta_strip_btn" href="<?php echo esc_url( $btn_url_raw ); ?>"><?php echo esc_html( $btn_label ); ?></a>
-		</p>
-		<?php endif; ?>
-	</div>
-</section>
-<?php endif; ?>
-
-<?php if ( $show_stats_row ) : ?>
-<section class="stats_row" aria-label="<?php echo esc_attr( __( '主な実績・概要', THEME_GETTEXT_DOMAIN ) ); ?>">
-	<div class="wrap stats_row_inner">
-		<?php foreach ( $stat_defs as $row ) : ?>
-			<?php
-			$lbl = theme_front_meta( $row['label_key'], $row['label_def'] );
-			$val = theme_front_meta( $row['value_key'], $row['value_def'] );
-			?>
-			<div class="stat_cell">
-				<p class="stat_label"><?php echo esc_html( (string) $lbl ); ?></p>
-				<p class="stat_value"><?php echo esc_html( (string) $val ); ?></p>
+	<section class="portfolio_scroll_x" data-scroll-x aria-label="<?php esc_attr_e( 'Experience and project summary', THEME_GETTEXT_DOMAIN ); ?>">
+		<div class="portfolio_scroll_track">
+			<div class="portfolio_panel portfolio_experience mind_map">
+				<h2 class="portfolio_experience_title">Experience and<br>Dependencies</h2>
+				<div class="portfolio_experience_copy">
+					<h3>経験と依存性</h3>
+					<button class="portfolio_textlink" type="button" data-dialog-open="experience_dialog" aria-haspopup="dialog">
+						Details +
+					</button>
+					<h3>About This Site</h3>
+					<p>
+						個人制作ページ、ツールをまとめています。<br>
+						これまではNextJS CMS、AIチャット共有拡張機能、<br>
+						AI前提のweb開発を行なってきました。
+					</p>
+				</div>
+				<p class="experience_word experience_word_1">Cursor</p>
+				<p class="experience_word experience_word_2">Claude Code</p>
+				<p class="experience_word experience_word_3">TailwindCSS</p>
+				<p class="experience_word experience_word_4">WebGL</p>
+				<p class="experience_word experience_word_5">Codex</p>
+				<p class="experience_word experience_word_6">Pencil.dev</p>
+				<p class="portfolio_skill_strip">Typescript PhotoShop Figma Three.js Supabase GSAP</p>
 			</div>
-		<?php endforeach; ?>
-	</div>
-</section>
-<?php endif; ?>
 
-<?php if ( $show_news_preview ) : ?>
-<section class="news_preview_section" aria-labelledby="news_preview_heading">
-	<div class="wrap">
-		<h2 id="news_preview_heading" class="news_preview_heading"><?php echo esc_html( (string) $news_preview_heading ); ?></h2>
-		<?php
-		$news_q = new WP_Query(
-			array(
-				'post_type'      => 'news',
-				'post_status'    => 'publish',
-				'posts_per_page' => $news_posts_count,
-				'no_found_rows'  => true,
-			)
-		);
-		?>
-		<?php if ( $news_q->have_posts() ) : ?>
-		<ul class="news_list news_list_preview">
-			<?php
-			while ( $news_q->have_posts() ) :
-				$news_q->the_post();
-				?>
-			<li class="news_list_item">
-				<a class="news_list_link" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>
-				<span class="news_list_meta_preview"><?php echo esc_html( get_the_date() ); ?></span>
-			</li>
-				<?php
-			endwhile;
-			wp_reset_postdata();
-			?>
+			<section class="portfolio_panel portfolio_vibe" aria-labelledby="portfolio_vibe_title">
+				<div class="portfolio_vibe_heading">
+					<h2 id="portfolio_vibe_title">
+						<span>Vibe<br>&nbsp;&nbsp;Design</span>
+						<span>or</span>
+						<span>Vault&nbsp;<br>Driven</span>
+					</h2>
+				</div>
+				<div class="portfolio_vibe_copy">
+					<h3>AI Ready</h3>
+					<p><strong>DESIGN.md</strong>、<strong>画像生成デザイン</strong>を基点としたゼロからのページ作成の検証と、<strong>自然言語でUIパーツを再利用</strong>する為の環境構築を行っています。</p>
+					<h3>Burn Your Own Style</h3>
+					<details class="portfolio_details">
+						<summary>Thinking...</summary>
+						<p>モデルの学習データに基づくwebデザイン・コーディングは平均的で振れ幅が大きい。完成品の再利用を効率化する方が良い、という仮説で検証しています。</p>
+					</details>
+					<p class="portfolio_actions">
+						<a class="portfolio_button" href="https://github.com/yuremono/BurnYourOwnStyle/tree/react" target="_blank" rel="noopener noreferrer">Repository ↗</a>
+						<a class="portfolio_button" href="<?php echo esc_url( home_url( '/preview' ) ); ?>">Preview</a>
+					</p>
+				</div>
+				<p class="portfolio_skill_strip">Typescript PhotoShop Figma Three.js Supabase GSAP</p>
+			</section>
+		</div>
+		<div class="portfolio_scroll_spacer" aria-hidden="true"></div>
+	</section>
+
+	<section id="bunmyaku" class="portfolio_bunmyaku" aria-labelledby="portfolio_bunmyaku_title">
+		<div class="portfolio_bunmyaku_glyph" aria-hidden="true">文</div>
+		<div class="portfolio_bunmyaku_copy">
+			<p class="portfolio_kicker">Bunmyaku</p>
+			<h2 id="portfolio_bunmyaku_title">文脈を残し、次の制作判断に接続する。</h2>
+			<p>制作物、プロンプト、設計判断、失敗した検証を捨てずに扱うためのポートフォリオです。見た目だけではなく、作る過程の依存関係を公開できる形に整えています。</p>
+		</div>
+	</section>
+
+	<section class="portfolio_repulsion" aria-labelledby="portfolio_repulsion_title">
+		<h2 id="portfolio_repulsion_title">Working Stack</h2>
+		<ul class="portfolio_repulsion_list">
+			<?php foreach ( $repulsion_items as $item ) : ?>
+				<li><?php echo esc_html( $item ); ?></li>
+			<?php endforeach; ?>
 		</ul>
-		<?php else : ?>
-			<p class="news_preview_empty"><?php esc_html_e( '掲載中のお知らせはありません。', THEME_GETTEXT_DOMAIN ); ?></p>
-		<?php endif; ?>
+	</section>
 
-		<?php
-		$news_archive = get_post_type_archive_link( 'news' );
-		if ( is_string( $news_archive ) && '' !== $news_archive ) :
-			?>
-		<p class="news_preview_footer">
-			<a class="news_preview_more" href="<?php echo esc_url( $news_archive ); ?>"><?php esc_html_e( 'お知らせ一覧へ', THEME_GETTEXT_DOMAIN ); ?></a>
-		</p>
-		<?php endif; ?>
+	<footer class="portfolio_footer">
+		<p>yuremono works</p>
+		<a href="https://github.com/yuremono/portfolio" target="_blank" rel="noopener noreferrer">Repository ↗</a>
+	</footer>
+
+	<div id="experience_dialog" class="portfolio_dialog" role="dialog" aria-modal="true" aria-labelledby="experience_dialog_title" hidden>
+		<div class="portfolio_dialog_backdrop" data-dialog-close></div>
+		<div class="portfolio_dialog_panel" tabindex="-1">
+			<header class="portfolio_dialog_header">
+				<div>
+					<p>Details</p>
+					<h2 id="experience_dialog_title">Experience and Dependencies</h2>
+					<p>経験とAI依存の詳細。</p>
+				</div>
+				<button type="button" class="portfolio_dialog_close" data-dialog-close aria-label="<?php esc_attr_e( '閉じる', THEME_GETTEXT_DOMAIN ); ?>">×</button>
+			</header>
+			<div class="portfolio_experience_grid">
+				<?php foreach ( $experience_groups as $group ) : ?>
+					<div class="portfolio_experience_column">
+						<?php foreach ( $group as $card ) : ?>
+							<article class="portfolio_experience_card">
+								<h3>
+									<?php echo esc_html( $card['title'] ); ?>
+									<span><?php echo esc_html( (string) count( $card['rows'] ) ); ?> lists</span>
+								</h3>
+								<dl>
+									<?php foreach ( $card['rows'] as $row ) : ?>
+										<dt><?php echo esc_html( $row[0] ); ?></dt>
+										<dd><?php echo esc_html( $row[1] ); ?></dd>
+									<?php endforeach; ?>
+								</dl>
+							</article>
+						<?php endforeach; ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
 	</div>
-</section>
-<?php endif; ?>
+</div>
 
 <?php
 get_footer();
