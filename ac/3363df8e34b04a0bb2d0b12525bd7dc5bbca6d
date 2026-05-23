@@ -1,0 +1,29 @@
+README.md
+  s_cc6f045a63e89d::t_bf7936aa689758 71-73,75
+  h_53dad1e32c3c71 3,74
+AGENTS.md
+  h_53dad1e32c3c71 52
+assets/scss/_03header.scss
+  h_53dad1e32c3c71 1688
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "ac3363df8e34b04a0bb2d0b12525bd7dc5bbca6d",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_cc6f045a63e89d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5461-8a88-7d92-be18-c877aa055c3f",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
