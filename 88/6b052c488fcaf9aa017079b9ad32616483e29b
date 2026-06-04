@@ -1,0 +1,24 @@
+.codex/skills/html-to-wp/SKILL.md
+  s_604871b12a696d::t_15b155f14c885d 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "886b052c488fcaf9aa017079b9ad32616483e29b",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_604871b12a696d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e926c-ceab-7350-97fb-62780d06e209",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
