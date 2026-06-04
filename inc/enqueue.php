@@ -90,12 +90,12 @@ function theme_enqueue_assets(): void {
 			'3.4.1'
 		);
 
-		wp_enqueue_style(
-			'theme-quests-line-awesome-all',
-			'https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css',
-			array(),
-			null
-		);
+			wp_enqueue_style(
+				'theme-quests-line-awesome-all',
+				'https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css',
+				array(),
+				'1.3.0'
+			);
 
 		wp_enqueue_style(
 			'theme-quests-line-awesome',
@@ -104,12 +104,12 @@ function theme_enqueue_assets(): void {
 			'1.3.0'
 		);
 
-		wp_enqueue_style(
-			'theme-quests-google-fonts',
-			'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Sawarabi+Gothic&display=swap',
-			array(),
-			null
-		);
+			wp_enqueue_style(
+				'theme-quests-google-fonts',
+				'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Sawarabi+Gothic&display=swap',
+				array(),
+				THEME_VERSION
+			);
 		wp_enqueue_style(
 			'theme-quests-magnific-popup',
 			get_template_directory_uri() . '/assets/quests/js/magnific-popup/magnific-popup.css',

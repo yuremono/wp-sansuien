@@ -1412,6 +1412,146 @@ function theme_register_acf_page_template_groups(): void {
 		)
 	);
 
+	$quests_text_field = static function ( string $key, string $label, string $name, string $default_value, int $rows = 2 ): array {
+		return array(
+			'key'           => $key,
+			'label'         => __( $label, THEME_GETTEXT_DOMAIN ),
+			'name'          => $name,
+			'type'          => $rows > 1 ? 'textarea' : 'text',
+			'rows'          => $rows,
+			'instructions'  => __( 'Quests 専用ページ内の同名ブロックに表示されます。フロントページには反映されません。', THEME_GETTEXT_DOMAIN ),
+			'default_value' => $default_value,
+		);
+	};
+
+	acf_add_local_field_group(
+		array(
+			'key'                   => 'group_pc_page_quests',
+			'title'                 => __( 'Quests ページ', $td ),
+			'fields'                => array(
+				array(
+					'key'   => 'field_pc_quests_tab_main',
+					'label' => __( 'メイン', $td ),
+					'name'  => '',
+					'type'  => 'tab',
+				),
+				$quests_text_field( 'field_pc_quests_hero_title', 'ヒーロー見出し', 'quests_hero_title', "Samplexx\nLayout Text Dummyxx", 3 ),
+				$quests_text_field( 'field_pc_quests_about_copy', 'About 上部コピー', 'quests_about_copy', "Samplexx\nLayout Textxxxx", 3 ),
+				$quests_text_field( 'field_pc_quests_about_heading', 'About 見出し', 'quests_about_heading', '文字と「暮らす」', 1 ),
+				$quests_text_field( 'field_pc_quests_about_body', 'About 本文', 'quests_about_body', "ここには日本語の仮文章を配置しています。\n文字量と改行の見え方を保つため、同じ程度の長さで構成したダミーテキストです。\n実際の説明内容ではなく、画面上の余白や行間を確認するために、\n日本語のまま置き換えています。\n本文の密度が大きく変わらないよう、文の長さと折り返しを調整しています。\n「仮の文字列をここに入れています」\n「表示確認のための文章です」\n「元の内容を残さず、見た目だけを合わせています」\nSample Textは説明本文ではありません。\nレイアウト確認用の仮文として、全体の分量を元の構成に近づけています。", 8 ),
+				array(
+					'key'   => 'field_pc_quests_tab_sections',
+					'label' => __( '本文セクション', $td ),
+					'name'  => '',
+					'type'  => 'tab',
+				),
+				$quests_text_field( 'field_pc_quests_intro_kicker', 'Introduction ラベル', 'quests_intro_kicker', 'Introduction', 1 ),
+				$quests_text_field( 'field_pc_quests_intro_heading', 'Introduction 見出し', 'quests_intro_heading', 'Hello! This is Sample Text.', 1 ),
+				$quests_text_field( 'field_pc_quests_intro_body', 'Introduction 本文', 'quests_intro_body', 'ここには、文字数の確認に使うための仮の文章を配置しています。意味を持たない説明文として、見た目の長さや行数が大きく変わらないように調整しています。読み物としての内容ではなく、余白や折り返し、段落の密度を確認するための日本語ダミーテキストです。表示位置や雰囲気を保つため、同じ程度の長さで構成しています。', 4 ),
+				$quests_text_field( 'field_pc_quests_feature_u', 'Quests 強調ラベル', 'quests_feature_u', "Samplex\nTextxx", 2 ),
+				$quests_text_field( 'field_pc_quests_feature_heading', 'Quests 見出し', 'quests_feature_heading', 'Samplex-only', 1 ),
+				$quests_text_field( 'field_pc_quests_feature_body', 'Quests 本文', 'quests_feature_body', "「サンプル\nテキスト」は表示確認のために配置した仮の文章です。日本語の長さや改行の入り方を保ちながら、意味のあるサービス説明にならないよう調整しています。画面上の余白、文字量、読みやすさを確認するためのダミーテキストとして、同じ程度の密度で構成しています。", 4 ),
+				array(
+					'key'   => 'field_pc_quests_tab_cards',
+					'label' => __( '下部カード', $td ),
+					'name'  => '',
+					'type'  => 'tab',
+				),
+				$quests_text_field( 'field_pc_quests_education_kicker', 'Education 大見出しラベル', 'quests_education_kicker', 'Surround yourself with English！', 1 ),
+				$quests_text_field( 'field_pc_quests_education_heading', 'Education 大見出し', 'quests_education_heading', '日々の文字に文字を', 1 ),
+				$quests_text_field( 'field_pc_quests_education_card_kicker', 'Education カードラベル', 'quests_education_card_kicker', 'Education', 1 ),
+				$quests_text_field( 'field_pc_quests_education_card_heading', 'Education カード見出し', 'quests_education_card_heading', '文字文字', 1 ),
+				$quests_text_field( 'field_pc_quests_education_card_body', 'Education カード本文', 'quests_education_card_body', '仮の日本語テキストをここに配置しています。本文の量や折り返しを確認するための文章で、実際の説明として読ませる内容ではありません。表示の密度を保つため、同じくらいの長さで構成しています。', 4 ),
+				$quests_text_field( 'field_pc_quests_life_1_kicker', 'LIFE 1 ラベル', 'quests_life_1_kicker', 'LIFE', 1 ),
+				$quests_text_field( 'field_pc_quests_life_1_heading', 'LIFE 1 見出し', 'quests_life_1_heading', '文字のある文字', 1 ),
+				$quests_text_field( 'field_pc_quests_life_1_body', 'LIFE 1 本文', 'quests_life_1_body', "Sample\ntext remains here for layout checking only. The sentence length is adjusted to keep the visual rhythm close to the original while avoiding real descriptive content. Japanese text is replaced separately so the mixed language balance stays similar.", 4 ),
+				$quests_text_field( 'field_pc_quests_life_2_kicker', 'LIFE 2 ラベル', 'quests_life_2_kicker', 'LIFE', 1 ),
+				$quests_text_field( 'field_pc_quests_life_2_heading', 'LIFE 2 見出し', 'quests_life_2_heading', '文字のある文字', 1 ),
+				$quests_text_field( 'field_pc_quests_life_2_body', 'LIFE 2 本文', 'quests_life_2_body', "Sample\ntext remains here for layout checking only. The sentence length is adjusted to keep the visual rhythm close to the original while avoiding real descriptive content. Japanese text is replaced separately so the mixed language balance stays similar.", 4 ),
+				$quests_text_field( 'field_pc_quests_enjoy_kicker', 'Enjoy ラベル', 'quests_enjoy_kicker', 'Enjoy', 1 ),
+				$quests_text_field( 'field_pc_quests_enjoy_heading', 'Enjoy 見出し', 'quests_enjoy_heading', '文字で遊ぶ', 1 ),
+				$quests_text_field( 'field_pc_quests_enjoy_body', 'Enjoy 本文', 'quests_enjoy_body', "Sample\ntext is placed here as a neutral placeholder. It keeps a similar amount of visible content while removing the original message. The wording is intentionally generic so only the layout and balance can be checked.", 4 ),
+				$quests_text_field( 'field_pc_quests_closing_big', '下部大きいコピー', 'quests_closing_big', "Sample text for layout\nbalance in this area\nthat keeps the original\nline volume", 4 ),
+				$quests_text_field( 'field_pc_quests_closing_small', '下部小さいコピー（HTML可）', 'quests_closing_small', 'ここにも仮の文字列を<span>同じ量だけ置きます。</span>', 2 ),
+			),
+			'location'              => $tpl_loc( 'page-templates/page-quests.php' ),
+			'position'              => 'acf_after_title',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'active'                => true,
+		)
+	);
+
+	acf_add_local_field_group(
+		array(
+			'key'                   => 'group_pc_page_quests_service',
+			'title'                 => __( 'Quests サービスページ', $td ),
+			'fields'                => array(
+				array(
+					'key'   => 'field_pc_quests_service_tab_main',
+					'label' => __( 'メイン', $td ),
+					'name'  => '',
+					'type'  => 'tab',
+				),
+				$quests_text_field( 'field_pc_quests_service_hero_label', 'ヒーロー英字', 'quests_service_hero_label', 'Service', 1 ),
+				$quests_text_field( 'field_pc_quests_service_hero_small', 'ヒーロー小見出し', 'quests_service_hero_small', '文字文字紹介', 1 ),
+				$quests_text_field( 'field_pc_quests_service_about_copy', 'About 上部コピー', 'quests_service_about_copy', "Let's speak English \nand immerse ourselves\nin the world of English", 3 ),
+				$quests_text_field( 'field_pc_quests_service_about_heading', 'About 見出し', 'quests_service_about_heading', '文字と「暮らす」', 1 ),
+				$quests_text_field( 'field_pc_quests_service_about_body', 'About 本文', 'quests_service_about_body', "これは表示確認用の仮文章です。\n文字数と改行の流れを保つために配置した日本語の文章で、\n実際の説明内容として読むことは想定していません。\n余白、行間、段落の見え方を確認するため、\n近い長さの文を並べています。\n画面内での密度が大きく変わらないよう、\n日本語のままダミーの内容に差し替えています。\nここでは意味よりもレイアウト確認を優先します。\n「仮の文章をここに配置しています」\n「同じ程度の長さになるよう調整しています」\n「本文の見た目だけを確認するための文字列です」\nSample Textは説明本文ではありません。\n表示確認のための仮の文言を配置し、全体の分量を\n元の構成に近づけています。", 8 ),
+				array(
+					'key'   => 'field_pc_quests_service_tab_points',
+					'label' => __( '説明・ポイント', $td ),
+					'name'  => '',
+					'type'  => 'tab',
+				),
+				$quests_text_field( 'field_pc_quests_service_intro_kicker', '説明ラベル', 'quests_service_intro_kicker', 'Samplex Textxx', 1 ),
+				$quests_text_field( 'field_pc_quests_service_intro_heading', '説明見出し', 'quests_service_intro_heading', 'とは', 1 ),
+				$quests_text_field( 'field_pc_quests_service_intro_body', '説明本文', 'quests_service_intro_body', "「サンプル\nテキスト」は表示確認用の仮文章です。文章量と改行位置が大きく変わらないように調整し、内容としての意味を持たせず、見た目のバランスだけを確認できるようにしています。", 3 ),
+				$quests_text_field( 'field_pc_quests_service_point_1_kicker', 'Point 1 ラベル', 'quests_service_point_1_kicker', 'point 1', 1 ),
+				$quests_text_field( 'field_pc_quests_service_point_1_heading', 'Point 1 見出し', 'quests_service_point_1_heading', '文字しか話さない環境', 1 ),
+				$quests_text_field( 'field_pc_quests_service_point_1_body', 'Point 1 本文', 'quests_service_point_1_body', 'ここには日本語のダミーテキストを配置しています。文章の長さ、行の折り返し、見出し下の余白を確認するための内容です。実際のサービス説明ではなく、画面上の密度を保つために、同程度の分量で構成しています。必要以上に意味を持たせず、読み物ではない仮文として扱えるようにしています。', 4 ),
+				$quests_text_field( 'field_pc_quests_service_point_2_kicker', 'Point 2 ラベル', 'quests_service_point_2_kicker', 'point 2', 1 ),
+				$quests_text_field( 'field_pc_quests_service_point_2_heading', 'Point 2 見出し', 'quests_service_point_2_heading', '文字文字以外の充実したカリキュラム', 1 ),
+				$quests_text_field( 'field_pc_quests_service_point_2_body', 'Point 2 本文', 'quests_service_point_2_body', "Sample\ntext is used here only to keep the visual length close to the original. The surrounding Japanese portion is also generic placeholder wording, so this block can be checked without leaving the original message in place.", 4 ),
+				$quests_text_field( 'field_pc_quests_service_long_u', '長文ブロック強調ラベル', 'quests_service_long_u', "Samplex\nTextxx", 2 ),
+				$quests_text_field( 'field_pc_quests_service_long_heading', '長文ブロック見出し', 'quests_service_long_heading', 'アイウエオカキクケコとは？', 1 ),
+				$quests_text_field( 'field_pc_quests_service_long_body', '長文ブロック本文', 'quests_service_long_body', "ここには日本語の仮文章を配置し、行の高さと余白を確認します。\n\n対象や内容を示す実文ではなく、文字量を保つための文章です。\n\n段落の見え方が大きく変わらないよう、同程度の長さで調整しています。\n\n（仮として）\n・日本語の仮文を通じて表示の密度を確認\n・見た目の分量を保つためのサンプルテキスト！\n・意味を持たない文章を並べて、折り返しを確認します！\n\nここに続く文章もダミーです。元の説明文が残らないようにしながら、表示のまとまりが崩れない程度の文字量で構成しています。\n最後の行も確認用の日本語テキストとして配置しています", 8 ),
+				array(
+					'key'   => 'field_pc_quests_service_tab_plan',
+					'label' => __( '料金・エリア・フロー', $td ),
+					'name'  => '',
+					'type'  => 'tab',
+				),
+				$quests_text_field( 'field_pc_quests_service_plan_heading', 'PLAN 見出し', 'quests_service_plan_heading', 'PLAN', 1 ),
+				$quests_text_field( 'field_pc_quests_service_plan_time', '時間表記', 'quests_service_plan_time', '文字時間7：00～22：00', 1 ),
+				$quests_text_field( 'field_pc_quests_service_price_heading', '料金表見出し', 'quests_service_price_heading', '文字一覧', 1 ),
+				$quests_text_field( 'field_pc_quests_service_price_table', '料金表 HTML', 'quests_service_price_table', '<table><tr><td><div><span style="font-size:0.9em;">１チケット（7:00〜22:00） / １文字</span></div></td><td><div>0,000円</div></td></tr><tr><td><div>１Txt（9文字）</div></td><td><div><span style="font-size:0.9em;">00,000円</span></div></td></tr><tr><td><div>文字同行（文字費・文字・文字費別）</div></td><td><div>文字列</div></td></tr></table>', 6 ),
+				$quests_text_field( 'field_pc_quests_service_price_note', '料金注記', 'quests_service_price_note', '※表示文字は税込です', 1 ),
+				$quests_text_field( 'field_pc_quests_service_area_heading', '対応エリア見出し', 'quests_service_area_heading', '対応文字列', 1 ),
+				$quests_text_field( 'field_pc_quests_service_area_table', '対応エリア表 HTML', 'quests_service_area_table', '<table><tr><td><div>文字都</div></td><td><div>文字</div></td></tr><tr><td><div>文字文字</div></td><td><div>文字</div></td></tr><tr><td><div>文字県</div></td><td><div>文字</div></td></tr><tr><td><div>文字県</div></td><td><div>文字</div></td></tr></table>', 6 ),
+				$quests_text_field( 'field_pc_quests_service_flow_kicker', 'Flow ラベル', 'quests_service_flow_kicker', 'Flow', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_heading', 'Flow 見出し', 'quests_service_flow_heading', '文字までの流れ', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_1', 'Flow 1', 'quests_service_flow_1', '文字文字文字30分', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_2', 'Flow 2', 'quests_service_flow_2', 'テキストのご購入', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_3', 'Flow 3', 'quests_service_flow_3', '次回ご文字の日程を選択', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_4_heading', 'Flow 4 見出し', 'quests_service_flow_4_heading', 'テキストの選択', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_4_body', 'Flow 4 本文', 'quests_service_flow_4_body', "テキスト何枚（何時間）、もしくは１TXT（９文字）かを選択\n※１日８文字までもしくは１Txtが選択できます", 3 ),
+				$quests_text_field( 'field_pc_quests_service_flow_5', 'Flow 5', 'quests_service_flow_5', 'ご文字を希望のテキストを選択する', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_6_heading', 'Flow 6 見出し', 'quests_service_flow_6_heading', 'ご文字完了', 1 ),
+				$quests_text_field( 'field_pc_quests_service_flow_6_body', 'Flow 6 本文', 'quests_service_flow_6_body', '※文字・テキストは４８時間前まで', 2 ),
+				$quests_text_field( 'field_pc_quests_service_cta_heading', 'CTA 見出し', 'quests_service_cta_heading', "Let's sample layout\ntogether!", 2 ),
+				$quests_text_field( 'field_pc_quests_service_cta_label', 'CTA ラベル', 'quests_service_cta_label', 'Contact', 1 ),
+			),
+			'location'              => $tpl_loc( 'page-templates/page-quests-service.php' ),
+			'position'              => 'acf_after_title',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'active'                => true,
+		)
+	);
+
 	// phpcs:enable WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound
 }
 add_action( 'acf/init', 'theme_register_acf_page_template_groups' );
