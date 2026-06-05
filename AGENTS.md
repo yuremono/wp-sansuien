@@ -27,6 +27,10 @@
 
 ## WordPress 画面構築の基本ルール
 
+- このテーマはクエストトップとサービスページの2ページ専用。旧 `portfolio-wp` の `work` / `news` / 問い合わせフォーム / Tailwind ビルド運用は持ち込まない。
+- ローカルは `http://localhost:10014/` の専用 Local WP サイトを使う。テーマパス `/Users/yanoseiji/Local Sites/quests/app/public/wp-content/themes/quests` は `/Users/yanoseiji/projects/0605quests` へのシンボリックリンク。
+- 本番は `https://yuremono.com/quests/` のサブディレクトリ側 WordPress を使う。ルート `https://yuremono.com/` 側 WordPress には反映しない。
+- WordPress のメニュー・固定ページ・ACF入力値はDBに保存される。同じWordPress内でテーマだけ切り替えると共有されるため、クエスト管理は専用WordPressで行う。
 - クエスト2ページに表示されるテキスト・長文HTMLは、原則として `inc/acf-quests-pages.php` の ACF フィールドから取得する。
 - ACF フィールドを追加しただけで終わらせず、管理画面で編集者が場所を理解できるように `default_value` と説明を入れる。
 - 管理画面から増減する一覧を追加する場合は、リピーターを使わず CPT を検討する。ただし現時点では CPT は未使用。
