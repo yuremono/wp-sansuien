@@ -19,6 +19,7 @@ function theme_setup(): void {
 
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'custom-logo' );
 	add_theme_support(
 		'html5',
 		array(
@@ -32,10 +33,26 @@ function theme_setup(): void {
 	register_nav_menus(
 		array(
 			'primary' => __( 'Primary Navigation', THEME_GETTEXT_DOMAIN ),
+			'footer'  => __( 'Footer Navigation', THEME_GETTEXT_DOMAIN ),
 		)
 	);
 }
 add_action( 'after_setup_theme', 'theme_setup' );
+
+/**
+ * Show an admin notice when ACF is inactive.
+ */
+function theme_quests_acf_admin_notice(): void {
+	if ( function_exists( 'acf_add_local_field_group' ) || ! current_user_can( 'activate_plugins' ) ) {
+		return;
+	}
+	?>
+	<div class="notice notice-warning">
+		<p><?php echo esc_html__( 'Advanced Custom Fields が有効化されていません。Quests テーマの編集項目を利用するには ACF を有効化してください。', THEME_GETTEXT_DOMAIN ); ?></p>
+	</div>
+	<?php
+}
+add_action( 'admin_notices', 'theme_quests_acf_admin_notice' );
 
 /**
  * Fallback navigation used until a menu is assigned in the admin screen.

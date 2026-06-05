@@ -23471,4 +23471,18 @@ body section .btn.fitauto, .f .btn.fitauto, .h .btn.fitauto, .blog #contents .bt
 
 .sns_slide .slick-dots li button:before {
   color: var(--dotC) !important;
+}
+
+.f_social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em 1.25em;
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+}
+
+.f_social a {
+  color: inherit;
+  text-decoration: none;
 }/*# sourceMappingURL=common_style.css.map */

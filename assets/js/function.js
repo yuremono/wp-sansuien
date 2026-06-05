@@ -259,10 +259,7 @@ $(window).on('load', function () {
         }
     
     });
-    $(window).on('load', function () {//scrollbar幅取得
-        const scrollbarWidth = window.innerWidth - document.body.clientWidth;
-        document.querySelector('html').style.setProperty('--bar', `${scrollbarWidth}px`);
-    });
+
     $(function () {//全画像処理
         $('img').each(function () {// add alt
             if ($(this).is('[alt="English Quests"]')) {

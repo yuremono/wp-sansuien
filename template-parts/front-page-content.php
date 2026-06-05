@@ -16,38 +16,35 @@ if (!defined('ABSPATH')) {
                 <div id="main" class="clearfix">
                         <div id="col_main">
                                 <section>
-                                        <div id="c324" class="clearfix bg_slide">
+                                        <div  class="clearfix bg_slide c324">
                                                 <ul>
                                                         <li>
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/mv02.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_hero_image_1', 'images/home/mv02.jpg', 'Quests メインビジュアル 1'); ?>
                                                         </li>
                                                         <li>
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/mv01.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_hero_image_2', 'images/home/mv01.jpg', 'Quests メインビジュアル 2'); ?>
                                                         </li>
                                                         <li>
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/mv04.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_hero_image_3', 'images/home/mv04.jpg', 'Quests メインビジュアル 3'); ?>
                                                         </li>
                                                 </ul>
                                         </div><!-- #c324 -->
-                                        <div id="c322" class="clearfix mv_it  js-hide mt0">
+                                        <div  class="clearfix mv_it  js-hide mt0 c322">
                                                 <div>
                                                         <h1 style="font-size:1em;">
                                                                 <?php theme_quests_lines('quests_hero_title', "Samplexx\nLayout Text Dummyxx"); ?>
                                                         </h1>
                                                 </div>
                                         </div><!-- #c322 -->
-                                        <div id="c270" class="About bg100 mt0">
+                                        <div  class="About bg100 mt0 c270">
                                                 <div class="dis">
                                                 </div><!-- #c270 -->
-                                                <div id="c325" class="clearfix mv_it02  js-hide">
+                                                <div  class="clearfix mv_it02  js-hide c325">
                                                         <div><span
                                                                       style="font-size:1em;"><?php theme_quests_lines('quests_about_copy', "Samplexx\nLayout Textxxxx"); ?></span>
                                                         </div>
                                                 </div><!-- #c325 -->
-                                                <div id="c291" class="clearfix About_tx txwh PB15">
+                                                <div  class="clearfix About_tx txwh PB15 c291">
                                                         <div>
                                                                 <h2 class="h1FZ">
                                                                         <?php theme_quests_text('quests_about_heading', '文字と「暮らす」'); ?>
@@ -56,20 +53,19 @@ if (!defined('ABSPATH')) {
                                                                       style='margin-top:0em; line-height:3.5;'><?php theme_quests_lines('quests_about_body', "ここには日本語の仮文章を配置しています。\n文字量と改行の見え方を保つため、同じ程度の長さで構成したダミーテキストです。\n実際の説明内容ではなく、画面上の余白や行間を確認するために、\n日本語のまま置き換えています。\n本文の密度が大きく変わらないよう、文の長さと折り返しを調整しています。\n「仮の文字列をここに入れています」\n「表示確認のための文章です」\n「元の内容を残さず、見た目だけを合わせています」\nSample Textは説明本文ではありません。\nレイアウト確認用の仮文として、全体の分量を元の構成に近づけています。"); ?></span>
                                                         </div>
                                                 </div><!-- #c291 -->
-                                                <div id="c290" class="dis">
+                                                <div  class="dis c290">
                                                 </div>
                                         </div><!-- #c290 -->
-                                        <div id="c337" class="Intro wrapper100">
+                                        <div  class="Intro wrapper100 c337">
                                                 <div class="dis">
                                                 </div><!-- #c337 -->
-                                                <div id="c349" class="__v3 fb_para  op7">
+                                                <div  class="__v3 fb_para  op7 c349">
                                                         <div class="box">
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/top01.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_intro_image', 'images/home/top01.jpg', 'Introduction イメージ'); ?>
                                                                 <div></div>
                                                         </div>
                                                 </div><!-- #c349 -->
-                                                <div id="c340" class="clearfix Intro_h js-hide">
+                                                <div  class="clearfix Intro_h js-hide c340">
                                                         <article>
                                                                 <h2><em><?php theme_quests_text('quests_intro_kicker', 'Introduction'); ?></em><?php theme_quests_text('quests_intro_heading', 'Hello! This is Sample Text.'); ?>
                                                                 </h2>
@@ -80,42 +76,38 @@ if (!defined('ABSPATH')) {
                                                                 </div>
                                                         </article>
                                                 </div><!-- #c340 -->
-                                                <div id="c348" class="clearfix mt0 difference Intro_h js-hide">
-                                                        <div><a class="btn2 floatR" href="#"><i
+                                                <div  class="clearfix mt0 difference Intro_h js-hide c348">
+                                                        <div><a class="btn2 floatR" href="<?php echo esc_url( theme_quests_url( 'quests_contact_url', home_url( '/service/' ) ) ); ?>"><i
                                                                            class="las la-chevron-circle-right"></i></a>
                                                         </div>
                                                 </div><!-- #c348 -->
-                                                <div id="c341" class="dis">
+                                                <div  class="dis c341">
                                                 </div>
                                         </div><!-- #c341 -->
-                                        <div id="c305" class="Quests wrapper100 in1680">
+                                        <div  class="Quests wrapper100 in1680 c305">
                                                 <div class="dis">
                                                 </div><!-- #c305 -->
-                                                <div id="c334" class="__v1 fb_para box-parallax op7">
+                                                <div  class="__v1 fb_para box-parallax op7 c334">
                                                         <div class="box">
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/top01.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_feature_image_1', 'images/home/top01.jpg', 'Quests イメージ 1'); ?>
                                                                 <div></div>
                                                         </div>
                                                         <div class="box">
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/top02.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_feature_image_2', 'images/home/top02.jpg', 'Quests イメージ 2'); ?>
                                                                 <div></div>
                                                         </div>
                                                 </div><!-- #c334 -->
-                                                <div id="c336" class="__v2 fb_para box-parallax op7">
+                                                <div  class="__v2 fb_para box-parallax op7 c336">
                                                         <div class="box">
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/top03.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_feature_image_3', 'images/home/top03.jpg', 'Quests イメージ 3'); ?>
                                                                 <div></div>
                                                         </div>
                                                         <div class="box">
-                                                                <img src="<?php echo esc_url(theme_quests_source_uri('images/home/top04.jpg')); ?>"
-                                                                     alt="">
+                                                                <?php theme_quests_image('quests_feature_image_4', 'images/home/top04.jpg', 'Quests イメージ 4'); ?>
                                                                 <div></div>
                                                         </div>
                                                 </div><!-- #c336 -->
-                                                <div id="c335" class="clearfix mtB15 Quests_h js-hide H-center">
+                                                <div  class="clearfix mtB15 Quests_h js-hide H-center c335">
                                                         <article>
                                                                 <h2><u style="font-size:1em;"><?php theme_quests_lines('quests_feature_u', "Samplex\nTextxx"); ?></u><?php theme_quests_text('quests_feature_heading', 'Samplex-only'); ?>
                                                                 </h2>
@@ -127,21 +119,21 @@ if (!defined('ABSPATH')) {
                                                                 </div>
                                                         </article>
                                                 </div><!-- #c335 -->
-                                                <div id="c308" class="dis">
+                                                <div  class="dis c308">
                                                 </div>
                                         </div><!-- #c308 -->
-                                        <div id="c266" class="Education bg100 child1680  mt0 bg_fix">
+                                        <div  class="Education bg100 child1680  mt0 bg_fix c266">
                                                 <div class="bg_half __left" style="background:var(--wh80)"></div>
                                                 <div class="dis">
                                                 </div><!-- #c266 -->
-                                                <div id="c299" class="clearfix difference ml0">
+                                                <div  class="clearfix difference ml0 c299">
                                                         <article>
                                                                 <h2><em><?php theme_quests_text('quests_education_kicker', 'Surround yourself with English！'); ?></em><?php theme_quests_text('quests_education_heading', '日々の文字に文字を'); ?>
                                                                 </h2>
                                                                 <div></div>
                                                         </article>
                                                 </div><!-- #c299 -->
-                                                <div id="c326" class="clearfix txL">
+                                                <div  class="clearfix txL c326">
                                                         <article>
                                                                 <h3><em><?php theme_quests_text('quests_education_card_kicker', 'Education'); ?></em><?php theme_quests_text('quests_education_card_heading', '文字文字'); ?>
                                                                 </h3>
@@ -149,14 +141,14 @@ if (!defined('ABSPATH')) {
                                                                 </div>
                                                         </article>
                                                 </div><!-- #c326 -->
-                                                <div id="c268" class="dis">
+                                                <div  class="dis c268">
                                                 </div>
                                         </div><!-- #c268 -->
-                                        <div id="c344" class="Education bg100 child1680  mt0 bg_fix">
+                                        <div  class="Education bg100 child1680  mt0 bg_fix c344">
                                                 <div class="bg_half" style="background:var(--bk80)"></div>
                                                 <div class="dis">
                                                 </div><!-- #c344 -->
-                                                <div id="c346" class="clearfix txR txwh">
+                                                <div  class="clearfix txR txwh c346">
                                                         <article>
                                                                 <h3><em><?php theme_quests_text('quests_life_1_kicker', 'LIFE'); ?></em><?php theme_quests_text('quests_life_1_heading', '文字のある文字'); ?>
                                                                 </h3>
@@ -164,14 +156,14 @@ if (!defined('ABSPATH')) {
                                                                 </div>
                                                         </article>
                                                 </div><!-- #c346 -->
-                                                <div id="c347" class="dis">
+                                                <div  class="dis c347">
                                                 </div>
                                         </div><!-- #c347 -->
-                                        <div id="c350" class="Education bg100 child1680  mt0 bg_fix">
+                                        <div  class="Education bg100 child1680  mt0 bg_fix c350">
                                                 <div class="bg_half" style="background:var(--bk80)"></div>
                                                 <div class="dis">
                                                 </div><!-- #c350 -->
-                                                <div id="c351" class="clearfix txR txwh">
+                                                <div  class="clearfix txR txwh c351">
                                                         <article>
                                                                 <h3><em><?php theme_quests_text('quests_life_2_kicker', 'LIFE'); ?></em><?php theme_quests_text('quests_life_2_heading', '文字のある文字'); ?>
                                                                 </h3>
@@ -179,10 +171,10 @@ if (!defined('ABSPATH')) {
                                                                 </div>
                                                         </article>
                                                 </div><!-- #c351 -->
-                                                <div id="c352" class="dis">
+                                                <div  class="dis c352">
                                                 </div>
                                         </div><!-- #c352 -->
-                                        <div id="c327" class="Education bg100 child1680 bg_fix">
+                                        <div  class="Education bg100 child1680 bg_fix c327">
                                                 <div class="bg_half __left" style="background:var(--wh80)"></div>
                                                 <div class="dis">
                                                 </div><!-- #c327 -->
@@ -194,7 +186,7 @@ if (!defined('ABSPATH')) {
                                                                 </div>
                                                         </article>
                                                 </div><!-- #c329 -->
-                                                <div id="c331" class="clearfix f40 PB1 pdi darken mt0">
+                                                <div  class="clearfix f40 PB1 pdi darken mt0 c331">
                                                         <div><span
                                                                       class='f140 lato lh13'><?php theme_quests_lines('quests_closing_big', "Sample text for layout\nbalance in this area\nthat keeps the original\nline volume"); ?></span><br />
                                                                 <?php theme_quests_rich('quests_closing_small', 'ここにも仮の文字列を<span>同じ量だけ置きます。</span>'); ?>
@@ -202,14 +194,14 @@ if (!defined('ABSPATH')) {
                                                 </div><!-- #c331 -->
 
                                         </div><!-- #c330 -->
-                                        <div id="c353" class="wrapper100">
+                                        <div  class="wrapper100 c353">
 
-                                                <div id="c342" class="clearfix js-hide H-center">
+                                                <div  class="clearfix js-hide H-center c342">
                                                         <article>
                                                                 <h2><em class="txwh">Instagram</em></h2>
                                                         </article>
                                                 </div><!-- #c342 -->
-                                                <div id="c343" class="sns_slide noText">
+                                                <div  class="sns_slide noText c343">
                                                         <div class="sns_list">
                                                                 <div>
                                                                         <div class="sns_photo">

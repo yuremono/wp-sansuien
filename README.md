@@ -24,6 +24,14 @@
 
 このテーマには Node.js ビルド、CPT、XMLインポート運用はありません。`tools/` は Local WP / 本番 WordPress の環境初期化とデプロイ補助のために残しています。
 
+## 実装意図
+
+- 既存静的HTMLを、`/quests/` 専用のクラシックWordPressテーマとして再構成しています。
+- トップページとサービスページを固定ページテンプレート化し、本文の主要テキスト・リンク・画像を ACF で編集できるようにしています。
+- ヘッダー/フッターのナビゲーションは WordPress メニューと連動します。
+- サイト名とトップURLは WordPress 標準設定を使用し、ロゴはカスタムロゴに対応しています。
+- アセットは `wp_enqueue_*` で読み込み、Xserver のサブディレクトリ WordPress へテーマだけを反映する運用を想定しています。
+
 ## 管理画面の構成
 
 固定ページ:
@@ -39,13 +47,31 @@
 ACFフィールドグループ:
 
 - `Quests トップページ`
+  - 共通 CONTACT URL / LINE URL / Instagram URL
+  - メインビジュアル画像 3枚
+  - Introduction 画像
+  - Quests セクション画像 4枚
+  - ヒーロー、About、Introduction、Quests、下部カードの主要テキスト
 - `Quests サービスページ`
+  - 共通 CONTACT URL / LINE URL / Instagram URL
+  - ヒーロー画像
+  - Point 周辺画像 4枚
+  - CTA 画像
+  - ヒーロー、About、Point、料金、エリア、Flow、CTA の主要テキスト
+
+画像フィールドの代替テキストは、原則としてメディアライブラリの「代替テキスト」を使用します。未設定時はテーマ側の説明文を fallback として出力します。
 
 メニュー:
 
 - メニュー位置: `Primary Navigation`
+- メニュー位置: `Footer Navigation`
 - メニュー名: `Quests Navigation`
-- ヘッダーとフッターは同じ `primary` メニューを表示します。
+- ヘッダーは `primary` メニューを表示します。
+- フッターは `footer` メニューを優先し、未割り当て時は `primary` メニューを表示します。
+
+## テーマ内CSS
+
+`style.css` は WordPress テーマヘッダー専用です。実際の表示CSSは [assets/css/](./assets/css/) に配置し、[inc/enqueue.php](./inc/enqueue.php) から読み込んでいます。
 
 ## ローカル運用
 

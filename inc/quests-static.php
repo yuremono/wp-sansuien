@@ -65,7 +65,7 @@ if ( ! function_exists( 'theme_quests_meta' ) ) {
 	 * @return mixed
 	 */
 	function theme_quests_meta( string $field_name, $fallback = '' ) {
-		$post_id = get_the_ID();
+		$post_id = theme_quests_content_post_id();
 		if ( ! $post_id ) {
 			return $fallback;
 		}
@@ -79,6 +79,93 @@ if ( ! function_exists( 'theme_quests_meta' ) ) {
 		}
 
 		return $value;
+	}
+}
+
+if ( ! function_exists( 'theme_quests_content_post_id' ) ) {
+	/**
+	 * Get the page ID used for quests editable fields.
+	 *
+	 * @return int
+	 */
+	function theme_quests_content_post_id(): int {
+		$post_id = get_queried_object_id() ?: get_the_ID();
+
+		return (int) $post_id;
+	}
+}
+
+if ( ! function_exists( 'theme_quests_url' ) ) {
+	/**
+	 * Read a URL field with fallback.
+	 *
+	 * @param string $field_name Field name.
+	 * @param string $fallback   Fallback URL.
+	 * @return string
+	 */
+	function theme_quests_url( string $field_name, string $fallback = '' ): string {
+		$url = (string) theme_quests_meta( $field_name, $fallback );
+
+		return '' !== $url ? $url : $fallback;
+	}
+}
+
+if ( ! function_exists( 'theme_quests_image_data' ) ) {
+	/**
+	 * Normalize an ACF image field to URL and alt text.
+	 *
+	 * @param string $field_name        Field name.
+	 * @param string $fallback_relative Fallback asset path.
+	 * @param string $fallback_alt      Fallback alt text.
+	 * @param string $size              WordPress image size.
+	 * @return array{url:string,alt:string}
+	 */
+	function theme_quests_image_data( string $field_name, string $fallback_relative, string $fallback_alt = '', string $size = 'full' ): array {
+		$image = theme_quests_meta( $field_name, '' );
+		$url   = '';
+		$alt   = '';
+
+		if ( is_array( $image ) ) {
+			$attachment_id = ! empty( $image['ID'] ) ? (int) $image['ID'] : 0;
+			$url           = $attachment_id ? (string) wp_get_attachment_image_url( $attachment_id, $size ) : (string) ( $image['url'] ?? '' );
+			$alt           = (string) ( $image['alt'] ?? '' );
+		} elseif ( is_numeric( $image ) ) {
+			$attachment_id = (int) $image;
+			$url           = (string) wp_get_attachment_image_url( $attachment_id, $size );
+			$alt           = (string) get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+		} elseif ( is_string( $image ) ) {
+			$url = $image;
+		}
+
+		if ( '' === $url ) {
+			$url = theme_quests_source_uri( $fallback_relative );
+		}
+
+		if ( '' === $alt ) {
+			$alt = $fallback_alt;
+		}
+
+		return array(
+			'url' => $url,
+			'alt' => $alt,
+		);
+	}
+}
+
+if ( ! function_exists( 'theme_quests_image' ) ) {
+	/**
+	 * Echo an image tag for quests editable images.
+	 *
+	 * @param string $field_name        Field name.
+	 * @param string $fallback_relative Fallback asset path.
+	 * @param string $fallback_alt      Fallback alt text.
+	 * @param string $class             Optional class attribute.
+	 */
+	function theme_quests_image( string $field_name, string $fallback_relative, string $fallback_alt = '', string $class = '' ): void {
+		$image = theme_quests_image_data( $field_name, $fallback_relative, $fallback_alt );
+		?>
+		<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"<?php echo '' !== $class ? ' class="' . esc_attr( $class ) . '"' : ''; ?>>
+		<?php
 	}
 }
 
