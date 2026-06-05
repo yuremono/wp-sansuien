@@ -21,14 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 			</div>
 			<div class="f_nav fw700 lato" style="background: unset;">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Staff</a></li>
-					<li><a href="#">Service</a></li>
-					<li><a href="#">Recruit</a></li>
-					<li><a href="#">Instagram</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'primary',
+						'container'      => false,
+						'fallback_cb'    => 'theme_quests_primary_menu_fallback',
+						'items_wrap'     => '<ul>%3$s</ul>',
+					)
+				);
+				?>
 				<div class="f_copy f14 __right" style="background:var(--un)">2025 Samplex Textxx All Right Reserved</div>
 			</div>
 		</div>

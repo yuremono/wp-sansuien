@@ -17,9 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a class="h_logo  h_logotext sawa" href="#" style="color: var(--tx);background-color: var(--un);">
 				Page<br>Logo
 			</a>
-			<!-- <a class="h_logo   " href="#" style="">
-				<img class="h_logoimg" src="<?php echo esc_url( theme_quests_source_uri( 'images/home/logo.png' ) ); ?>" alt="ロゴ">
-			</a> -->
 			<button class="h_menu menu_toggle dots" aria-expanded="false" aria-controls="nav">
 				<span class="bar2"></span><span class="bar2 tate"></span><span class="dot1"></span><span class="dot2"></span><span class="dot3"></span>
 			</button>
@@ -27,14 +24,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<a class="btn LINE" style="background: #05c554;border-radius: 1vmin" href="#"><img class="h_logoimg" src="<?php echo esc_url( theme_quests_source_uri( 'images/home/line-logo.png' ) ); ?>" alt="">CONTACT</a>
 			</div>
 			<nav class="h_nav " id="nav">
-				<ul>
-					<!-- <li><a href="#">home</a></li> -->
-					<li><a href="#">Staff</a></li>
-					<li><a href="#">Service</a></li>
-					<li><a href="#">Recruit</a></li>
-					<li><a href="#">Instagram</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'primary',
+						'container'      => false,
+						'fallback_cb'    => 'theme_quests_primary_menu_fallback',
+						'items_wrap'     => '<ul>%3$s</ul>',
+					)
+				);
+				?>
 				<div class="focus_trap menu_toggle" tabindex="0"></div>
 			</nav>
 		</div>

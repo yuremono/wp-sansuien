@@ -28,5 +28,50 @@ function theme_setup(): void {
 			'style',
 		)
 	);
+
+	register_nav_menus(
+		array(
+			'primary' => __( 'Primary Navigation', THEME_GETTEXT_DOMAIN ),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'theme_setup' );
+
+/**
+ * Fallback navigation used until a menu is assigned in the admin screen.
+ */
+function theme_quests_primary_menu_fallback(): void {
+	$items = array(
+		array(
+			'label' => 'home',
+			'url'   => home_url( '/' ),
+		),
+		array(
+			'label' => 'Service',
+			'url'   => home_url( '/service/' ),
+		),
+		array(
+			'label' => 'Staff',
+			'url'   => '#',
+		),
+		array(
+			'label' => 'Recruit',
+			'url'   => '#',
+		),
+		array(
+			'label' => 'Instagram',
+			'url'   => '#',
+		),
+		array(
+			'label' => 'Contact',
+			'url'   => '#',
+		),
+	);
+	?>
+	<ul>
+		<?php foreach ( $items as $item ) : ?>
+			<li><a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['label'] ); ?></a></li>
+		<?php endforeach; ?>
+	</ul>
+	<?php
+}
