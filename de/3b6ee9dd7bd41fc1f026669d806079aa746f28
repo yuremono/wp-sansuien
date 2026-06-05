@@ -1,0 +1,53 @@
+functions.php
+  s_46c2dbaa79061d::t_cadfcb168d4b75 21,28
+inc/setup.php
+  s_46c2dbaa79061d::t_90ca4c21fe2a9f 3,26,28
+inc/quests-static.php
+  s_46c2dbaa79061d::t_cadfcb168d4b75 37,55
+inc/acf-quests-pages.php
+  s_46c2dbaa79061d::t_397e7cd76503d6 1-52,69-104,106-168
+  s_46c2dbaa79061d::t_d77e19a100bdfe 53-68,105
+header.php
+  s_46c2dbaa79061d::t_90ca4c21fe2a9f 8-13,22
+page-templates/quests-top.php
+  s_46c2dbaa79061d::t_cadfcb168d4b75 1-19
+front-page.php
+  s_46c2dbaa79061d::t_cadfcb168d4b75 14-18
+inc/enqueue.php
+  s_46c2dbaa79061d::t_cadfcb168d4b75 81,90,102
+inc/helpers.php
+  s_46c2dbaa79061d::t_90ca4c21fe2a9f 15,18,25,37
+page-templates/quests-service.php
+  s_46c2dbaa79061d::t_cadfcb168d4b75 3-4,9,11-19
+assets/quests/css/service_html.css
+  s_46c2dbaa79061d::t_8eca0a3cf504c0 95,127,542
+phpcs.xml.dist
+  s_46c2dbaa79061d::t_846c958906ea4c 2
+index.php
+  s_46c2dbaa79061d::t_8eca0a3cf504c0 19
+composer.json
+  s_46c2dbaa79061d::t_846c958906ea4c 2-3
+AGENTS.md
+  s_46c2dbaa79061d::t_e6136a6540fca5 7,9,11-12,22,30-33,35-36,41,54,56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "de3b6ee9dd7bd41fc1f026669d806079aa746f28",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_46c2dbaa79061d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e96cc-833e-7ff0-9162-31a7a36d7731",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
