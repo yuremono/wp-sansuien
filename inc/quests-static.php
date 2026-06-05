@@ -45,6 +45,17 @@ if ( ! function_exists( 'theme_quests_body_classes' ) ) {
 	}
 }
 
+if ( ! function_exists( 'theme_is_quests_view' ) ) {
+	/**
+	 * Whether the current request uses the quests design.
+	 *
+	 * @return bool
+	 */
+	function theme_is_quests_view(): bool {
+		return is_front_page() || is_page_template( array( 'page-templates/page-quests.php', 'page-templates/page-quests-service.php' ) );
+	}
+}
+
 if ( ! function_exists( 'theme_quests_meta' ) ) {
 	/**
 	 * Read a quests page custom field with a fallback.

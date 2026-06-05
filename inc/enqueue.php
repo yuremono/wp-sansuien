@@ -15,14 +15,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Enqueue front-end stylesheet and scripts.
  */
 function theme_enqueue_assets(): void {
-	wp_enqueue_style(
-		'theme-main-css',
-		get_template_directory_uri() . '/assets/theme.css',
-		array(),
-		theme_asset_version( 'assets/theme.css' )
-	);
+	if ( ! theme_is_quests_view() ) {
+		wp_enqueue_style(
+			'theme-main-css',
+			get_template_directory_uri() . '/assets/theme.css',
+			array(),
+			theme_asset_version( 'assets/theme.css' )
+		);
+	}
 
-	if ( is_front_page() ) {
+	if ( is_front_page() && ! theme_is_quests_view() ) {
 		wp_enqueue_style(
 			'theme-tailwind',
 			get_template_directory_uri() . '/assets/tailwind.css',
@@ -82,7 +84,7 @@ function theme_enqueue_assets(): void {
 		);
 	}
 
-	if ( is_page_template( array( 'page-templates/page-quests.php', 'page-templates/page-quests-service.php' ) ) ) {
+	if ( theme_is_quests_view() ) {
 		wp_enqueue_style(
 			'theme-quests-yakuhanjp',
 			'https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-narrow.min.css',
@@ -113,7 +115,7 @@ function theme_enqueue_assets(): void {
 		wp_enqueue_style(
 			'theme-quests-magnific-popup',
 			get_template_directory_uri() . '/assets/quests/js/magnific-popup/magnific-popup.css',
-			array( 'theme-main-css' ),
+			array(),
 			theme_asset_version( 'assets/quests/js/magnific-popup/magnific-popup.css' )
 		);
 
@@ -145,7 +147,7 @@ function theme_enqueue_assets(): void {
 			theme_asset_version( 'assets/quests/css/bxi.css' )
 		);
 
-		if ( is_page_template( 'page-templates/page-quests.php' ) ) {
+		if ( is_front_page() || is_page_template( 'page-templates/page-quests.php' ) ) {
 			wp_enqueue_style(
 				'theme-quests-index',
 				get_template_directory_uri() . '/assets/quests/css/index_html.css',
@@ -269,7 +271,7 @@ function theme_enqueue_assets(): void {
 		);
 	}
 
-	if ( ! is_page_template( array( 'page-templates/page-quests.php', 'page-templates/page-quests-service.php' ) ) ) {
+	if ( ! theme_is_quests_view() ) {
 		wp_enqueue_script(
 			'theme-site-transition',
 			get_template_directory_uri() . '/assets/site-transition.js',
