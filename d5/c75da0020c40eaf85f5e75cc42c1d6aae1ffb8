@@ -1,0 +1,32 @@
+template-parts/quests/front-page-content.php
+  h_53dad1e32c3c71 22,26,30,67,96,101,108,113,204-205,207-224,226-227,229-231,233,235,237-268,270-276
+inc/setup.php
+  s_46c2dbaa79061d::t_bce17a9a5e7c30 31-36,39-77
+AGENTS.md
+  s_46c2dbaa79061d::t_59774bfd6f80b6 36
+template-parts/quests/site-header.php
+  s_46c2dbaa79061d::t_2d28ab49dff189 27-36
+template-parts/quests/site-footer.php
+  s_46c2dbaa79061d::t_bee52779ecf7cd 24-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "d5c75da0020c40eaf85f5e75cc42c1d6aae1ffb8",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_46c2dbaa79061d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e96cc-833e-7ff0-9162-31a7a36d7731",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
