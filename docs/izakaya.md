@@ -12,6 +12,7 @@
 | ACF key接頭辞 | `group_theme_` / `field_theme_` |
 | Local URL | `http://localhost:10018/` |
 | 公開URL | `https://yuremono.com/izakaya/` |
+| 実際の site_url | `http://yuremono.com/izakaya` |
 | SSH host | `xs966275.xsrv.jp` |
 | SSH user | `xs966275` |
 | SSH port | `10022` |
@@ -27,6 +28,7 @@
 - ACF無効時、未入力時、CPT投稿がない場合に元表示相当のfallbackがある
 - 固定ページ、テンプレート、フロントページ、メニューを非破壊で補完できる
 - SSHで確認したテーマ配置先へ、dry-run監査後にapplyできる
+- 本番では固定ページ、フロントページ設定、primary/footerメニュー、店舗共通情報の ACF 初期値を非破壊で投入済み
 - この文書、実装、`README.md`、`DEPLOYMENT.md` の値が一致している
 
 ## 実ファイル構成
@@ -326,6 +328,7 @@ THEME_BOOTSTRAP_CONFIRM=izakaya-local tools-domain/run-bootstrap-site.example.sh
 9. taxonomy termをslugで再利用し、不足分だけ作成する
 
 既存ページ、既存メニュー項目、入力済みメタ、既存CPT投稿を削除または無条件上書きしません。現在の `content` 設定は空のため、CPT投稿データは管理画面または別途確定したseed定義から投入します。
+本番では `tools-domain/bootstrap-site.example.php` を `wp eval-file` で実行し、`THEME_BOOTSTRAP_CONFIRM`、`THEME_BOOTSTRAP_EXPECTED_CONFIRM`、`THEME_BOOTSTRAP_EXPECTED_URL` を使って対象環境を照合したうえで、固定ページ、フロントページ設定、メニュー、店舗共通 ACF を投入済みです。
 
 ## デプロイ
 

@@ -7,6 +7,7 @@
 - Local URL: `http://localhost:10018`
 - `wp-load.php`: `/Users/yanoseiji/Local Sites/izakaya/app/public/wp-load.php`
 - 公開URL: `https://yuremono.com/izakaya/`
+- 実際の site_url: `http://yuremono.com/izakaya`
 - テーマslug: `0606wp-izakaya`
 
 ## 構成
@@ -35,8 +36,10 @@
 1. LocalのWordPressが `http://localhost:10018` で起動していることを確認する。
 2. `bootstrap-site.example.php` のページ、メニュー、CPT/taxonomy設定を確認する。
 3. `THEME_BOOTSTRAP_CONFIRM=izakaya-local tools-domain/run-bootstrap-site.example.sh` を実行する。
+4. 本番で固定ページや ACF の空欄補完を再実行する必要がある場合は、`THEME_BOOTSTRAP_CONFIRM`、`THEME_BOOTSTRAP_EXPECTED_CONFIRM`、`THEME_BOOTSTRAP_EXPECTED_URL` を指定して `tools-domain/bootstrap-site.example.php` を `wp eval-file` で実行する。
 
 初期構築は全固定ページ、テンプレート、フロントページ、primary/footerメニュー、空欄メタを補完します。既存ページ、既存メニュー項目、入力済みメタは削除・上書きしません。CPT/taxonomy初期データはテーマ側で型が登録済みの場合だけ設定配列へ追加できます。
+本番では `home`、`genshu`、`shochu`、`other`、`otsumami`、`insta`、`info` の固定ページと、店舗共通情報の ACF 初期値を投入済みです。
 
 ## 検証
 

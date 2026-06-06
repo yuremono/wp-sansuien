@@ -209,10 +209,11 @@ inc/acf-pages.php
 5. 固定ページ、テンプレート、フロントページ、メニュー、空欄メタ、必要なtaxonomy termとCPT seedを補完する非破壊bootstrapを実装する。
 6. bootstrapはURL、テーマslug、明示的な確認トークンを照合し、既存値を削除または無条件上書きしない。
 7. 本番サーバーへSSHで読み取り専用接続し、公開URLに対応するWordPressルートと `wp-content/themes` の実在を確認してから `DEPLOY_PATH` を確定する。
-8. デプロイは最初にdry-runを実行し、対象テーマ外への書き込み、意図しない削除、開発用ファイルや秘密情報の混入がないか除外監査する。
-9. dry-run結果に問題がない場合だけ、ユーザーの指示または既定の承認手順に従ってapplyする。
-10. 汎用構成テンプレートを直接案件文書へ変えず、テンプレートを複製した案件用文書へ実値を記載する。
-11. 案件文書には全ページ入口、全セクション順、ACF field group、CPT/taxonomy、共通設定、編集フロー、非破壊bootstrap、Local URL、公開URL、確定した配置先、dry-run/apply、除外対象、修正入口、検証結果を含める。
+8. 固定ページや ACF の初期値が本番で未投入なら、`tools-domain/bootstrap-site.example.php` を `wp eval-file` で実行し、`THEME_BOOTSTRAP_CONFIRM`、`THEME_BOOTSTRAP_EXPECTED_CONFIRM`、`THEME_BOOTSTRAP_EXPECTED_URL` を使って対象環境を照合する。
+9. デプロイは最初にdry-runを実行し、対象テーマ外への書き込み、意図しない削除、開発用ファイルや秘密情報の混入がないか除外監査する。
+10. dry-run結果に問題がない場合だけ、ユーザーの指示または既定の承認手順に従ってapplyする。
+11. 汎用構成テンプレートを直接案件文書へ変えず、テンプレートを複製した案件用文書へ実値を記載する。
+12. 案件文書には全ページ入口、全セクション順、ACF field group、CPT/taxonomy、共通設定、編集フロー、非破壊bootstrap、Local URL、公開URL、確定した配置先、dry-run/apply、除外対象、修正入口、検証結果を含める。
 
 ACF field groupやCPTを登録しただけでは「実接続」と扱わない。テンプレートがhelperまたはqueryを通して管理画面値を読み、fallbackを保持したまま既存DOMへ出力していることまで確認する。
 
