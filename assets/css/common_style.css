@@ -6526,14 +6526,14 @@ body {
   min-width: unset;
 }
 
-section > div, section > form > div, div:where(.bg100) > div {
+main > div, main > form > div, div:where(.bg100) > div {
   max-width: 100%;
   margin-inline: auto;
 }
-section > div > *, section > form > div > *, div:where(.bg100) > div > * {
+main > div > *, main > form > div > *, div:where(.bg100) > div > * {
   max-width: 100%;
 }
-section > div:is(form), section > form > div:is(form), div:where(.bg100) > div:is(form) {
+main > div:is(form), main > form > div:is(form), div:where(.bg100) > div:is(form) {
   padding-top: 0;
   padding-bottom: var(--block);
 }
@@ -6543,7 +6543,7 @@ section > div:is(form), section > form > div:is(form), div:where(.bg100) > div:i
   max-width: unset !important;
   position: relative;
 }
-body:where(:not(.home)) section > * + * {
+body:where(:not(.home)) main > * + * {
   margin-top: var(--bl05);
 }
 

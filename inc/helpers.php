@@ -12,6 +12,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Normalize a theme-relative path.
+ *
+ * @param string $relative_path Relative path.
+ * @return string
+ */
+function theme_normalize_relative_path( string $relative_path ): string {
+	$path = trim( $relative_path );
+	if ( '' === $path ) {
+		return '';
+	}
+
+	return ltrim( str_replace( '\\', '/', $path ), '/' );
+}
+
+/**
  * ACF の値が未設定かどうか。
  *
  * @param mixed $value Raw field value.
@@ -32,7 +47,7 @@ function theme_acf_value_absent( $value ): bool {
  * @return string
  */
 function theme_asset_version( string $relative_path ): string {
-	$path = get_template_directory() . '/' . ltrim( $relative_path, '/' );
+	$path = get_template_directory() . '/' . theme_normalize_relative_path( $relative_path );
 
 	return file_exists( $path ) ? (string) filemtime( $path ) : THEME_VERSION;
 }

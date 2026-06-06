@@ -58,17 +58,5 @@ add_action( 'admin_notices', 'theme_acf_admin_notice' );
  * Fallback navigation used until a menu is assigned in the admin screen.
  */
 function theme_primary_menu_fallback(): void {
-	$items = array(
-		array(
-			'label' => 'Home',
-			'url'   => home_url( '/' ),
-		),
-	);
-	?>
-	<ul>
-		<?php foreach ( $items as $item ) : ?>
-			<li><a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['label'] ); ?></a></li>
-		<?php endforeach; ?>
-	</ul>
-	<?php
+	theme_menu_fallback();
 }

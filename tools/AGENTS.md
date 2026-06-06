@@ -10,6 +10,8 @@
   - `DEPLOY_THEME_SLUG` 未指定時はリポジトリディレクトリ名をテーマスラッグとして使う。
   - `DEPLOY_ZIP_NAME` 未指定時は `${DEPLOY_THEME_SLUG}-theme.zip` を作る。
   - `DEPLOY_PATH` は必ず `wp-content/themes/` 配下を指す必要がある。
+  - `DEPLOY_PATH` の末尾は `DEPLOY_THEME_SLUG` と完全一致する必要がある。
+  - 通常実行は dry-run。実同期には出力確認後に `--apply` が必要。
 - `local-wp-load.path.example`
   - Local WP などの `wp-load.php` パスを指定するためのサンプル。
 - `local-wp-load.path`
@@ -38,5 +40,6 @@ tools/example-theme/
 
 - DBを書き換えるスクリプトは、対象 WordPress を確認してから実行する。
 - 本番同期前に `DEPLOY_PATH` が意図したテーマディレクトリか確認する。
+- `UNCONFIRMED:` を含む未確定パスでは実行しない。
 - ルートサイトとサブディレクトリサイトなど、複数 WordPress がある場合は混同しない。
 - 固有ツールを汎用ツールとして扱わない。

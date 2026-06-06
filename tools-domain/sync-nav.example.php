@@ -1,6 +1,6 @@
 <?php
 /**
- * The bootstrap script also synchronizes the example primary menu.
+ * The bootstrap script safely fills missing primary and footer menu items.
  *
  * @package Theme
  */

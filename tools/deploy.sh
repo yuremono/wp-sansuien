@@ -72,6 +72,53 @@ if [[ -z "$PHP_BIN" ]]; then
 	fi
 fi
 
+theme_rsync_excludes() {
+	cat <<'EOF'
+--exclude=.codex/
+--exclude=.git/
+--exclude=.github/
+--exclude=.memsearch/
+--exclude=.serena/
+--exclude=.vscode/
+--exclude=assets/scss/
+--exclude=assets/src/
+--exclude=dist/
+--exclude=docs/
+--exclude=exports/
+--exclude=node_modules/
+--exclude=tasks/
+--exclude=tmp/
+--exclude=tools/
+--exclude=tools-domain/
+--exclude=vendor/
+--exclude=.DS_Store
+--exclude=.editorconfig
+--exclude=.env
+--exclude=.env.*
+--exclude=.gitignore
+--exclude=AGENTS.md
+--exclude=DEPLOYMENT.md
+--exclude=README.md
+--exclude=*.bak
+--exclude=*.log
+--exclude=*.md
+--exclude=*.scss
+--exclude=*.ts
+--exclude=composer.json
+--exclude=composer.lock
+--exclude=package.json
+--exclude=package-lock.json
+--exclude=phpcs.xml.dist
+--exclude=postcss.config.cjs
+--exclude=tailwind.config.cjs
+--exclude=page-templates/example.php
+--exclude=template-parts/example-page-content.php
+--exclude=template-parts/example/
+--exclude=template-parts/front/example.php
+--exclude=template-parts/service/
+EOF
+}
+
 build_assets() {
 	if [[ ! -f "${ROOT_DIR}/package.json" ]]; then
 		echo "==> build skipped: package.json not found"
@@ -113,35 +160,11 @@ run_phpcs() {
 stage_theme() {
 	local stage_dir="$1"
 	local stage_theme_dir="${stage_dir}/${THEME_SLUG}"
-	local -a rsync_excludes=(
-		--exclude '.codex/'
-		--exclude '.git/'
-		--exclude '.gitignore'
-		--exclude '.vscode/'
-		--exclude '.memsearch/'
-		--exclude '.DS_Store'
-		--exclude 'dist/'
-		--exclude 'exports/'
-		--exclude 'assets/scss/'
-		--exclude 'assets/src/'
-		--exclude 'node_modules/'
-		--exclude 'vendor/'
-		--exclude '*.bak'
-		--exclude '*.md'
-		--exclude '*.scss'
-		--exclude '*.ts'
-		--exclude 'composer.json'
-		--exclude 'composer.lock'
-		--exclude 'package.json'
-		--exclude 'package-lock.json'
-		--exclude 'phpcs.xml.dist'
-		--exclude 'postcss.config.cjs'
-		--exclude 'tailwind.config.cjs'
-		--exclude 'tools/'
-		--exclude '*.log'
-		--exclude '.env'
-		--exclude '.env.*'
-	)
+	local -a rsync_excludes=()
+
+	while IFS= read -r exclude; do
+		rsync_excludes+=( "$exclude" )
+	done < <(theme_rsync_excludes)
 
 	mkdir -p "$stage_theme_dir"
 	rsync -a "${rsync_excludes[@]}" "${ROOT_DIR}/" "${stage_theme_dir}/"
@@ -170,14 +193,33 @@ sync_remote() {
 	local delete_flag=()
 	local remote
 	local remote_path_quoted
+	local remote_theme_slug
+	local rsync_dry_run=(--dry-run)
+	local -a rsync_excludes=()
 
 	if [[ -z "$host" || -z "$user" || -z "$path" ]]; then
 		echo "==> remote sync skipped"
 		return 0
 	fi
 
+	if [[ "$path" == UNCONFIRMED:* || "$path" == *"/CONFIRM/"* ]]; then
+		echo "DEPLOY_PATH が未確定です。.env.deploy へ確認済みの絶対パスを設定してください。" >&2
+		exit 1
+	fi
+
+	if [[ "$path" != /* ]]; then
+		echo "DEPLOY_PATH は絶対パスで指定してください: ${path}" >&2
+		exit 1
+	fi
+
 	if [[ "$path" != *"/wp-content/themes/"* ]]; then
 		echo "DEPLOY_PATH は wp-content/themes 配下を指してください: ${path}" >&2
+		exit 1
+	fi
+
+	remote_theme_slug="$(basename "${path%/}")"
+	if [[ "$remote_theme_slug" != "$THEME_SLUG" ]]; then
+		echo "DEPLOY_PATH のテーマslugが一致しません: expected=${THEME_SLUG} actual=${remote_theme_slug}" >&2
 		exit 1
 	fi
 
@@ -189,36 +231,21 @@ sync_remote() {
 		delete_flag=(--delete)
 	fi
 
-	echo "==> syncing to ${remote}:${path}"
-	ssh -p "$port" "$remote" "mkdir -p ${remote_path_quoted}"
-	rsync -az ${delete_flag[@]+"${delete_flag[@]}"} \
-		--exclude '.codex/' \
-		--exclude '.git/' \
-		--exclude '.gitignore' \
-		--exclude '.vscode/' \
-		--exclude '.memsearch/' \
-		--exclude '.DS_Store' \
-		--exclude 'dist/' \
-		--exclude 'exports/' \
-		--exclude 'assets/scss/' \
-		--exclude 'assets/src/' \
-		--exclude 'node_modules/' \
-		--exclude 'vendor/' \
-		--exclude '*.bak' \
-		--exclude '*.md' \
-		--exclude '*.scss' \
-		--exclude '*.ts' \
-		--exclude 'composer.json' \
-		--exclude 'composer.lock' \
-		--exclude 'package.json' \
-		--exclude 'package-lock.json' \
-		--exclude 'phpcs.xml.dist' \
-		--exclude 'postcss.config.cjs' \
-		--exclude 'tailwind.config.cjs' \
-		--exclude 'tools/' \
-		--exclude '*.log' \
-		--exclude '.env' \
-		--exclude '.env.*' \
+	while IFS= read -r exclude; do
+		rsync_excludes+=( "$exclude" )
+	done < <(theme_rsync_excludes)
+
+	if [[ "${DEPLOY_APPLY:-0}" == "1" ]]; then
+		rsync_dry_run=()
+		echo "==> applying sync to ${remote}:${path}"
+		ssh -p "$port" "$remote" "mkdir -p ${remote_path_quoted}"
+	else
+		echo "==> dry-run sync to ${remote}:${path}"
+		echo "==> no remote files will be changed; rerun with --apply after review"
+	fi
+
+	rsync -az --itemize-changes ${rsync_dry_run[@]+"${rsync_dry_run[@]}"} ${delete_flag[@]+"${delete_flag[@]}"} \
+		"${rsync_excludes[@]}" \
 		-e "ssh -p ${port}" \
 		"${ROOT_DIR}/" \
 		"${remote}:${path}/"
@@ -283,6 +310,7 @@ main() {
 	local zip_only=0
 	local no_phpcs=0
 	local import_xml=0
+	local apply=0
 
 	for arg in "$@"; do
 		case "$arg" in
@@ -295,8 +323,20 @@ main() {
 			--import-xml)
 				import_xml=1
 				;;
+			--apply)
+				apply=1
+				;;
 		esac
 	done
+
+	if [[ "$apply" -eq 1 ]]; then
+		export DEPLOY_APPLY=1
+	fi
+
+	if [[ "$import_xml" -eq 1 && "$apply" -ne 1 ]]; then
+		echo "--import-xml は --apply と同時に指定してください。" >&2
+		exit 1
+	fi
 
 	build_assets
 	if [[ "$no_phpcs" -eq 0 ]]; then
@@ -306,7 +346,7 @@ main() {
 
 	if [[ "$zip_only" -eq 0 ]]; then
 		sync_remote
-		if [[ "$import_xml" -eq 1 ]]; then
+		if [[ "$import_xml" -eq 1 && "$apply" -eq 1 ]]; then
 			import_remote_content
 		fi
 	fi
