@@ -7,7 +7,7 @@
 - `tools/deploy.sh`
 - `.env.deploy`
 - `DEPLOY_PORT` と SSH config の扱い
-- `exports/yuremono-wp-content.xml` の取り込み条件
+- `exports/izakaya-wp-content.xml` の取り込み条件
 - デプロイ関連ドキュメントの整理
 
 ## 1ページで見る判断
@@ -38,7 +38,7 @@
 
 ## XML 取り込み
 
-- 既定の XML は `exports/yuremono-wp-content.xml`
+- 既定の XML は `exports/izakaya-wp-content.xml`
 - `DEPLOY_IMPORT_XML` があればそれを優先する
 - `DEPLOY_HOST` / `DEPLOY_USER` / `DEPLOY_PATH` が必要
 - `DEPLOY_WP_PATH` を入れると WordPress ルートの推測失敗を避けられる

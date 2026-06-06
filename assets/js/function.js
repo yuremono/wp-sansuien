@@ -6,7 +6,7 @@ $(function () {//パンくず
     const CURRENT_PAGE_URL = location.href;// 現在のurlを取得
     const HOME_PAGE_URL = `https://${location.host}`;// トップページのurlを取得
     const PAN = document.querySelector('pan');// パンくずを表示させる要素を取得
-    const HOME_TEXT = '焼酎BAR鹿尾';// トップページのリンクテキストを設定
+    const HOME_TEXT = '居酒屋';// トップページのリンクテキストを設定
     if (H1) {
         const H1_TEXT = H1.textContent;// 現在のh1テキストからリンクテキストを設定
         // const H1_TEXT = H1.innerHTML;// 現在のh1テキストからリンクテキストを設定
@@ -52,7 +52,7 @@ $(function () { //要素処理
             $(this).attr("src", "https://placehold.jp/aaa/ffffff/600x400.png?text=dummy");
         });
         if ($(this).is('[alt=""]')) {
-            $(this).attr('alt', '焼酎BAR鹿尾');
+            $(this).attr('alt', '居酒屋');
         }
     });
     $('.has-h1 img,.fl50wide .box,.twopicBtn .box,.sns_slide .sns_photo,.title1 h1').addClass('js-hide');

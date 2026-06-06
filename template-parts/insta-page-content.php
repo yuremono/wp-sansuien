@@ -2,7 +2,7 @@
 /**
  * お知らせ page content.
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 														</div><!-- #c34 -->
 														<div class="clearfix f18 c35">
 																<div><span
-																				style='font-size: clamp(20px,3.6vw,36px);'>焼酎BAR鹿尾</span><br />
+																				style='font-size: clamp(20px,3.6vw,36px);'>居酒屋</span><br />
 																		焼酎の紹介や予約状況などを日々更新しています。<br />
 																		画像をクリックするとInstagramに移動しますので合わせてご利用ください。</div>
 														</div><!-- #c35 -->
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="sns_list">
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DZAJqzgS8Ow/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202605/18085852931454967.jpg' ) ); ?>">
@@ -47,9 +47,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/05/31
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 
-																								皆様のおかげで焼酎BAR鹿尾
+																								皆様のおかげで居酒屋
 																								2026年6月で3周年を迎えることとなりました
 																								これも皆様のお力添えがあってこそでございます
 																								ありがとうございます😃✨
@@ -59,17 +59,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 																								今後とも変わらぬご愛顧を賜りますようお願い申し上げます。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								#焼酎BAR#上尾市#焼酎好きな人と繋がりたい
+																								#居酒屋#居酒屋#焼酎好きな人と繋がりたい
 																						</div>
 																						<div id="TRANS_SNSCS496"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/焼酎好きな人と繋がりたい/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
 																								</li>
 																						</ul>
@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DXqy_2mEj52/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202604/18064284329391009.jpg' ) ); ?>">
@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/04/28
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 
 																								5月お休みのお知らせ
 
@@ -98,17 +98,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 																								お気軽にご利用ください。
 																								よろしくお願いいたします。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								#埼玉県#焼酎BAR#焼酎#焼酎好きな人と繋がりたい
+																								#居酒屋#居酒屋#焼酎#焼酎好きな人と繋がりたい
 																						</div>
 																						<div id="TRANS_SNSCS495"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/焼酎好きな人と繋がりたい/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
 																								</li>
 																						</ul>
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/reel/DWid-miEiUQ/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202603/17985292958964841.jpg' ) ); ?>">
@@ -134,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DV0XTSokiXs/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202603/18058750685688590.jpg' ) ); ?>">
@@ -146,27 +146,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/03/13
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 
-																								話題の芋焼酎GLOWの2026年版『GLOW
+																								話題の芋焼酎居酒屋の2026年版『居酒屋
 																								EP9』
 																								入荷しました。
-																								GLOWは鹿児島県志布志市にある若潮酒造が手掛けるシリーズでフルーティーな香りが特徴の芋焼酎です
-																								今年のGLOWはマスカットの様なフルーティーな香りに花の香を思わせるフローラルな香りがプラスされました
+																								居酒屋は居酒屋にある居酒屋が手掛けるシリーズでフルーティーな香りが特徴の芋焼酎です
+																								今年の居酒屋はマスカットの様なフルーティーな香りに花の香を思わせるフローラルな香りがプラスされました
 																								とっても上品な香りです
 																								炭酸割りで香りに包まれる感じをお楽しみください。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								#上尾市#焼酎#若潮酒造#GLOW#フルーティー
+																								#居酒屋#焼酎#居酒屋#居酒屋#フルーティー
 																						</div>
 																						<div id="TRANS_SNSCS493"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/フルーティー/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#フルーティー</a>
 																								</li>
 																						</ul>
@@ -174,7 +174,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DVvNculkvXN/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202603/18157574734438771.jpg' ) ); ?>">
@@ -186,27 +186,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/03/11
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 
 																								春限定の芋焼酎入荷です
-																								鹿児島県垂水市にある八千代伝酒造さんの
-																								『黄色い椿』
-																								種子島産の安納芋を原料に黄色麹で醸した
+																								居酒屋にある居酒屋さんの
+																								『居酒屋』
+																								居酒屋産の芋を原料に黄色麹で醸した
 																								芋焼酎で華やかな香りとキレのある上品な甘さがある焼酎です。
 																								ロックでキリッと飲むのも少し加水して香りを楽しむのもオススメです。
 																								春限定焼酎を是非味わって下さい。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								#上尾市#焼酎#八千代伝酒造#黄色い椿#春
+																								#居酒屋#焼酎#居酒屋#居酒屋#春
 																						</div>
 																						<div id="TRANS_SNSCS492"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/春/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#春</a>
 																								</li>
 																						</ul>
@@ -214,7 +214,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DUXr3f6EsUH/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202602/18082662812251390.jpg' ) ); ?>">
@@ -226,10 +226,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/02/05
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 
-																								宮崎県串間市にある松露酒造さんの
-																								『pentatonic two』入荷しました。
+																								居酒屋にある居酒屋さんの
+																								『居酒屋』入荷しました。
 																								焼酎造りで重要な工程の一つである蒸留
 																								その蒸留のタイミングを細かく分析し、芋の香りをリッチ抽出した革新的な本格焼酎です。
 																								原料にジョイホワイト芋を使用してワイン酵母で
@@ -241,17 +241,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 																								是非飲んでみてください。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								#上尾市#焼酎#pentatonic#松露酒造#焼酎好きな人と繋がりたい
+																								#居酒屋#焼酎#居酒屋#居酒屋#焼酎好きな人と繋がりたい
 																						</div>
 																						<div id="TRANS_SNSCS491"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/焼酎好きな人と繋がりたい/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
 																								</li>
 																						</ul>
@@ -259,7 +259,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DUNj6IMkoyr/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202602/18089503574095106.jpg' ) ); ?>">
@@ -271,21 +271,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/02/01
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 																								2月のお休みをお知らせ致します
 																								2月もよろしくお願いします😊
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								#焼酎#焼酎BAR#上尾市#焼酎好きな人と繋がりたい
+																								#焼酎#居酒屋#居酒屋#焼酎好きな人と繋がりたい
 																						</div>
 																						<div id="TRANS_SNSCS490"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/焼酎好きな人と繋がりたい/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
 																								</li>
 																						</ul>
@@ -293,7 +293,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DTz-bleEhWc/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202601/18190047208350479.jpg' ) ); ?>">
@@ -305,22 +305,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/01/22
 																								こんにちは
-																								焼酎BAR鹿尾です
+																								居酒屋です
 
-																								宮崎県大崎市にある寒梅酒造さんの
-																								『陽のしずく いちご酒』入荷しました。
-																								宮崎県山元町の名産いちごをギュッと凝縮した
+																								居酒屋にある居酒屋さんの
+																								『居酒屋 いちご酒』入荷しました。
+																								居酒屋の名産いちごをギュッと凝縮した
 																								もっといちごが好きになる果実酒です
 																								ストレートでもロックでも炭酸割りでも美味しく飲めます
 																								是非飲んでみてください。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:日曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								＃上尾市＃焼酎BAR＃寒梅酒造＃陽のしずく＃いちご酒
+																								＃居酒屋＃居酒屋＃居酒屋＃居酒屋＃いちご酒
 																						</div>
 																						<div id="TRANS_SNSCS489"></div>
 																						<ul class="clearfix">
@@ -329,7 +329,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DTffD4TkqX_/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202601/17953307568058502.jpg' ) ); ?>">
@@ -340,13 +340,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						<div class="sns_date">2026.01.14
 																						</div>
 																						<div class="caption">こんにちは
-																								焼酎BAR鹿尾です。
-																								八千代伝酒造で杜氏をしていた八木健太郎さんが独立して、去年、鹿児島県垂水市に新たに
-																								『健土株式会社
+																								居酒屋です。
+																								居酒屋で杜氏をしていた居酒屋さんが独立して、去年、居酒屋に新たに
+																								『居酒屋
 																								牛ノ根蒸留所』を誕生させましたその蔵の最初に醸造した3作品入荷しました
 																								こちらは記念限定ボトルになります。
 
-																								・健土 1stボトル (classical):
+																								・居酒屋 1stボトル (classical):
 																								コガネセンガンと黒麹ベースの米麹を使用しています
 																								伸びやかな余韻と澄んだバランスが特徴で湯割り推奨。
 
@@ -358,13 +358,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 																								是非新たに誕生した蔵の味を味わってみてください。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5390
+																								TEL:000-0000-0000
 
-																								＃上尾市＃焼酎BAR＃健土</div>
+																								＃居酒屋＃居酒屋＃居酒屋</div>
 																						<div id="TRANS_SNSCS488"></div>
 																						<ul class="clearfix">
 																						</ul>
@@ -372,7 +372,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DS_-HHokugp/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202601/18081256660957007.jpg' ) ); ?>">
@@ -384,32 +384,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2026/01/02
 																								あけましておめでとうございます
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 																								本日から4日まで15:00から営業致します
 																								お通しがお正月バージョンでちょっと豪華です
-																								鹿児島の味エビ雑煮もご用意してます
+																								居酒屋の味エビ雑煮もご用意してます
 																								お時間ございましたらお気軽にご利用ください。
 																								本年もよろしくお願い致します。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5398
+																								TEL:000-0000-0000
 
-																								#焼酎#お正月#japan#新年の挨拶#焼酎BAR
+																								#焼酎#お正月#japan#新年の挨拶#居酒屋
 																						</div>
 																						<div id="TRANS_SNSCS487"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/焼酎BAR/"
-																											target="_blank" rel="noopener noreferrer">#焼酎BAR</a>
+																								<li><a href="#"
+																											target="_blank" rel="noopener noreferrer">#居酒屋</a>
 																								</li>
 																						</ul>
 																				</div><!-- div.sns_list div.sns_text -->
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DSwiqNfEvvg/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202512/17877174426451164.jpg' ) ); ?>">
@@ -421,7 +421,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2025/12/27
 																								こんにちは
-																								焼酎BAR鹿尾です。
+																								居酒屋です。
 																								年末年始営業時間のお知らせ
 																								年末は30日まで休まず営業
 																								31日、1日はお休み
@@ -433,16 +433,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 																								皆様良いお年をお過ごしください
 																								また来年もよろしくお願い致します😀
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5398
+																								TEL:000-0000-0000
 
-																								#埼玉県#上尾市#焼酎#年末年始</div>
+																								#居酒屋#居酒屋#焼酎#年末年始</div>
 																						<div id="TRANS_SNSCS486"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/年末年始/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#年末年始</a>
 																								</li>
 																						</ul>
@@ -450,7 +450,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</div><!-- div.sns_list > div -->
 																		<div>
 																				<div class="sns_photo">
-																						<a href="https://www.instagram.com/p/DSNGf_NksDa/"
+																						<a href="#"
 																							target="_blank" rel="noopener noreferrer">
 																								<img
 																									src="<?php echo esc_url( theme_source_uri( 'img/sns/202512/18101696797694158.jpg' ) ); ?>">
@@ -462,38 +462,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 																						</div>
 																						<div class="caption">2025/12/13
 																								こんにちは
-																								焼酎BAR鹿尾です。
-																								八丈島から美味しい麦焼酎が届きました
-																								八丈興発さんの『麦冠 情ヶ嶋 長期熟成醪』です
+																								居酒屋です。
+																								居酒屋から美味しい麦焼酎が届きました
+																								居酒屋さんの『居酒屋』です
 																								この焼酎は通常の麦冠
-																								情ヶ嶋と違い醪を長期熟成して出来た焼酎で、なぜ醪を長期熟成したのかと言うと、今年、八丈島に直撃した台風の影響で1ヶ月断水、仕込みも蒸留もないも出来ない状態が続いた為
+																								居酒屋と違い醪を長期熟成して出来た焼酎で、なぜ醪を長期熟成したのかと言うと、今年、居酒屋に直撃した台風の影響で1ヶ月断水、仕込みも蒸留もないも出来ない状態が続いた為
 																								蒸留待ちの醪が、断水復旧するまでの間で長期熟成
 																								という形になりました
 																								まさに怪我の功名！台風被害がなかったら世に出なかった焼酎です
-																								是非飲んで台風被害にあった八丈島を応援してください
+																								是非飲んで台風被害にあった居酒屋を応援してください
 																								よろしくお願いします。
 
-																								焼酎BAR鹿尾
+																								居酒屋
 																								火〜土曜日:17:00〜2:00
 																								日曜日:15:00〜0:00
 																								定休日:月曜日
-																								TEL:048-788-5398
+																								TEL:000-0000-0000
 
-																								#埼玉県#上尾市#桶川市#焼酎BAR#焼酎#バー#上尾バー#八丈島#麦冠情ヶ嶋長期熟成醪#八丈興発#japan#japanesespirits
+																								#居酒屋#居酒屋#居酒屋#居酒屋#焼酎#バー#居酒屋バー#居酒屋#居酒屋#居酒屋#japan#japanesespirits
 																								#japantravel #shochu
 																								#一人飲み#焼酎好きと繋がりたい</div>
 																						<div id="TRANS_SNSCS485"></div>
 																						<ul class="clearfix">
-																								<li><a href="https://www.instagram.com/explore/tags/japanesespirits/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#japanesespirits</a>
 																								</li>
-																								<li><a href="https://www.instagram.com/explore/tags/japantravel/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#japantravel</a>
 																								</li>
-																								<li><a href="https://www.instagram.com/explore/tags/shochu/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#shochu</a>
 																								</li>
-																								<li><a href="https://www.instagram.com/explore/tags/焼酎好きと繋がりたい/"
+																								<li><a href="#"
 																											target="_blank" rel="noopener noreferrer">#焼酎好きと繋がりたい</a>
 																								</li>
 																						</ul>

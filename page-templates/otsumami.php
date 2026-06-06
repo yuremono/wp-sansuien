@@ -3,7 +3,7 @@
  * Template Name: おつまみ
  * Template Post Type: page
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);

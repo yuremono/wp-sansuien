@@ -2,7 +2,7 @@
 /**
  * 本格焼酎 page content.
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);
@@ -89,55 +89,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="form_wrap dl_menu box c290">
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>六代目百合<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>芋麴 芋<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>海<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>八幡<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 																<div class="form_wrap dl_menu box c293">
 																		<dl>
 																				<dt>900円</dt>
-																				<dd>真鶴<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>安田<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>960円</dt>
-																				<dd>ZXX ナナジュウ<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>伊佐美<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 																<div class="form_wrap dl_menu box c294">
 																		<dl>
 																				<dt>900円</dt>
-																				<dd>なかむら<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>玉露<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>薩摩茶屋<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>山ねこ<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 
@@ -181,29 +181,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="form_wrap dl_menu c316">
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>赤鹿毛<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>無一物<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>七田麦<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 																<div class="form_wrap dl_menu c317">
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>中々<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>麦冠 情ケ嶋<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>山猿<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 
@@ -247,29 +247,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="form_wrap dl_menu c338">
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>豊永蔵<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>川辺<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>七田<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 																<div class="form_wrap dl_menu c339">
 																		<dl>
 																				<dt>900円</dt>
-																				<dd>雪男 粕取り<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>樽いきいき<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>山翡翠<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 
@@ -296,7 +296,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="clearfix c324">
 																		<article>
 																				<h2>黒糖焼酎</h2>
-																				<div>黒糖焼酎は、琉球諸島で生まれた特別な焼酎で、サトウキビの黒糖から醸造されます。<br />
+																				<div>黒糖焼酎は、居酒屋で生まれた特別な焼酎で、サトウキビの黒糖から醸造されます。<br />
 																						その深い甘さとコク溢れる風味は、他の焼酎とは一線を画し、<br />
 																						ウェルネスドリンクとしても知られています。<br />
 																						ストレートやロックで楽しむだけでなく、カクテルにも適しており、<br />
@@ -313,29 +313,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="form_wrap dl_menu c327">
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>長雲<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>朝日<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>龍宮<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 																<div class="form_wrap dl_menu c328">
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>まんこい<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>里の曙<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>黒奄美<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 
@@ -376,19 +376,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<div class="form_wrap dl_menu c268">
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>鍛高譚 紫蘇<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>ダバダ火振り 栗<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>茉莉花 ジャスミン<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																		<dl>
 																				<dt>790円</dt>
-																				<dd>茶房 大海庵 お茶<br></dd>
+																				<dd>居酒屋<br></dd>
 																		</dl>
 																</div>
 
@@ -398,7 +398,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<article>
 																		<h2>お問い合わせ</h2>
 																		<div><a class="btn __wh"
-																					href='tel:048-788-5390'>048-788-5390</a><br />
+																					href='tel:000-0000-0000'>000-0000-0000</a><br />
 																				<a class="btn __wh" href='#'>CONTACT</a>
 																		</div>
 																</article>

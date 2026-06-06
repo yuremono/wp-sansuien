@@ -2,7 +2,7 @@
 /**
  * その他のお酒 page content.
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																		</dl>
 																		<dl>
 																				<dt>690円</dt>
-																				<dd>食べるフルーツリキュール 子宝<br></dd>
+																				<dd>フルーツリキュール 居酒屋<br></dd>
 																		</dl>
 																</div>
 
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<article>
 																		<h2>お問い合わせ</h2>
 																		<div><a class="btn __wh"
-																					href='tel:048-788-5390'>048-788-5390</a><br />
+																					href='tel:000-0000-0000'>000-0000-0000</a><br />
 																				<a class="btn __wh" href='#'>CONTACT</a>
 																		</div>
 																</article>

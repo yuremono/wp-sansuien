@@ -3,7 +3,7 @@
  * Template Name: お知らせ
  * Template Post Type: page
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);

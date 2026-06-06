@@ -27,17 +27,17 @@ function theme_source_uri( string $relative = '' ): string {
  * @return array<int, string>
  */
 function theme_body_classes(): array {
-	$classes = array( 'KanooPage' );
+	$classes = array( 'IzakayaPage' );
 	$pages   = array( 'genshu', 'shochu', 'other', 'otsumami', 'insta', 'info' );
 
 	foreach ( $pages as $page ) {
 		if ( is_page_template( "page-templates/{$page}.php" ) ) {
-			$classes[] = 'KanooPage' . ucfirst( $page );
+			$classes[] = 'IzakayaPage' . ucfirst( $page );
 			return apply_filters( 'theme_body_classes', $classes );
 		}
 	}
 
-	$classes[] = 'KanooPageTop';
+	$classes[] = 'IzakayaPageTop';
 	return apply_filters( 'theme_body_classes', $classes );
 }
 

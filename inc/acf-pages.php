@@ -5,7 +5,7 @@
  * Static migration is complete without editable fields. Add page fields here
  * after the required editing scope is confirmed.
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);

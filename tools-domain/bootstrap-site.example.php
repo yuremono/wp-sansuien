@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 $config = array(
 	'theme_slug'  => '0606wp-izakaya',
-	'menu_name'   => '鹿尾 ナビゲーション',
+	'menu_name'   => '居酒屋 ナビゲーション',
 	'front_title' => 'ホーム',
 	'front_slug'  => 'home',
 	'pages'       => array(

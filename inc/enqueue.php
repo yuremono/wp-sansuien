@@ -2,7 +2,7 @@
 /**
  * Front-end asset enqueue.
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);

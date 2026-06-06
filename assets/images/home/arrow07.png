@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <!-- <title>404</title> -->
-    <title>404｜焼酎BAR 鹿尾 </title>
+    <title>404｜居酒屋 居酒屋 </title>
     <!-- <title>{#title}</title> -->
 
-    <meta name="description" content="上尾駅から徒歩でいけるバー「焼酎BAR 鹿尾(かのお)」です。当店では１００銘柄以上の焼酎を揃え、お好みの香りや味を言っていただければお客様に合った焼酎をご提供いたします。焼酎をあまり飲まない方やひとり飲みしたい方などお気軽に立ち寄れます。">
-    <meta name="keywords" content="焼酎バー,鹿尾,上尾">
+    <meta name="description" content="居酒屋から徒歩でいけるバー「居酒屋 居酒屋(居酒屋)」です。当店では１００銘柄以上の焼酎を揃え、お好みの香りや味を言っていただければお客様に合った焼酎をご提供いたします。焼酎をあまり飲まない方やひとり飲みしたい方などお気軽に立ち寄れます。">
+    <meta name="keywords" content="居酒屋,居酒屋,居酒屋">
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <!--<link rel="canonical" href="https://bar-kanoo.com/">-->
+    <!--<link rel="canonical" href="https://izakaya.com/">-->
     <meta name="robots" content="noindex" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
@@ -74,7 +74,7 @@
                     <span class="dot3"></span>
                 </button>
                 <div class="h_items ">
-                    <a class="h_btn h_tel" href="tel:048-788-5390"><i class="fa-solid fa-phone"></i>048-788-5390</a>
+                    <a class="h_btn h_tel" href="tel:000-0000-0000"><i class="fa-solid fa-phone"></i>000-0000-0000</a>
                     <a class="h_btn h_contact" href="/contact.html"><i class="fa-solid fa-envelope"></i>お問い合わせ</a>
                 </div>
                 <nav class="h_nav " id="nav">
@@ -133,15 +133,15 @@
 <div id="footer" class="f">
                 <div class="f_main" style="background-image: url(/images/home/bg02.jpg);background-color: var(--mc);">
                     <div class="f_info">
-                        <h2 class="f_name">焼酎BAR鹿尾</h2>
+                        <h2 class="f_name">居酒屋居酒屋</h2>
                         <div class="form_01">
                             <dl>
                                 <dt>所在地</dt>
-                                <dd>〒362-0075<br>埼玉県上尾柏座1-10-3-86　2号室</dd>
+                                <dd>居酒屋<br>居酒屋居酒屋柏座1-10-3-86　2号室</dd>
                             </dl>
                             <dl>
                                 <dt>TEL</dt>
-                                <dd>048-788-5390</dd>
+                                <dd>000-0000-0000</dd>
                             </dl>
                             <dl>
                                 <dt>営業時間</dt>
@@ -166,7 +166,7 @@
                         <li><a href="/info.html">店舗案内</a></li>
                     </ul>
                 </nav>
-                <div class="f_copy ">2023-焼酎BAR鹿尾</div>
+                <div class="f_copy ">2023-居酒屋居酒屋</div>
             </div>
   <!-- #global_footer --></footer>
 </body>

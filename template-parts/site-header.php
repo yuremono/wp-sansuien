@@ -2,7 +2,7 @@
 /**
  * Site header.
  *
- * @package Kanoo
+ * @package Izakaya
  */
 
 declare(strict_types=1);
@@ -31,8 +31,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<span class="dot3"></span>
 										</button>
 										<div class="h_items ">
-												<a class="h_btn h_tel" href="tel:048-788-5390"><i
-															class="fa-solid fa-phone"></i>048-788-5390</a>
+												<a class="h_btn h_tel" href="tel:000-0000-0000"><i
+															class="fa-solid fa-phone"></i>000-0000-0000</a>
 												<a class="h_btn h_contact" href="#"><i
 															class="fa-solid fa-envelope"></i>お問い合わせ</a>
 										</div>
