@@ -191,7 +191,7 @@ sync_remote() {
 
 	echo "==> syncing to ${remote}:${path}"
 	ssh -p "$port" "$remote" "mkdir -p ${remote_path_quoted}"
-	rsync -az "${delete_flag[@]}" \
+	rsync -az ${delete_flag[@]+"${delete_flag[@]}"} \
 		--exclude '.codex/' \
 		--exclude '.git/' \
 		--exclude '.gitignore' \
