@@ -29,7 +29,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202605/18085852931454967.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -69,7 +69,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202604/18064284329391009.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -106,7 +106,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202603/17985292958964841.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -123,7 +123,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202603/18058750685688590.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -161,7 +161,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202603/18157574734438771.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -199,7 +199,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202602/18082662812251390.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -242,7 +242,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202602/18089503574095106.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -274,7 +274,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202601/18190047208350479.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -309,7 +309,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202601/17953307568058502.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         
@@ -351,7 +351,7 @@ if ($news_posts) {
                         <div class="sns_photo">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
                                         <img
-                                             src="<?php echo esc_url(theme_source_uri('img/sns/202601/18081256660957007.jpg')); ?>">
+                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
                                 </a>
                         </div>
                         

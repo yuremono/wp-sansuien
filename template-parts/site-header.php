@@ -38,9 +38,9 @@ $contact_url = theme_option_url('shop_contact_url', '#');
                         <div class="h_items ">
                                 <a class="h_btn h_tel"
                                    href="<?php echo esc_url(theme_phone_uri($shop_phone)); ?>"><i
-                                           class="fa-solid fa-phone"></i><?php echo esc_html($shop_phone); ?></a>
+                                           class="las la-phone"></i><?php echo esc_html($shop_phone); ?></a>
                                 <a class="h_btn h_contact" href="<?php echo esc_url($contact_url); ?>"><i
-                                           class="fa-solid fa-envelope"></i>お問い合わせ</a>
+                                           class="las la-envelope"></i>お問い合わせ</a>
                         </div>
                         <nav class="h_nav " id="nav">
                                 <?php

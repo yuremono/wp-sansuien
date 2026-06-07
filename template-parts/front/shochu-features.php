@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
         exit;
 }
 ?>
-<div class="fl50wide c414">
+<div class="fl50wide mt0 c414">
         <div class="clearfix c502">
                 <article>
                         <h2><?php theme_text('front_section_heading', '焼酎の原酒'); ?></h2>

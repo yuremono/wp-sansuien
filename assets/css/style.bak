@@ -1,11 +1,17 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif+JP:wght@400;500;700&display=swap");
+
+.imgL {float:left;margin-right:10px;}.imgR {float:right;margin-left:10px;}.imgC {margin:0px auto 0px auto; display: block; }
+@media screen (max-width: 640px) {
+        img.imgL {max-width:45%;}
+        img.imgR {max-width:45%;}
+}
 .f_btns, .mv_tx, .cont, .art800 article, .h1-tx article, .h2-tx article {
   max-width: 100%;
   width: var(--base);
   margin-inline: auto;
 }
-@media screen and (max-width: 1200px) {
+@media screen (max-width: 1200px) {
   .f_btns, #contents_wrap, .mv_tx, .cont, .art800 article, .h1-tx article, .h2-tx article {
     padding-inline: var(--pad);
   }
@@ -6694,7 +6700,7 @@ div.clearfix p, div.clearfix .h-price, div.clearfix [class*=menu] dt {
 }
 @media screen and (max-width: 640px) {
   .mv_fb img {
-    height: calc(var(--divh) * 2) !important;
+    height: calc(var(--dvh) * 2) !important;
   }
 }
 .mv_slide img:is(#contents .mv *), .mv_img img:is(#contents .mv *), .mv_video video:is(#contents .mv *) {

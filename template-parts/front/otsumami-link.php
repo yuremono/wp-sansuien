@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 }
 $otsumami_url = theme_url('front_otsumami_url', home_url('/otsumami/'));
 ?>
-<div class="linkouter_bottom c509">
+<div class="linkouter_bottom mt0 c509">
         
         <div class="clearfix twopicBf c510">
                 <div><a class="btn" href="<?php echo esc_url($otsumami_url); ?>"><br />

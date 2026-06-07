@@ -71,8 +71,7 @@ ${theme_slug}/
 ├── assets/
 │   ├── css/
 │   ├── js/
-│   ├── images/
-│   └── img/
+│   └── images/
 ├── tools/
 │   ├── deploy.sh
 │   └── local-wp-load.path.example

@@ -295,8 +295,8 @@ Options Page `theme-shop-settings`、field group `group_theme_shop_settings`:
 
 - ホームと `top.php`: `assets/css/index_html.css`
 - 下層ページ: `<slug>_html.css`
-- 共通CSS: `bxi.css`、`common.css`、`common_style.css`、`style.css`
-- 共通JavaScript: WordPress同梱jQuery、Magnific Popup、BeerSlider、Slick、`function.js`、`bxi.js`、`flipsnap.min.js`、Viewport Extra
+- 共通CSS: ``、`common.css`、`style.css`、`style.css`
+- 共通JavaScript: WordPress同梱jQuery、Magnific Popup、BeerSlider、Slick、`function.js`、``、`flipsnap.min.js`、Viewport Extra
 - 画像: `assets/images/` と `assets/img/` を元サイトの参照構造に合わせて保持
 
 テンプレート画像は `theme_image()` を通し、ACFメディアが未設定ならテーマ内画像をfallbackとして使用します。

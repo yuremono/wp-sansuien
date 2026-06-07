@@ -5,6 +5,10 @@
 /dist/
 /exports/
 /.serena/
+/tasks
+/tasks/*
+/tmp
+/tmp/*
 
 # Local/editor files
 /.vscode/

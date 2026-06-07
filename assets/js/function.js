@@ -40,7 +40,7 @@ $(function () { //ページ毎処理
         // $('.h').addClass('is-scroll');
     }
     else
-    if (pageT == "" || pageT == "index" || param.includes("page=1&token")) {
+    if (pageT == "" || pageT == "index") {
         body.addClass("home");
 
     }
@@ -55,7 +55,7 @@ $(function () { //要素処理
             $(this).attr('alt', '居酒屋');
         }
     });
-    $('.has-h1 img,.fl50wide .box,.twopicBtn .box,.sns_slide .sns_photo,.title1 h1').addClass('js-hide');
+    $('.has-h1 img,.fl50wide .box,.twopicBtn .box,.title1 h1').addClass('js-hide');
 
 
     $('.twopicBtn>.box>div').wrapInner('<span>');

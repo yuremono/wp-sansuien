@@ -38,16 +38,16 @@
     <script src="/js/function.js" ></script>
 
     <!-- default css -->
-    <link href="/css/bxi.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="/css/404_html.css" rel="stylesheet" type="text/css" media="all" title="pagenamecss">
 
     <!-- development css -->
     <link href="/css/common.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/css/common_style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
 
     <script src="//ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8" ></script>
-    <script src="/js/bxi.js" ></script>
+    <script src="/js/function.js" ></script>
     <script src="/js/flipsnap.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/viewport-extra@1.0.2/dist/viewport-extra.min.js" ></script>
     <script>new ViewportExtra(420)</script>
