@@ -1,14 +1,27 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif+JP:wght@400;500;700&display=swap");
-.f_btns, #contents_wrap, main.blog, .mv_tx, .cont, .art800 article, .h1-tx article, .h2-tx article {
+.f_btns, .mv_tx, .cont, .art800 article, .h1-tx article, .h2-tx article {
   max-width: 100%;
   width: var(--base);
   margin-inline: auto;
 }
 @media screen and (max-width: 1200px) {
-  .f_btns, #contents_wrap, main.blog, .mv_tx, .cont, .art800 article, .h1-tx article, .h2-tx article {
+  .f_btns, #contents_wrap, .mv_tx, .cont, .art800 article, .h1-tx article, .h2-tx article {
     padding-inline: var(--pad);
   }
+}
+
+#contents {
+        max-width: 100%;
+        position: relative;
+        min-width: unset;
+        background-color: unset;
+        padding-inline: var(--pad);
+}
+main {
+        width: var(--base);
+        max-width: 100%;
+        margin-inline: auto;
 }
 
 .info_main, .f_main, .bg01 {
@@ -894,14 +907,9 @@ input[type=button] {
   padding: 5px 10px;
 }
 
-#contents {
-  width: 100%;
-  background-color: unset;
-}
 
-#main {
-  width: 100%;
-}
+
+
 
 div.blog_list {
   border: none;
@@ -6519,12 +6527,7 @@ body {
   background-attachment: fixed;
 }
 
-#contents_wrap, main.blog {
-  position: relative;
-  z-index: 0;
-  max-width: 100%;
-  min-width: unset;
-}
+
 
 main > div, main > form > div, div:where(.bg100) > div {
   max-width: 100%;
@@ -14119,6 +14122,7 @@ footer#global_footer {
 }
 .f iframe {
   display: block;
+  max-width: 100%;
 }
 .f_address dt, .f_p dt {
   font-size: 120%;
