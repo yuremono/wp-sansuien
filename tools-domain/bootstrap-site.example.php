@@ -58,15 +58,22 @@ $config = array(
 	/*
 	 * Add records after the theme registers the corresponding post type.
 	 * Stable keys prevent duplicate posts on repeated execution.
+	 * 静的ソース tmp/sansuien/preview/room.html, index.html から抽出した実データ。
 	 */
 	'content'      => array(
-		/*
 		array(
 			'post_type'  => 'room',
 			'stable_key' => 'room-ao',
 			'title'      => '露天風呂付き特別室「蒼」',
-			'content'    => '湖を望む角部屋に配した、当宿で最も人気の高い特別室です。',
+			'content'    => '湖を望む角部屋に配した、当宿で最も人気の高い特別室です。専用の露天風呂からは四季折々の湖畔の景色をひとり占めいただけます。テラスにご用意した籐椅子で、朝の澄んだ空気とともにゆったりとした時間をお過ごしください。',
 			'menu_order' => 0,
+			'thumbnail'  => 'images/room2.jpg',
+			'gallery'    => array(
+				'room_gallery_1' => 'images/room1.jpg',
+				'room_gallery_2' => 'images/bath.jpg',
+				'room_gallery_3' => 'images/lake2.jpg',
+				'room_gallery_4' => 'images/kaiseki.jpg',
+			),
 			'meta'       => array(
 				'room_catch'        => 'Special Room "AO"',
 				'room_tags'         => '貸切露天風呂付,湖側テラス,禁煙,Wi-Fi完備',
@@ -79,14 +86,68 @@ $config = array(
 			),
 		),
 		array(
+			'post_type'  => 'room',
+			'stable_key' => 'room-lakeview',
+			'title'      => '湖view客室・和洋室',
+			'content'    => '',
+			'menu_order' => 1,
+			'thumbnail'  => 'images/room2.jpg',
+			'meta'       => array(
+				'room_rate_weekday' => '¥24,000〜',
+			),
+		),
+		array(
+			'post_type'  => 'room',
+			'stable_key' => 'room-garden',
+			'title'      => '庭園沿い和室',
+			'content'    => '',
+			'menu_order' => 2,
+			'thumbnail'  => 'images/room3.jpg',
+			'meta'       => array(
+				'room_rate_weekday' => '¥18,000〜',
+			),
+		),
+		array(
+			'post_type'  => 'room',
+			'stable_key' => 'room-standard',
+			'title'      => 'スタンダード和室',
+			'content'    => '',
+			'menu_order' => 3,
+			'thumbnail'  => 'images/room1.jpg',
+			'meta'       => array(
+				'room_rate_weekday' => '¥15,000〜',
+			),
+		),
+		array(
 			'post_type'  => 'news',
-			'stable_key' => 'opening-notice',
+			'stable_key' => 'news-hotaru',
 			'title'      => '夏季限定「蛍狩りプラン」販売開始のお知らせ',
 			'content'    => '',
 			'menu_order' => 0,
+			'post_date'  => '2026-07-01 09:00:00',
+			'thumbnail'  => 'images/lake2.jpg',
 			'meta'       => array(),
 		),
-		*/
+		array(
+			'post_type'  => 'news',
+			'stable_key' => 'news-wifi',
+			'title'      => '館内Wi-Fi環境をリニューアルいたしました',
+			'content'    => '',
+			'menu_order' => 0,
+			'post_date'  => '2026-06-20 09:00:00',
+			'thumbnail'  => 'images/room1.jpg',
+			'meta'       => array(),
+		),
+		array(
+			'post_type'  => 'news',
+			'stable_key' => 'news-obon',
+			'title'      => 'お盆期間の営業時間についてのお知らせ',
+			'content'    => '',
+			'menu_order' => 0,
+			'post_date'  => '2026-06-05 09:00:00',
+			'thumbnail'  => 'images/breakfast.jpg',
+			'meta'       => array(),
+		),
 	),
 );
 
@@ -271,6 +332,71 @@ function theme_tools_sync_menu( string $location, string $menu_name, array $page
 	return $menu_id;
 }
 
+/**
+ * テーマ同梱画像(assets/<相対パス>)をメディアライブラリへ非破壊でインポートし、添付ID を返す。
+ * 同一相対パスは _theme_seed_source_path で照合し、二重インポートしない。
+ */
+function theme_tools_import_theme_image( string $relative_path ): int {
+	static $cache = array();
+	if ( isset( $cache[ $relative_path ] ) ) {
+		return $cache[ $relative_path ];
+	}
+
+	$existing = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'any',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_key'       => '_theme_seed_source_path',
+			'meta_value'     => $relative_path,
+		)
+	);
+	if ( $existing ) {
+		$cache[ $relative_path ] = (int) $existing[0];
+		return $cache[ $relative_path ];
+	}
+
+	$file_path = get_template_directory() . '/assets/' . ltrim( $relative_path, '/' );
+	if ( ! is_readable( $file_path ) ) {
+		$cache[ $relative_path ] = 0;
+		return 0;
+	}
+
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+
+	$upload = wp_upload_bits( basename( $file_path ), null, (string) file_get_contents( $file_path ) );
+	if ( ! empty( $upload['error'] ) ) {
+		$cache[ $relative_path ] = 0;
+		return 0;
+	}
+
+	$filetype   = wp_check_filetype( $upload['file'], null );
+	$attachment_id = wp_insert_attachment(
+		array(
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => sanitize_file_name( basename( $file_path ) ),
+			'post_status'    => 'inherit',
+		),
+		$upload['file']
+	);
+
+	if ( is_wp_error( $attachment_id ) || ! $attachment_id ) {
+		$cache[ $relative_path ] = 0;
+		return 0;
+	}
+
+	$attachment_id = (int) $attachment_id;
+	$metadata      = wp_generate_attachment_metadata( $attachment_id, $upload['file'] );
+	wp_update_attachment_metadata( $attachment_id, $metadata );
+	update_post_meta( $attachment_id, '_theme_seed_source_path', $relative_path );
+
+	$cache[ $relative_path ] = $attachment_id;
+	return $attachment_id;
+}
+
 function theme_tools_upsert_content( array $item ): int {
 	$post_type = (string) $item['post_type'];
 	if ( ! post_type_exists( $post_type ) ) {
@@ -290,18 +416,20 @@ function theme_tools_upsert_content( array $item ): int {
 	$post_id  = $existing ? (int) $existing[0] : 0;
 
 	if ( ! $post_id ) {
-		$post_id = wp_insert_post(
-			wp_slash(
-				array(
-					'post_type'    => $post_type,
-					'post_status'  => 'publish',
-					'post_title'   => $item['title'],
-					'post_content' => $item['content'] ?? '',
-					'menu_order'   => (int) ( $item['menu_order'] ?? 0 ),
-				)
-			),
-			true
+		$post_args = array(
+			'post_type'    => $post_type,
+			'post_status'  => 'publish',
+			'post_title'   => $item['title'],
+			'post_name'    => $item['stable_key'],
+			'post_content' => $item['content'] ?? '',
+			'menu_order'   => (int) ( $item['menu_order'] ?? 0 ),
 		);
+		if ( ! empty( $item['post_date'] ) ) {
+			$post_args['post_date']     = $item['post_date'];
+			$post_args['post_date_gmt'] = get_gmt_from_date( $item['post_date'] );
+		}
+
+		$post_id = wp_insert_post( wp_slash( $post_args ), true );
 		if ( is_wp_error( $post_id ) || ! $post_id ) {
 			theme_tools_fail( "CPT初期投稿を作成できませんでした: {$post_type}/{$item['stable_key']}" );
 		}
@@ -310,6 +438,24 @@ function theme_tools_upsert_content( array $item ): int {
 	}
 
 	theme_tools_fill_empty_meta( $post_id, $item['meta'] ?? array() );
+
+	if ( ! empty( $item['thumbnail'] ) && ! has_post_thumbnail( $post_id ) ) {
+		$attachment_id = theme_tools_import_theme_image( (string) $item['thumbnail'] );
+		if ( $attachment_id ) {
+			set_post_thumbnail( $post_id, $attachment_id );
+		}
+	}
+
+	if ( ! empty( $item['gallery'] ) && is_array( $item['gallery'] ) ) {
+		$gallery_meta = array();
+		foreach ( $item['gallery'] as $field_name => $gallery_relative_path ) {
+			$attachment_id = theme_tools_import_theme_image( (string) $gallery_relative_path );
+			if ( $attachment_id ) {
+				$gallery_meta[ (string) $field_name ] = $attachment_id;
+			}
+		}
+		theme_tools_fill_empty_acf_fields( $post_id, $gallery_meta );
+	}
 
 	return $post_id;
 }
