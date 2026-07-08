@@ -1,31 +1,25 @@
 {
-  "name": "0606wp-izakaya",
+  "name": "0606wp-sansuien",
   "version": "1.0.0",
-  "description": "居酒屋サイトをクラシックWordPressテーマへ移植した案件テーマです。",
+  "description": "旅館「山翠苑」サイトをクラシックWordPressテーマへ移植した案件テーマです。",
   "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-      "build:css": "sass assets/scss/bootstrap.scss assets/css/bootstrap.css --style=compressed",
-  "watch:css": "sass assets/scss/bootstrap.scss assets/css/bootstrap.css --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuremono/wp-izakaya.git"
+    "url": "git+https://github.com/yuremono/wp-sansuien.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/yuremono/wp-izakaya/issues"
+    "url": "https://github.com/yuremono/wp-sansuien/issues"
   },
-  "homepage": "https://github.com/yuremono/wp-izakaya#readme",
-  "devDependencies": {
-    "bootstrap": "^5.3.8",
-    "sass": "^1.100.0"
-  }
+  "homepage": "https://github.com/yuremono/wp-sansuien#readme"
 }

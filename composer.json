@@ -1,6 +1,6 @@
 {
-  "name": "yuremono/wp-izakaya",
-  "description": "Development tooling for the Izakaya WordPress theme",
+  "name": "yuremono/wp-sansuien",
+  "description": "Development tooling for the Sansuien WordPress theme",
   "license": "GPL-2.0-or-later",
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
