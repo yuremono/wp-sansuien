@@ -63,24 +63,26 @@ function theme_ensure_content_categories(): void {
 add_action( 'init', 'theme_ensure_content_categories', 1 );
 
 /**
- * 「客室」「お知らせ」カテゴリーを `/category/room/` ではなく `/room/` の
+ * 「お知らせ」カテゴリーを `/category/news/` ではなく `/news/` の
  * ような短い URL で提供するためのリライトルールを追加する。
  *
+ * 「客室」は固定ページ（page-room.php, スラッグ room）が `/room/` を使うため、
+ * カテゴリー側のリライトルールはここでは追加しない（固定ページの URL と競合するため）。
+ *
  * 標準の `register_taxonomy('category', ...)` を再登録すると全カテゴリーの
- * ベースが変わってしまうため、この2カテゴリーだけに限定した個別ルールを
+ * ベースが変わってしまうため、news カテゴリーだけに限定した個別ルールを
  * 追加する方式にしている。
  */
 function theme_register_content_category_rewrites(): void {
-	add_rewrite_rule( '^room/?$', 'index.php?category_name=room', 'top' );
 	add_rewrite_rule( '^news/?$', 'index.php?category_name=news', 'top' );
 }
 add_action( 'init', 'theme_register_content_category_rewrites', 2 );
 
 /**
- * `get_category_link()` が「客室」「お知らせ」カテゴリーに対して、上記の
- * 短縮リライトルールに対応する URL（`/room/`, `/news/`）を返すようにする。
- * これが無いと、リンク生成側は `/category/room/` を返す一方でアクセス側は
- * `/room/` も受け付けるという不整合になり、正規化リダイレクトが混乱する。
+ * `get_category_link()` が「お知らせ」カテゴリーに対して、上記の
+ * 短縮リライトルールに対応する URL（`/news/`）を返すようにする。
+ * これが無いと、リンク生成側は `/category/news/` を返す一方でアクセス側は
+ * `/news/` も受け付けるという不整合になり、正規化リダイレクトが混乱する。
  *
  * @param string $link    生成されたカテゴリーリンク。
  * @param int    $term_id カテゴリーのterm_id。
@@ -88,7 +90,7 @@ add_action( 'init', 'theme_register_content_category_rewrites', 2 );
  */
 function theme_short_category_link( string $link, int $term_id ): string {
 	$term = get_term( $term_id, 'category' );
-	if ( ! ( $term instanceof WP_Term ) || ! in_array( $term->slug, array( 'room', 'news' ), true ) ) {
+	if ( ! ( $term instanceof WP_Term ) || 'news' !== $term->slug ) {
 		return $link;
 	}
 
@@ -106,7 +108,7 @@ add_filter( 'category_link', 'theme_short_category_link', 10, 2 );
  * ときは、このバージョン文字列を更新して再フラッシュを発火させること。
  */
 function theme_flush_rewrite_rules_once(): void {
-	$flush_version = '2025-room-news-category-migration-v2';
+	$flush_version = '2025-room-page-fixed-page-v3';
 
 	if ( get_option( 'theme_rewrite_flush_version' ) === $flush_version ) {
 		return;

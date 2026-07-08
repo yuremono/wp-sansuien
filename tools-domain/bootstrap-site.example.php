@@ -517,10 +517,10 @@ update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $front_id );
 
 /*
- * ヘッダー・フッター共通ナビ。客室のご案内は「客室」カテゴリーのアーカイブ、他はトップページ内アンカー。
+ * ヘッダー・フッター共通ナビ。客室のご案内は固定ページ（page-room.php, スラッグ room）、他はトップページ内アンカー。
  * 静的ソース tmp/sansuien/preview/index.html の <nav class="gnav"> / <nav class="fnav"> に対応。
  */
-$room_archive_url = theme_category_url( 'room', home_url( '/room/' ) );
+$room_archive_url = home_url( '/room/' );
 $nav_links         = array(
 	array(
 		'title' => '客室のご案内',

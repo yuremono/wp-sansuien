@@ -16,9 +16,8 @@ $reception_hours  = (string) theme_option( 'shop_reception_hours', '9:00〜18:00
 $contact_url      = theme_option_url( 'shop_contact_url', '#reserve' );
 $shop_address     = (string) theme_option( 'shop_address', '長野県青木湖畔 ○○温泉郷' );
 $access_note      = (string) theme_option( 'shop_access_note', 'JR大糸線「簗場駅」より送迎バスで約8分(要予約)' );
-$room_archive_url = theme_category_url( 'room', home_url( '/room/' ) );
 // 客室個別ページでは #reserve が予約カード側で既に使われているため、ここでは付与しない。
-$closing_id = ( is_singular( 'post' ) && in_category( 'room' ) ) ? '' : ' id="reserve"';
+$closing_id = ( ( is_singular( 'post' ) && in_category( 'room' ) ) || is_page( 'room' ) ) ? '' : ' id="reserve"';
 ?>
 <section class="closing"<?php echo $closing_id; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="bg_wrap"><div class="bg_sticky"><img src="<?php echo esc_url( theme_source_uri( 'images/bg_teal.jpg' ) ); ?>" alt=""></div></div>

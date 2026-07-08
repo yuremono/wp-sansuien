@@ -33,6 +33,8 @@ function theme_body_classes(): array {
 		$classes[] = 'SansuienPageTop';
 	} elseif ( is_singular( 'post' ) && in_category( 'room' ) ) {
 		$classes[] = 'SansuienPageRoom';
+	} elseif ( is_page( 'room' ) ) {
+		$classes[] = 'SansuienPageRoom';
 	} elseif ( is_category( 'room' ) ) {
 		$classes[] = 'SansuienPageRoomArchive';
 	}
@@ -226,7 +228,7 @@ function theme_split_tags( string $value ): array {
  * @param array<string, mixed> $args WordPress のフォールバックコールバック引数。
  */
 function theme_menu_fallback( array $args = array() ): void {
-	$room_archive = theme_category_url( 'room', home_url( '/room/' ) );
+	$room_archive = home_url( '/room/' );
 	$items        = array(
 		'客室のご案内' => $room_archive,
 		'館内施設'   => home_url( '/#feature' ),

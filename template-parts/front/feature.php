@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$room_archive_url = theme_category_url( 'room', home_url( '/room/' ) );
+$room_archive_url = home_url( '/room/' );
 $reserve_url       = home_url( '/#reserve' );
 
 $blocks = array(

@@ -76,6 +76,22 @@ function theme_acf_image_field( string $key, string $label, string $name ): arra
 }
 
 /**
+ * 管理画面をタブ切り替え UI にするための ACF タブ区切りフィールドを組み立てる。
+ *
+ * @param string $key   フィールドキーの末尾。
+ * @param string $label タブのラベル。
+ * @return array<string, mixed>
+ */
+function theme_acf_tab( string $key, string $label ): array {
+	return array(
+		'key'   => 'field_theme_tab_' . $key,
+		'label' => $label,
+		'name'  => '',
+		'type'  => 'tab',
+	);
+}
+
+/**
  * カテゴリースラッグから ACF の post_category location ルールを組み立てる。
  *
  * post_category location ルールは term_id を要求するため、カテゴリーを
@@ -156,8 +172,9 @@ function theme_register_acf_fields(): void {
 		)
 	);
 
-	// 次に、トップページの編集項目を登録する。
+	// 次に、トップページの編集項目を登録する（タブ UI で画面を分割）。
 	$front_fields = array(
+		theme_acf_tab( 'front_hero', 'ヒーロー' ),
 		theme_acf_field( 'front_hero_eyebrow', '英字コピー', 'front_hero_eyebrow', 'text', array( 'default_value' => 'HAVE A QUIET TIME BY THE LAKE — EST. 1972' ) ),
 		theme_acf_field( 'front_hero_heading', '見出し', 'front_hero_heading', 'textarea', array(
 			'rows'          => 2,
@@ -189,6 +206,7 @@ function theme_register_acf_fields(): void {
 		),
 	);
 	foreach ( $feature_blocks as $slug => $block ) {
+		$front_fields[] = theme_acf_tab( "front_{$slug}", $block['label'] );
 		$front_fields[] = theme_acf_field( "front_{$slug}_heading", $block['label'] . ' 見出し', "front_{$slug}_heading", 'textarea', array(
 			'rows'          => 2,
 			'default_value' => $block['heading'],
@@ -202,6 +220,7 @@ function theme_register_acf_fields(): void {
 	}
 
 	// 山翠苑についてセクションの項目を追加する。
+	$front_fields[] = theme_acf_tab( 'front_about', 'About' );
 	$front_fields[] = theme_acf_field( 'front_about_heading', 'About 見出し', 'front_about_heading', 'textarea', array(
 		'rows'          => 2,
 		'default_value' => "創業から半世紀、\n湖畔とともに。",
@@ -235,6 +254,48 @@ function theme_register_acf_fields(): void {
 						'param'    => 'page_type',
 						'operator' => '==',
 						'value'    => 'front_page',
+					),
+				),
+			),
+		)
+	);
+
+	// 「客室のご案内」固定ページ（page-room.php, スラッグ room）の編集項目を登録する。
+	// 本文（概要説明）は WordPress 標準の本文エディタ（post_content）を使う。
+	acf_add_local_field_group(
+		array(
+			'key'      => 'group_theme_page_room',
+			'title'    => '客室のご案内ページ 編集項目',
+			'fields'   => array(
+				theme_acf_tab( 'page_room_hero', 'ヒーロー' ),
+				theme_acf_field( 'page_room_hero_catch', '英字キャッチ', 'page_room_hero_catch', 'text', array( 'default_value' => 'Special Room "AO"' ) ),
+				theme_acf_image_field( 'page_room_hero_image', 'メイン画像', 'page_room_hero_image' ),
+				theme_acf_field( 'page_room_lead', '見出し（本文タイトル）', 'page_room_lead', 'textarea', array(
+					'rows'          => 2,
+					'instructions'  => '本文エディタの上に表示される、キャッチコピー風の見出しです。',
+					'default_value' => "湖をひとり占めする、\n当宿いちばんの特等席。",
+				) ),
+				theme_acf_tab( 'page_room_data', '客室データ' ),
+				theme_acf_field( 'page_room_tags', '特徴タグ（カンマ区切り）', 'page_room_tags', 'text', array( 'default_value' => '貸切露天風呂付,湖側テラス,禁煙,Wi-Fi完備' ) ),
+				theme_acf_field( 'page_room_size', '広さ', 'page_room_size', 'text', array( 'default_value' => '52㎡(和洋室)' ) ),
+				theme_acf_field( 'page_room_amenities', 'お部屋設備', 'page_room_amenities', 'text', array( 'default_value' => '貸切露天風呂・冷蔵庫・空気清浄機・浴衣2枚' ) ),
+				theme_acf_field( 'page_room_checkin_out', 'チェックイン・アウト', 'page_room_checkin_out', 'text', array( 'default_value' => '15:00〜 / 11:00まで' ) ),
+				theme_acf_tab( 'page_room_rate', '料金・予約' ),
+				theme_acf_field( 'page_room_rate_weekday', '平日1泊2食付料金', 'page_room_rate_weekday', 'text', array( 'default_value' => '¥32,000〜' ) ),
+				theme_acf_field( 'page_room_rate_holiday', '休前日1泊2食付料金', 'page_room_rate_holiday', 'text', array( 'default_value' => '¥38,000〜' ) ),
+				theme_acf_field( 'page_room_capacity', 'ご定員', 'page_room_capacity', 'text', array( 'default_value' => '2〜3名' ) ),
+				theme_acf_tab( 'page_room_gallery', 'ギャラリー' ),
+				theme_acf_image_field( 'page_room_gallery_1', 'ギャラリー画像1', 'page_room_gallery_1' ),
+				theme_acf_image_field( 'page_room_gallery_2', 'ギャラリー画像2', 'page_room_gallery_2' ),
+				theme_acf_image_field( 'page_room_gallery_3', 'ギャラリー画像3', 'page_room_gallery_3' ),
+				theme_acf_image_field( 'page_room_gallery_4', 'ギャラリー画像4', 'page_room_gallery_4' ),
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'page_template',
+						'operator' => '==',
+						'value'    => 'page-room.php',
 					),
 				),
 			),

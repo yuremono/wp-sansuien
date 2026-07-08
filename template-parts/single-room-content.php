@@ -25,7 +25,7 @@ $room_capacity     = (string) theme_content_meta( $room_id, 'room_capacity', '' 
 $hero_image        = theme_content_image_data( $room_id, 'images/room2.jpg' );
 $shop_phone        = (string) theme_option( 'shop_phone', '0261-00-0000' );
 $reception_hours   = (string) theme_option( 'shop_reception_hours', '9:00〜18:00' );
-$room_archive_url  = theme_category_url( 'room', home_url( '/room/' ) );
+$room_archive_url  = home_url( '/room/' );
 
 $gallery_fields = array(
 	array( 'field' => 'room_gallery_1', 'fallback' => 'images/room1.jpg', 'caption' => '客室内観' ),
