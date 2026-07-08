@@ -297,7 +297,21 @@ function theme_tools_find_menu_item( int $menu_id, int $object_id ): bool {
 	return false;
 }
 
-function theme_tools_sync_menu( string $location, string $menu_name, array $pages ): int {
+function theme_tools_find_menu_item_by_title( int $menu_id, string $title ): bool {
+	foreach ( (array) wp_get_nav_menu_items( $menu_id ) as $item ) {
+		if ( $item instanceof WP_Post && $title === $item->title ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * @param array<int, array{id:int,title:string}>   $pages 固定ページをメニューへ追加する場合の一覧。
+ * @param array<int, array{title:string,url:string}> $links アンカーやCPTアーカイブなどカスタムURLリンクの一覧。
+ */
+function theme_tools_sync_menu( string $location, string $menu_name, array $pages, array $links = array() ): int {
 	$menu    = wp_get_nav_menu_object( $menu_name );
 	$menu_id = $menu instanceof WP_Term ? (int) $menu->term_id : (int) wp_create_nav_menu( $menu_name );
 	if ( ! $menu_id ) {
@@ -322,6 +336,26 @@ function theme_tools_sync_menu( string $location, string $menu_name, array $page
 		);
 		if ( is_wp_error( $result ) ) {
 			theme_tools_fail( "メニュー項目を追加できませんでした: {$page['title']}" );
+		}
+	}
+
+	foreach ( $links as $link ) {
+		if ( theme_tools_find_menu_item_by_title( $menu_id, $link['title'] ) ) {
+			continue;
+		}
+
+		$result = wp_update_nav_menu_item(
+			$menu_id,
+			0,
+			array(
+				'menu-item-title'  => $link['title'],
+				'menu-item-url'    => $link['url'],
+				'menu-item-type'   => 'custom',
+				'menu-item-status' => 'publish',
+			)
+		);
+		if ( is_wp_error( $result ) ) {
+			theme_tools_fail( "メニュー項目を追加できませんでした: {$link['title']}" );
 		}
 	}
 
@@ -463,12 +497,11 @@ function theme_tools_upsert_content( array $item ): int {
 $front_id = theme_tools_upsert_page( $config['front'] );
 theme_tools_fill_empty_acf_fields( 'option', $config['options'] ?? array() );
 theme_tools_fill_empty_acf_fields( $front_id, $config['front']['acf'] ?? array() );
-$pages    = array(
-	array(
-		'id'    => $front_id,
-		'title' => $config['front']['title'],
-	),
-);
+/*
+ * ブランドロゴ(header/footerのtheme_source_uri)が既にホームリンクの役割を持つため、
+ * ホームページ自体はナビメニューへ追加しない。
+ */
+$pages    = array();
 
 foreach ( $config['pages'] as $definition ) {
 	$pages[] = array(
@@ -481,9 +514,34 @@ foreach ( $config['pages'] as $definition ) {
 update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $front_id );
 
+/*
+ * ヘッダー・フッター共通ナビ。客室のご案内はCPTアーカイブ、他はトップページ内アンカー。
+ * 静的ソース tmp/sansuien/preview/index.html の <nav class="gnav"> / <nav class="fnav"> に対応。
+ */
+$room_archive_url = get_post_type_archive_link( 'room' );
+$room_archive_url = $room_archive_url ? $room_archive_url : home_url( '/room/' );
+$nav_links         = array(
+	array(
+		'title' => '客室のご案内',
+		'url'   => $room_archive_url,
+	),
+	array(
+		'title' => '館内施設',
+		'url'   => home_url( '/#feature' ),
+	),
+	array(
+		'title' => 'アクセス',
+		'url'   => home_url( '/#access' ),
+	),
+	array(
+		'title' => 'お知らせ',
+		'url'   => home_url( '/#news' ),
+	),
+);
+
 $menu_ids = array();
 foreach ( $config['menus'] as $location => $menu_name ) {
-	$menu_ids[ $location ] = theme_tools_sync_menu( $location, $menu_name, $pages );
+	$menu_ids[ $location ] = theme_tools_sync_menu( $location, $menu_name, $pages, $nav_links );
 }
 
 $content_ids = array();
