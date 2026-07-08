@@ -1,0 +1,45 @@
+template-parts/front/feature.php
+  s_394dcf63539e6e::t_ed857afa7ace4b 14
+inc/template-tags.php
+  s_394dcf63539e6e::t_f029d51355e77b 231
+  s_394dcf63539e6e::t_d59de50b7e2fe8 36-37
+tools-domain/bootstrap-site.example.php
+  s_394dcf63539e6e::t_9671b9fdfc62a2 520,523
+page-room.php
+  s_394dcf63539e6e::t_e41794bcc739db 1-145
+template-parts/front/closing.php
+  s_394dcf63539e6e::t_0c1e8b007287e3 20
+template-parts/single-room-content.php
+  s_394dcf63539e6e::t_2e14fda36ece1a 28
+inc/setup.php
+  s_394dcf63539e6e::t_642bbe28d136eb 66,69-71,73,82-85,93
+  s_394dcf63539e6e::t_b96ae13cd01db6 111
+inc/acf-pages.php
+  s_394dcf63539e6e::t_87b1ccb0522ab8 209
+  s_394dcf63539e6e::t_b4d454e6aa4acf 223
+  s_394dcf63539e6e::t_a33b74fb02e4c3 263-304
+  s_394dcf63539e6e::t_01417d77748df4 79-93
+  s_394dcf63539e6e::t_f86cdc64b3b6b7 175,177
+  s_394dcf63539e6e::t_524fc47550af86 78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5ad667c2676f64edb9b68da3b59fd439b140d67a",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
