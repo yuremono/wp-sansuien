@@ -1,0 +1,34 @@
+.env.deploy.example
+  s_394dcf63539e6e::t_16658aca23d110 12
+  s_394dcf63539e6e::t_cf6d388669a16b 2-9
+  s_394dcf63539e6e::t_0134fbffd4e852 1
+  s_394dcf63539e6e::t_3cb18133217cbb 10-11
+.gitignore
+  s_394dcf63539e6e::t_cbed50883c0e8f 26
+tools/deploy.sh
+  s_394dcf63539e6e::t_bdaceec44521e9 10
+DEPLOYMENT.md
+  s_394dcf63539e6e::t_46b4c296af223c 1,5-6,9-12,30,36,38
+  s_394dcf63539e6e::t_b28864836fc3d6 35,37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "98aa9687c569d0407ddcfaf9498e066f17823407",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
