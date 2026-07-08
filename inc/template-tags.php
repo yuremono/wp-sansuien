@@ -22,42 +22,22 @@ function theme_source_uri( string $relative = '' ): string {
 }
 
 /**
- * カスタムページテンプレート用の body class を返す。
+ * body class を返す。
  *
  * @return array<int, string>
  */
 function theme_body_classes(): array {
-	$classes = array( 'IzakayaPage' );
-	$pages   = array( 'genshu', 'shochu', 'other', 'otsumami', 'insta', 'info' );
+	$classes = array( 'SansuienPage' );
 
-	foreach ( $pages as $page ) {
-		if ( is_page_template( "page-templates/{$page}.php" ) ) {
-			$classes[] = 'IzakayaPage' . ucfirst( $page );
-			return apply_filters( 'theme_body_classes', $classes );
-		}
+	if ( is_front_page() ) {
+		$classes[] = 'SansuienPageTop';
+	} elseif ( is_singular( 'room' ) ) {
+		$classes[] = 'SansuienPageRoom';
+	} elseif ( is_post_type_archive( 'room' ) ) {
+		$classes[] = 'SansuienPageRoomArchive';
 	}
 
-	$classes[] = 'IzakayaPageTop';
 	return apply_filters( 'theme_body_classes', $classes );
-}
-
-/**
- * 現在のリクエストがカスタムテンプレートかどうかを判定する。
- *
- * @return bool
- */
-function theme_is_custom_view(): bool {
-	return is_front_page() || is_page_template(
-		array(
-			'page-templates/top.php',
-			'page-templates/genshu.php',
-			'page-templates/shochu.php',
-			'page-templates/other.php',
-			'page-templates/otsumami.php',
-			'page-templates/insta.php',
-			'page-templates/info.php',
-		)
-	);
 }
 
 /**
@@ -97,7 +77,7 @@ function theme_url( string $field_name, string $fallback = '' ): string {
 }
 
 /**
- * ACF の有無に依存せず、共通店舗設定を返す。
+ * ACF の有無に依存せず、共通宿泊施設設定を返す。
  *
  * @param string $field_name フィールド名。
  * @param mixed  $fallback フォールバック値。
@@ -110,7 +90,7 @@ function theme_option( string $field_name, $fallback = '' ) {
 }
 
 /**
- * 共通店舗 URL を返す。
+ * 共通宿泊施設 URL を返す。
  *
  * @param string $field_name フィールド名。
  * @param string $fallback フォールバック URL。
@@ -140,7 +120,7 @@ function theme_phone_uri( string $phone ): string {
  * @return array<int, WP_Post>
  */
 function theme_get_content_posts( string $post_type, array $args = array() ): array {
-	if ( ! in_array( $post_type, array( 'drink', 'food', 'news' ), true ) ) {
+	if ( ! in_array( $post_type, array( 'room', 'news' ), true ) ) {
 		return array();
 	}
 
@@ -179,35 +159,6 @@ function theme_content_meta( int $post_id, string $field_name, $fallback = '' ) 
 }
 
 /**
- * 指定タクソノミーの term に属するコンテンツ投稿を返す。
- *
- * @param string $post_type 登録済み投稿タイプ。
- * @param string $taxonomy 登録済みタクソノミー。
- * @param string $term_slug タームスラッグ。
- * @param array  $args クエリ上書き。
- * @return array<int, WP_Post>
- */
-function theme_get_section_posts( string $post_type, string $taxonomy, string $term_slug, array $args = array() ): array {
-	return theme_get_content_posts(
-		$post_type,
-		array_merge(
-			array(
-				// セクション判定はタクソノミー割り当てを正とする。
-				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-				'tax_query' => array(
-					array(
-						'taxonomy' => $taxonomy,
-						'field'    => 'slug',
-						'terms'    => $term_slug,
-					),
-				),
-			),
-			$args
-		)
-	);
-}
-
-/**
  * コンテンツ投稿の画像情報を返す。
  *
  * @param int    $post_id 投稿 ID。
@@ -230,112 +181,22 @@ function theme_content_image_data( int $post_id, string $fallback_relative = '',
 }
 
 /**
- * 既存の価格 / 名称リスト構造で CPT を描画する。
+ * カンマ区切りのタグ文字列を配列へ整形する。
  *
- * @param array<int, WP_Post> $posts コンテンツ投稿。
- * @param string              $price_field 価格フィールド名。
+ * @param string $value カンマ区切りの文字列。
+ * @return array<int, string>
  */
-function theme_render_menu_posts( array $posts, string $price_field ): void {
-	foreach ( $posts as $post ) {
-		?>
-		<dl>
-			<dt><?php echo esc_html( (string) theme_content_meta( $post->ID, $price_field ) ); ?></dt>
-			<dd><?php echo esc_html( get_the_title( $post ) ); ?><br></dd>
-		</dl>
-		<?php
+function theme_split_tags( string $value ): array {
+	if ( '' === trim( $value ) ) {
+		return array();
 	}
-}
 
-/**
- * 既存の feature card 構造で CPT を描画する。
- *
- * @param array<int, WP_Post> $posts コンテンツ投稿。
- * @param string              $price_field 価格フィールド名。
- */
-function theme_render_feature_posts( array $posts, string $price_field ): void {
-	foreach ( $posts as $post ) {
-		$image = theme_content_image_data( $post->ID );
-		?>
-		<div class="box">
-			<article>
-				<?php if ( '' !== $image['url'] ) : ?>
-					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
-				<?php endif; ?>
-				<h3><?php echo esc_html( get_the_title( $post ) ); ?></h3>
-				<div>
-					<?php echo wp_kses_post( apply_filters( 'the_content', $post->post_content ) ); ?>
-					<p><?php echo esc_html( (string) theme_content_meta( $post->ID, $price_field ) ); ?></p>
-				</div>
-			</article>
-		</div>
-		<?php
-	}
-}
-
-/**
- * 既存の SNS アイテム構造でお知らせ投稿を描画する。
- *
- * @param array<int, WP_Post> $posts お知らせ投稿。
- */
-function theme_render_news_posts( array $posts ): void {
-	foreach ( $posts as $post ) {
-		$image = theme_content_image_data( $post->ID );
-		$url   = (string) theme_content_meta( $post->ID, 'news_external_url', get_permalink( $post ) );
-		?>
-		<div>
-			<div class="sns_photo">
-				<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
-					<?php if ( '' !== $image['url'] ) : ?>
-						<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
-					<?php endif; ?>
-				</a>
-			</div>
-			<div class="sns_text">
-				<div class="sns_date"><?php echo esc_html( get_the_date( 'Y.m.d', $post ) ); ?></div>
-				<div class="caption"><?php echo wp_kses_post( apply_filters( 'the_content', $post->post_content ) ); ?></div>
-			</div>
-		</div>
-		<?php
-	}
-}
-
-/**
- * 既存の section class を保ったまま焼酎カテゴリを動的描画する。
- *
- * @param string $term_slug カテゴリの term スラッグ。
- * @param string $section_class メイン section class。
- * @param string $menu_class メニュー section class。
- * @param string $fallback_heading 見出しのフォールバック。
- * @param string $fallback_body 本文 HTML のフォールバック。
- * @param string $fallback_image_1 1 枚目のフォールバック画像。
- * @param string $fallback_image_2 2 枚目のフォールバック画像。
- * @return bool 動的投稿を描画したかどうか。
- */
-function theme_render_shochu_section( string $term_slug, string $section_class, string $menu_class, string $fallback_heading, string $fallback_body, string $fallback_image_1, string $fallback_image_2 ): bool {
-	$posts = theme_get_section_posts( 'drink', 'drink_category', $term_slug );
-	if ( ! $posts ) {
-		return false;
-	}
-	?>
-	<div class="fl50wide <?php echo esc_attr( $section_class ); ?>">
-		<div class="clearfix">
-			<article>
-				<h2><?php theme_text( "shochu_{$term_slug}_heading", $fallback_heading ); ?></h2>
-				<div><?php theme_rich( "shochu_{$term_slug}_body", $fallback_body ); ?></div>
-			</article>
-		</div>
-		<div class="twopicR wrapGrid">
-			<div class="box"><?php theme_image( "shochu_{$term_slug}_image_1", $fallback_image_1 ); ?><div></div></div>
-			<div class="box"><?php theme_image( "shochu_{$term_slug}_image_2", $fallback_image_2 ); ?><div></div></div>
-		</div>
-	</div>
-	<div class="fl50 mt20 gap3mi <?php echo esc_attr( $menu_class ); ?>">
-		<div class="form_wrap dl_menu">
-			<?php theme_render_menu_posts( $posts, 'drink_price' ); ?>
-		</div>
-	</div>
-	<?php
-	return true;
+	return array_values(
+		array_filter(
+			array_map( 'trim', explode( ',', $value ) ),
+			static fn( string $tag ): bool => '' !== $tag
+		)
+	);
 }
 
 /**
@@ -344,20 +205,18 @@ function theme_render_shochu_section( string $term_slug, string $section_class, 
  * @param array<string, mixed> $args WordPress のフォールバックコールバック引数。
  */
 function theme_menu_fallback( array $args = array() ): void {
-	$items = array(
-		'ホーム'    => '/',
-		'焼酎の原酒'  => '/genshu/',
-		'本格焼酎'   => '/shochu/',
-		'その他のお酒' => '/other/',
-		'おつまみ'   => '/otsumami/',
-		'お知らせ'   => '/insta/',
-		'店舗案内'   => '/info/',
+	$room_archive = get_post_type_archive_link( 'room' );
+	$items        = array(
+		'客室のご案内' => $room_archive ? $room_archive : home_url( '/room/' ),
+		'館内施設'   => home_url( '/#feature' ),
+		'アクセス'   => home_url( '/#access' ),
+		'お知らせ'   => home_url( '/#news' ),
 	);
 	$class = isset( $args['menu_class'] ) ? (string) $args['menu_class'] : 'menu';
 	?>
 	<ul class="<?php echo esc_attr( $class ); ?>">
 		<?php foreach ( $items as $label => $path ) : ?>
-			<li><a href="<?php echo esc_url( home_url( $path ) ); ?>"><?php echo esc_html( $label ); ?></a></li>
+			<li><a href="<?php echo esc_url( $path ); ?>"><?php echo esc_html( $label ); ?></a></li>
 		<?php endforeach; ?>
 	</ul>
 	<?php

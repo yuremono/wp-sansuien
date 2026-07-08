@@ -11,13 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'THEME_GETTEXT_DOMAIN', 'izakaya' );
+define( 'THEME_GETTEXT_DOMAIN', 'sansuien' );
 
 /** Cache-busting version for theme assets. */
 define( 'THEME_VERSION', '1.0.0' );
 
 if ( ! defined( 'THEME_BRAND_DEFAULT' ) ) {
-	define( 'THEME_BRAND_DEFAULT', '居酒屋' );
+	define( 'THEME_BRAND_DEFAULT', '山翠苑' );
 }
 
 require_once get_template_directory() . '/inc/helpers.php';
