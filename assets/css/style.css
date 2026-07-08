@@ -269,7 +269,7 @@ a{color:inherit;text-decoration:none}
    so its <li> children become direct flex items of .gnav / .fnav, matching
    the flat <a> markup the static design was built for. */
 .gnav_list,.fnav_list{display:contents}
-.gnav_list li,.fnav_list li{list-style:none}
+.gnav_list li,.fnav_list li{list-style:none;display:inline-block}
 
 /* ---- room archive empty state (no dedicated design in the static site) ---- */
 .archive_empty{padding:6rem 6vw;text-align:center;font:400 0.875rem var(--sans);color:#96917f}
