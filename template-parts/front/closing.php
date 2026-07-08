@@ -21,7 +21,7 @@ $room_archive_url = $room_archive_url ? $room_archive_url : home_url( '/room/' )
 // 客室個別ページでは #reserve が予約カード側で既に使われているため、ここでは付与しない。
 $closing_id = is_singular( 'room' ) ? '' : ' id="reserve"';
 ?>
-<section class="closing"<?php echo $closing_id; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+<section class="closing"<?php echo $closing_id; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="bg_wrap"><div class="bg_sticky"><img src="<?php echo esc_url( theme_source_uri( 'images/bg_teal.jpg' ) ); ?>" alt=""></div></div>
 	<div class="wrap">
 		<div class="cl_grid">
@@ -40,6 +40,7 @@ $closing_id = is_singular( 'room' ) ? '' : ' id="reserve"';
 							'menu_class'     => 'fnav_list',
 							'fallback_cb'    => 'theme_menu_fallback',
 							'depth'          => 1,
+							'link_before'    => '<svg class="sym sym-sm"><use href="#sym-tri"></use></svg>',
 						)
 					);
 					?>
