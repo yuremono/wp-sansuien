@@ -5,8 +5,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PHP_BIN="${THEME_LOCAL_PHP:-${DEPLOY_PHP:-}}"
 PHP_INI="${THEME_LOCAL_PHP_INI:-}"
-export WP_LOAD_PATH="${WP_LOAD_PATH:-/Users/yanoseiji/Local Sites/izakaya/app/public/wp-load.php}"
-EXPECTED_CONFIRMATION="izakaya-local"
+export WP_LOAD_PATH="${WP_LOAD_PATH:-/Users/yanoseiji/Local Sites/sansuien/app/public/wp-load.php}"
+EXPECTED_CONFIRMATION="sansuien-local"
 
 if [[ "${THEME_BOOTSTRAP_CONFIRM:-}" != "$EXPECTED_CONFIRMATION" ]]; then
 	echo "実行確認がありません。THEME_BOOTSTRAP_CONFIRM=${EXPECTED_CONFIRMATION} を指定してください。" >&2

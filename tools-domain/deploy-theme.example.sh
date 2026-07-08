@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Izakaya theme deploy wrapper. Remote sync still requires a confirmed path.
+# Sansuien theme deploy wrapper. Remote sync still requires a confirmed path.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
