@@ -1,0 +1,36 @@
+DEPLOYMENT.md
+  s_394dcf63539e6e::t_88cc92b5566c40 9
+PLAN-SANSUIEN.md
+  s_394dcf63539e6e::t_ee8bae0ad580ad 3,9-10
+  s_394dcf63539e6e::t_f43e56fefd7599 27,29-30,33-34,38-40
+docs/sansuien.md
+  s_394dcf63539e6e::t_057bb68becfb66 18
+  s_394dcf63539e6e::t_c8e74538135ed7 238
+  s_394dcf63539e6e::t_e19e61896da195 248
+.env.deploy.example
+  s_394dcf63539e6e::t_27acd0b95fd416 4
+tools/deploy.sh
+  s_394dcf63539e6e::t_86c7db741abd50 15-18
+  s_394dcf63539e6e::t_532057fdbb8073 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "4432a130fa1dec964949efd020a45bc12d9aaa3b",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
