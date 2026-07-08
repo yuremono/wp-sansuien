@@ -21,3 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 <body <?php body_class( theme_body_classes() ); ?>>
 <?php wp_body_open(); ?>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+	<symbol id="sym-tri" viewBox="0 0 10 10">
+		<path d="M5 0 L0 10 H5 Z" fill="currentColor"/>
+		<path d="M5 0 L10 10 H5 Z" style="fill:var(--sym-r, var(--bronze))"/>
+	</symbol>
+</svg>

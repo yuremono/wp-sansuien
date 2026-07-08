@@ -2,7 +2,7 @@
 /**
  * トップ page content.
  *
- * @package Izakaya
+ * @package Theme
  */
 
 declare(strict_types=1);
@@ -11,16 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-	<div id="contents" >
-		<main>
-			<?php
-			get_template_part( 'template-parts/front/hero' );
-			get_template_part( 'template-parts/front/introduction' );
-			get_template_part( 'template-parts/front/shochu-features' );
-			get_template_part( 'template-parts/front/other-link' );
-			get_template_part( 'template-parts/front/otsumami-link' );
-			get_template_part( 'template-parts/front/news-feed' );
-			get_template_part( 'template-parts/front/news-link' );
-			?>
-		</main>
-	</div>
+<?php
+get_template_part( 'template-parts/front/hero' );
+get_template_part( 'template-parts/front/gallery' );
+get_template_part( 'template-parts/front/feature' );
+get_template_part( 'template-parts/front/voices' );
+get_template_part( 'template-parts/front/about' );
+get_template_part( 'template-parts/front/news-feed' );
+get_template_part( 'template-parts/front/closing' );

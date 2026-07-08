@@ -1,386 +1,53 @@
 <?php
 /**
- * Front news-feed section.
+ * Front news-feed section（お知らせ一覧）.
  *
- * @package Izakaya
+ * @package Theme
  */
 
 declare(strict_types=1);
 
-if (!defined('ABSPATH')) {
-        exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-$news_posts = theme_get_section_posts('news', 'news_category', 'instagram');
-if ($news_posts) {
-        ?>
-        <div class="sns_slide mt-bl05 c494">
-                <div class="sns_list">
-                        <?php theme_render_news_posts($news_posts); ?>
-                </div>
-        </div>
-        <?php
-        return;
-}
+$news_posts = theme_get_content_posts( 'news', array( 'posts_per_page' => 3 ) );
+$news_archive_url = home_url( '/#news' );
 ?>
-<div class="sns_slide mt-bl05 c494">
-        <div class="sns_list">
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.05.31
-                                </div>
-                                <div class="caption">2026/05/31
-                                        こんにちは
-                                        居酒屋です。
-
-                                        皆様のおかげで居酒屋
-                                        2026年6月で3周年を迎えることとなりました
-                                        これも皆様のお力添えがあってこそでございます
-                                        ありがとうございます😃✨
-                                        つきましてはささやかではございますが
-                                        3周年の記念グッズを6月2日からご来店のお客様にお配りいたします
-                                        6月1日は月曜日なのでお休みです。
-
-                                        今後とも変わらぬご愛顧を賜りますようお願い申し上げます。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #居酒屋#居酒屋#焼酎好きな人と繋がりたい
-                                </div>
-                                <div id="TRANS_SNSCS496"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.04.28
-                                </div>
-                                <div class="caption">2026/04/28
-                                        こんにちは
-                                        居酒屋です。
-
-                                        5月お休みのお知らせ
-
-                                        GW中は休まず営業します
-                                        お出かけする方もそうじゃない方も
-                                        お気軽にご利用ください。
-                                        よろしくお願いいたします。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #居酒屋#居酒屋#焼酎#焼酎好きな人と繋がりたい
-                                </div>
-                                <div id="TRANS_SNSCS495"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.03.31
-                                </div>
-                                <div class="caption">爆風</div>
-                                <div id="TRANS_SNSCS494"></div>
-                                <ul class="clearfix">
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.03.13
-                                </div>
-                                <div class="caption">2026/03/13
-                                        こんにちは
-                                        居酒屋です。
-
-                                        話題の芋焼酎居酒屋の2026年版『居酒屋
-                                        EP9』
-                                        入荷しました。
-                                        居酒屋は居酒屋にある居酒屋が手掛けるシリーズでフルーティーな香りが特徴の芋焼酎です
-                                        今年の居酒屋はマスカットの様なフルーティーな香りに花の香を思わせるフローラルな香りがプラスされました
-                                        とっても上品な香りです
-                                        炭酸割りで香りに包まれる感じをお楽しみください。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #居酒屋#焼酎#居酒屋#居酒屋#フルーティー
-                                </div>
-                                <div id="TRANS_SNSCS493"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#フルーティー</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.03.11
-                                </div>
-                                <div class="caption">2026/03/11
-                                        こんにちは
-                                        居酒屋です。
-
-                                        春限定の芋焼酎入荷です
-                                        居酒屋にある居酒屋さんの
-                                        『居酒屋』
-                                        居酒屋産の芋を原料に黄色麹で醸した
-                                        芋焼酎で華やかな香りとキレのある上品な甘さがある焼酎です。
-                                        ロックでキリッと飲むのも少し加水して香りを楽しむのもオススメです。
-                                        春限定焼酎を是非味わって下さい。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #居酒屋#焼酎#居酒屋#居酒屋#春
-                                </div>
-                                <div id="TRANS_SNSCS492"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#春</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.02.05
-                                </div>
-                                <div class="caption">2026/02/05
-                                        こんにちは
-                                        居酒屋です。
-
-                                        居酒屋にある居酒屋さんの
-                                        『居酒屋』入荷しました。
-                                        焼酎造りで重要な工程の一つである蒸留
-                                        その蒸留のタイミングを細かく分析し、芋の香りをリッチ抽出した革新的な本格焼酎です。
-                                        原料にジョイホワイト芋を使用してワイン酵母で
-                                        低温長期発酵してあります。
-                                        高級感のある甘い香りにスッキリした後味の焼酎に仕上がっています。
-                                        アルコール度数は40度としっかりした飲み応え
-                                        ストレートで高級感のある甘さを味わっても良し
-                                        炭酸割りでスッキリと飲むのも良しです
-
-                                        是非飲んでみてください。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #居酒屋#焼酎#居酒屋#居酒屋#焼酎好きな人と繋がりたい
-                                </div>
-                                <div id="TRANS_SNSCS491"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.02.01
-                                </div>
-                                <div class="caption">2026/02/01
-                                        こんにちは
-                                        居酒屋です。
-                                        2月のお休みをお知らせ致します
-                                        2月もよろしくお願いします😊
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #焼酎#居酒屋#居酒屋#焼酎好きな人と繋がりたい
-                                </div>
-                                <div id="TRANS_SNSCS490"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#焼酎好きな人と繋がりたい</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.01.22
-                                </div>
-                                <div class="caption">2026/01/22
-                                        こんにちは
-                                        居酒屋です
-
-                                        居酒屋にある居酒屋さんの
-                                        『居酒屋 いちご酒』入荷しました。
-                                        居酒屋の名産いちごをギュッと凝縮した
-                                        もっといちごが好きになる果実酒です
-                                        ストレートでもロックでも炭酸割りでも美味しく飲めます
-                                        是非飲んでみてください。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:日曜日
-                                        TEL:000-0000-0000
-
-                                        ＃居酒屋＃居酒屋＃居酒屋＃居酒屋＃いちご酒
-                                </div>
-                                <div id="TRANS_SNSCS489"></div>
-                                <ul class="clearfix">
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.01.14
-                                </div>
-                                <div class="caption">こんにちは
-                                        居酒屋です。
-                                        居酒屋で杜氏をしていた居酒屋さんが独立して、去年、居酒屋に新たに
-                                        『居酒屋
-                                        牛ノ根蒸留所』を誕生させましたその蔵の最初に醸造した3作品入荷しました
-                                        こちらは記念限定ボトルになります。
-
-                                        ・居酒屋 1stボトル (classical):
-                                        コガネセンガンと黒麹ベースの米麹を使用しています
-                                        伸びやかな余韻と澄んだバランスが特徴で湯割り推奨。
-
-                                        ・蜜滴KEND 1stボトル:
-                                        自社栽培の「紅ハルカ」を糖化熟成させた、蜜のような甘みとすっきりした後味、華やかな甘みと余韻が魅力。
-
-                                        ・PHOENIX 1stボトル:
-                                        白麹・黒麹を採用。高アルコールながら甘みと伸びやかな余韻が際立つ、記念碑的な一本。
-
-                                        是非新たに誕生した蔵の味を味わってみてください。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        ＃居酒屋＃居酒屋＃居酒屋</div>
-                                <div id="TRANS_SNSCS488"></div>
-                                <ul class="clearfix">
-                                </ul>
-                        </div>
-                </div>
-                <div>
-                        <div class="sns_photo">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                        <img
-                                             src="<?php echo esc_url(theme_source_uri('images/sns/IMG_404334.jpg')); ?>">
-                                </a>
-                        </div>
-                        
-                        <div class="sns_text">
-                                <div class="sns_date">2026.01.02
-                                </div>
-                                <div class="caption">2026/01/02
-                                        あけましておめでとうございます
-                                        居酒屋です。
-                                        本日から4日まで15:00から営業致します
-                                        お通しがお正月バージョンでちょっと豪華です
-                                        居酒屋の味エビ雑煮もご用意してます
-                                        お時間ございましたらお気軽にご利用ください。
-                                        本年もよろしくお願い致します。
-
-                                        居酒屋
-                                        火〜土曜日:17:00〜2:00
-                                        日曜日:15:00〜0:00
-                                        定休日:月曜日
-                                        TEL:000-0000-0000
-
-                                        #焼酎#お正月#japan#新年の挨拶#居酒屋
-                                </div>
-                                <div id="TRANS_SNSCS487"></div>
-                                <ul class="clearfix">
-                                        <li><a href="#" target="_blank" rel="noopener noreferrer">#居酒屋</a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-        </div>
-</div>
+<section class="news_sec" id="news">
+	<svg class="news_bg path_draw" viewBox="15 97.8 166.4 40" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true">
+		<path pathLength="1" d="m23.6 121.8c9.9-1.7 22.4-7.3 28.3-10.1 7.2-3.4 8.9-4.7 10.1-4.6 2 0.1 5.3 2.7 6.7 3.1 1.6 0.5 2.3-0.5 3.8 0.2s3.4 2.8 4.5 2.9c1 0.2 1.5-0.9 3.1-0.5 1.9 0.6 6.7 3.8 13.6 6 6.4 2.2 14.8 4.3 25.3 4.8"/>
+		<path pathLength="1" d="m85.9 128.8c-15.6-3-22.1-4.9-45.9-0.4"/>
+		<path pathLength="1" d="m26.1 127.2c18.4 0.8 27.3-3.7 37.7-6.5 11.1-2.9 15.2 0.2 25 3 12 3.6 21.4 5.2 32.4 4 7.1-0.7 14.3-3.4 18.7-4.7 11.1-3.7 14.6-6.6 26.5-5.6l8.2 1.6 0.4 0.1-0.4-0.1"/>
+		<path pathLength="1" d="m111.7 126.7c10.7-0.4 16.9-2.7 27.7-6.1 8.6-2.8 13.1-4.3 20.8-3.9 4.1 0.4 9.3 1.5 21.1 1.8"/>
+		<path pathLength="1" d="m96.5 116.3c7.9-1.1 13.2-5.3 15.9-6.5 1.5-0.6 2.1 0.2 3.8-0.5 1.8-0.7 6.2-3.6 7.5-4.4 2.3-1.2 2.9-0.6 4.7 0.5 3.3 2.1 2.9 2.3 5.2 1.8 1.5-0.1 1.9 0.2 3.3 1 3.3 2.1 6.5 4.4 8.4 5 2.2 0.9 2.6-0.4 3.9-0.3 1.3 0 1.9 1.1 3.7 1.2 2.1 0.1 3.8-1.3 6.2-1.4 3.5-0.1 9.8 3.6 22.2 5.7"/>
+	</svg>
+	<div class="wrap news_grid">
+		<div>
+			<div class="sec_head sm reveal-l">
+				<span class="en">News</span><svg class="sym"><use href="#sym-tri"></use></svg><span class="jp">お知らせ</span>
+			</div>
+		</div>
+		<div>
+			<div class="news_list paper50">
+				<?php if ( $news_posts ) : ?>
+					<?php foreach ( $news_posts as $index => $news_post ) : ?>
+						<?php
+						$image     = theme_content_image_data( $news_post->ID, 'images/lake2.jpg' );
+						$news_url  = (string) theme_content_meta( $news_post->ID, 'news_external_url', get_permalink( $news_post ) );
+						$news_target = '' !== (string) theme_content_meta( $news_post->ID, 'news_external_url', '' ) ? ' target="_blank" rel="noopener noreferrer"' : '';
+						?>
+						<a href="<?php echo esc_url( $news_url ); ?>"<?php echo $news_target; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="<?php echo 0 === $index % 2 ? 'reveal-r' : 'reveal-l'; ?>">
+							<div class="th"><img src="<?php echo esc_url( $image['url'] ); ?>" alt=""></div>
+							<span class="date"><?php echo esc_html( get_the_date( 'Y.m.d', $news_post ) ); ?></span>
+							<span class="tt"><?php echo esc_html( get_the_title( $news_post ) ); ?></span>
+						</a>
+					<?php endforeach; ?>
+				<?php else : ?>
+					<p class="news_empty">現在お知らせはございません。</p>
+				<?php endif; ?>
+			</div>
+			<div class="view_more_row reveal-l"><a class="view_more" href="<?php echo esc_url( $news_archive_url ); ?>">View More<span class="arrow"><span class="bar"></span><svg class="sym"><use href="#sym-tri"></use></svg></span></a></div>
+		</div>
+	</div>
+</section>
