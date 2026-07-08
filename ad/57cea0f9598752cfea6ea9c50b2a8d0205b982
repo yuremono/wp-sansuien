@@ -1,0 +1,27 @@
+tests/run.php
+  s_394dcf63539e6e::t_bbda49c5e73097 102,106,109-110,112,114,125-126,142-143
+  s_394dcf63539e6e::t_aed745cb02a296 5
+tests/bootstrap.php
+  s_394dcf63539e6e::t_5974e2c9e4c70e 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ad57cea0f9598752cfea6ea9c50b2a8d0205b982",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
