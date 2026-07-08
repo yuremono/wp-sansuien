@@ -2,7 +2,7 @@
 /**
  * Dependency-free theme test runner.
  *
- * @package Izakaya
+ * @package Theme
  */
 
 declare(strict_types=1);
@@ -99,23 +99,19 @@ theme_test(
 );
 
 theme_test(
-	'CPT and taxonomy registration matches section queries',
+	'CPT registration matches section queries',
 	static function (): void {
 		$cpt       = theme_test_file( 'inc/cpt.php' );
 		$templates = '';
-		foreach ( glob( THEME_TEST_ROOT . '/template-parts/{front,genshu,shochu,other,otsumami,insta,info}/*.php', GLOB_BRACE ) as $file ) {
+		foreach ( glob( THEME_TEST_ROOT . '/template-parts/front/*.php', GLOB_BRACE ) as $file ) {
 			$templates .= (string) file_get_contents( $file );
 		}
+		$templates .= theme_test_file( 'single-room.php' );
+		$templates .= theme_test_file( 'archive-room.php' );
 
-		foreach ( array( 'drink', 'food', 'news' ) as $post_type ) {
+		foreach ( array( 'room', 'news' ) as $post_type ) {
 			theme_assert( str_contains( $cpt, "'{$post_type}'" ), "Missing CPT {$post_type}" );
-		}
-		foreach ( array( 'drink_category', 'food_category', 'news_category' ) as $taxonomy ) {
-			theme_assert( str_contains( $cpt, "'{$taxonomy}'" ), "Missing taxonomy {$taxonomy}" );
-			theme_assert( str_contains( $templates, "'{$taxonomy}'" ), "Taxonomy {$taxonomy} is not queried by a section" );
-		}
-		foreach ( array( 'genshu', 'imo', 'mugi', 'kome', 'kokuto', 'other', 'charcoal', 'featured', 'instagram' ) as $term ) {
-			theme_assert( str_contains( $cpt, "'{$term}'" ), "Missing default term {$term}" );
+			theme_assert( str_contains( $templates, "'{$post_type}'" ), "CPT {$post_type} is not queried by a section" );
 		}
 	}
 );
@@ -126,10 +122,8 @@ theme_test(
 		$source = theme_test_file( 'inc/acf-pages.php' );
 		theme_assert( str_contains( $source, "function_exists( 'acf_add_local_field_group' )" ), 'ACF field registration must be guarded' );
 		theme_assert( str_contains( $source, "function_exists( 'acf_add_options_page' )" ), 'ACF options registration must be guarded' );
-		foreach ( array( 'front', 'genshu', 'shochu', 'other', 'otsumami', 'insta', 'info' ) as $page ) {
-			theme_assert( str_contains( $source, "'{$page}'" ), "Missing ACF page group {$page}" );
-		}
-		foreach ( array( 'drink', 'food', 'news' ) as $post_type ) {
+		theme_assert( str_contains( $source, "'group_theme_page_front'" ), 'Missing ACF front page group' );
+		foreach ( array( 'room', 'news' ) as $post_type ) {
 			theme_assert( str_contains( $source, "'{$post_type}'" ), "Missing ACF CPT group {$post_type}" );
 		}
 	}
@@ -145,8 +139,8 @@ theme_test(
 		theme_assert( str_contains( $source, 'theme_tools_find_menu_item' ), 'Bootstrap must avoid duplicate menu items' );
 		theme_assert( ! str_contains( $source, 'wp_delete_post(' ), 'Bootstrap must not delete posts' );
 		theme_assert( ! str_contains( $source, 'wp_delete_nav_menu(' ), 'Bootstrap must not delete menus' );
-		theme_assert( str_contains( $source, "'post_type' => 'news'" ), 'Bootstrap example must use the registered news CPT' );
-		theme_assert( str_contains( $source, "'news_category'" ), 'Bootstrap example must use the registered news taxonomy' );
+		theme_assert( str_contains( $source, "post_type'  => 'room'" ), 'Bootstrap example must reference the registered room CPT' );
+		theme_assert( str_contains( $source, "post_type'  => 'news'" ), 'Bootstrap example must reference the registered news CPT' );
 	}
 );
 

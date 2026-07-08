@@ -2,7 +2,7 @@
 /**
  * Dependency-free test bootstrap.
  *
- * @package Izakaya
+ * @package Theme
  */
 
 declare(strict_types=1);
