@@ -1,33 +1,31 @@
 <?php
 /**
- * Safely bootstrap the Izakaya Local WordPress site.
+ * Safely bootstrap the Sansuien Local WordPress site.
  *
  * Run with:
- * THEME_BOOTSTRAP_CONFIRM=izakaya-local tools-domain/run-bootstrap-site.example.sh
+ * THEME_BOOTSTRAP_CONFIRM=sansuien-local tools-domain/run-bootstrap-site.example.sh
  *
- * @package Izakaya
+ * @package Theme
  */
 
 declare(strict_types=1);
 
 $config = array(
-	'confirmation' => 'izakaya-local',
-	'expected_url' => 'http://localhost:10018',
-	'theme_slug'   => '0606wp-izakaya',
+	'confirmation' => 'sansuien-local',
+	'expected_url' => 'http://localhost:10023',
+	'theme_slug'   => 'sansuien',
 	'menus'        => array(
-		'primary' => '居酒屋 メインナビゲーション',
-		'footer'  => '居酒屋 フッターナビゲーション',
+		'primary' => '山翠苑 メインナビゲーション',
+		'footer'  => '山翠苑 フッターナビゲーション',
 	),
 	'options'      => array(
-		'field_theme_shop_name'         => '居酒屋',
-		'field_theme_shop_phone'        => '000-0000-0000',
-		'field_theme_shop_contact_url'  => '/info/',
-		'field_theme_shop_postcode'     => '〒000-0000',
-		'field_theme_shop_address'      => '東京都何何区何々市何々町０−０−０',
-		'field_theme_shop_hours'        => "火～土曜日17:00～2:00\n日曜日15:00～0:00",
-		'field_theme_shop_closed'       => '月曜日',
-		'field_theme_shop_map_embed_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1662873.2451231668!2d139.7698121!3d35.50924045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x605d1b87f02e57e7%3A0x2e01618b22571b89!2z5p2x5Lqs6YO9!5e0!3m2!1sja!2sjp!4v1780738443365!5m2!1sja!2sjp',
-		'field_theme_shop_instagram_url' => '#',
+		'field_theme_shop_name'            => '山翠苑',
+		'field_theme_shop_phone'           => '0261-00-0000',
+		'field_theme_shop_contact_url'     => '#reserve',
+		'field_theme_shop_address'         => '長野県青木湖畔 ○○温泉郷',
+		'field_theme_shop_access_note'     => 'JR大糸線「簗場駅」より送迎バスで約8分(要予約)',
+		'field_theme_shop_reception_hours' => '9:00〜18:00',
+		'field_theme_shop_instagram_url'   => '#',
 	),
 	'front'        => array(
 		'slug'     => 'home',
@@ -35,123 +33,58 @@ $config = array(
 		'template' => 'page-templates/top.php',
 		'meta'     => array(),
 		'acf'      => array(
-			'field_theme_front_heading'      => "焼酎をゆっくり楽しめる居酒屋です。\n落ち着いた雰囲気でゆっくりと焼酎を楽しめるお店です。\n当店では１００銘柄以上の焼酎を揃えていますので、\nお好みの香りや、味を言っていただければお客様に合った焼酎をご提供いたします。",
-			'field_theme_front_lead'         => '日頃、焼酎をあまり飲まない方でもお気軽に立ち寄っていただき、焼酎についてなんでも質問してください。<br>店名はテーマ名に合わせて「居酒屋」としています。<br>是非、居酒屋でお好みの焼酎と出会い、素敵な時間をお過ごしください。',
-			'field_theme_front_cta_label'    => '詳しく見る',
-			'field_theme_front_other_eyebrow' => 'Other',
-			'field_theme_front_other_heading'  => 'その他のお酒',
-			'field_theme_front_other_url'      => '/other/',
-			'field_theme_front_otsumami_eyebrow' => 'Otsumami',
-			'field_theme_front_otsumami_heading'  => 'おつまみ',
-			'field_theme_front_otsumami_url'      => '/otsumami/',
-			'field_theme_front_section_body'   => '皆さんがよく見かける焼酎は<br>25度や20度のものが多いと思いますが、<br>それらの焼酎は原酒に水を加えることによって<br>度数を調整しています。<br>水や添加物を一切加えない状態のお酒のことを<br>原酒と呼びます。',
-		),
-	),
-	'pages'        => array(
-		array(
-			'slug'     => 'genshu',
-			'title'    => '焼酎の原酒',
-			'template' => 'page-templates/genshu.php',
-			'meta'     => array(),
-			'acf'      => array(
-				'field_theme_genshu_eyebrow'    => 'Genshu',
-				'field_theme_genshu_heading'    => '焼酎の原酒',
-				'field_theme_genshu_lead'       => '皆さんがよく見かける焼酎は25度や20度のものが多いと思いますが、<br>それらの焼酎は原酒に水を加えることによって度数を調整しています。<br>水や添加物を一切加えない状態のお酒のことを原酒と呼びます。<br>しっかりしたアルコール感に、単式蒸留という日本の蒸留技術が成せる<br>深い香り、味が特徴的です。<br>ぜひ飲んでみて、海外の蒸留酒にも全く引けをとらない、抜群の飲みごたえを感じてください。',
-				'field_theme_genshu_cta_label'  => 'お問い合わせ',
-				'field_theme_genshu_cta_url'    => '/info/',
-			),
-		),
-		array(
-			'slug'     => 'shochu',
-			'title'    => '本格焼酎',
-			'template' => 'page-templates/shochu.php',
-			'meta'     => array(),
-			'acf'      => array(
-				'field_theme_shochu_eyebrow'    => 'Shochu',
-				'field_theme_shochu_heading'    => '本格焼酎',
-				'field_theme_shochu_section_heading' => '本格焼酎とは',
-				'field_theme_shochu_lead'       => '当店で扱っている焼酎は本格焼酎と言われるものです。<br>連続式蒸留機を使用して純粋なアルコール分を取り出したものではなく<br>単式蒸留機を使用してじっくりと蒸留していくことで出来る焼酎で、本格焼酎には原料の芋、米、麦などの風味が豊かで、深い味わいが楽しめます。<br>ぜひ一度、じっくりと本格焼酎の深い味わいを楽しんでみてください。',
-				'field_theme_shochu_cta_label'  => 'お問い合わせ',
-				'field_theme_shochu_cta_url'    => '/info/',
-				'field_theme_shochu_imo_heading' => '芋焼酎',
-				'field_theme_shochu_imo_body'    => '芋焼酎は、九州地方発祥の贅沢な焼酎です。<br>その特徴は、芋の風味豊かな香りと滑らかな口当たり。<br>焼酎愛好家にとって、この芋焼酎は絶対に欠かせない逸品です。<br>伝統的な製法とこだわりの材料が、美味しさを引き立てます。<br>日本の文化と歴史を感じながら、<br>芋焼酎を楽しむ贅沢なひとときをお楽しみください。',
-				'field_theme_shochu_mugi_heading' => '麦焼酎',
-				'field_theme_shochu_mugi_body'    => '麦焼酎は、日本の伝統的な蒸留酒で、主に麦から作られます。<br>その滑らかな味わいと香りは、麦の風味を引き立て、多くの人々に愛されています。<br>飲み方は様々で、ストレートやお湯割り、カクテルのベースとして楽しまれます。<br>麦焼酎は日本酒と同様、日本の酒文化の一環として、<br>料理との相性も抜群で、日本の食事をより楽しいものにします。',
-				'field_theme_shochu_kome_heading' => '米焼酎',
-				'field_theme_shochu_kome_body'   => '米焼酎は、日本の蒸留酒の一つで、主に米から醸造されます。<br>その特徴は、穏やかな風味とクリーンな味わい。<br>米の独特の甘さと香りを楽しむことができ、<br>ロックや水割り、カクテルのベースとして幅広い楽しみ方があります。<br>日本料理との相性が抜群で、豊かな米の風味と料理の組み合わせは、<br>日本食の愛好者にとって極上の経験となります。',
-				'field_theme_shochu_kokuto_heading' => '黒糖焼酎',
-				'field_theme_shochu_kokuto_body'   => '黒糖焼酎は、サトウキビの黒糖から醸造される、深い甘さとコクを持つ焼酎です。',
-				'field_theme_shochu_other_heading' => 'その他の焼酎',
-				'field_theme_shochu_other_body'   => '焼酎は主要原料をベースに色々なものから造られます。<br>ちょっと変わった味の焼酎を是非味わってみてください。',
-			),
-		),
-		array(
-			'slug'     => 'other',
-			'title'    => 'その他のお酒',
-			'template' => 'page-templates/other.php',
-			'meta'     => array(),
-			'acf'      => array(
-				'field_theme_other_eyebrow'    => 'Other',
-				'field_theme_other_heading'    => 'その他のお酒',
-				'field_theme_other_section_heading' => 'その他のお酒',
-				'field_theme_other_cta_label'   => 'お問い合わせ',
-				'field_theme_other_cta_url'     => '/info/',
-			),
-		),
-		array(
-			'slug'     => 'otsumami',
-			'title'    => 'おつまみ',
-			'template' => 'page-templates/otsumami.php',
-			'meta'     => array(),
-			'acf'      => array(
-				'field_theme_otsumami_eyebrow'    => 'Otsumami',
-				'field_theme_otsumami_heading'    => 'おつまみ',
-				'field_theme_otsumami_section_body' => '卓上用の小さなコンロを使い炭火で炙っておつまみをお召し上がりいただけます。<br>じっくりと炭火で炙ったおつまみを食べながら焼酎を飲み、贅沢な時間を過ごして下さい。',
-				'field_theme_otsumami_cta_label'  => 'お問い合わせ',
-				'field_theme_otsumami_cta_url'    => '/info/',
-			),
-		),
-		array(
-			'slug'     => 'insta',
-			'title'    => 'お知らせ',
-			'template' => 'page-templates/insta.php',
-			'meta'     => array(),
-			'acf'      => array(
-				'field_theme_insta_eyebrow'    => 'Instagram',
-				'field_theme_insta_heading'    => 'お知らせ',
-				'field_theme_insta_lead'       => '焼酎の紹介や予約状況などを日々更新しています。<br>画像をクリックするとInstagramに移動しますので合わせてご利用ください。',
-			),
-		),
-		array(
-			'slug'     => 'info',
-			'title'    => '店舗案内',
-			'template' => 'page-templates/info.php',
-			'meta'     => array(),
-			'acf'      => array(
-				'field_theme_info_eyebrow'    => 'Info',
-				'field_theme_info_heading'    => '店舗案内',
-				'field_theme_info_section_heading' => '居酒屋',
-			),
+			'field_theme_front_hero_eyebrow'   => 'HAVE A QUIET TIME BY THE LAKE — EST. 1972',
+			'field_theme_front_hero_heading'   => "水と緑に抱かれて、\n心をほどく一夜を。",
+			'field_theme_front_hero_lead'      => "湖畔にたたずむ全十二室の小さな宿。\n季節の湯と土地の恵みで、静かな時間をご用意しております。",
+			'field_theme_front_rooms_heading'  => "湖に向かって開かれた、\n全十二室のしつらえ。",
+			'field_theme_front_rooms_body'     => '露天風呂付き特別室「蒼」をはじめ、湖viewの和洋室、庭園沿いの和室まで。どの部屋も窓の外の景色を主役に、余計なものを置かないしつらえです。',
+			'field_theme_front_onsen_heading'  => "湯けむりの向こうに、\n湖と山のいとなみ。",
+			'field_theme_front_onsen_body'     => '大浴場と展望風呂のほか、貸切の露天風呂をご用意。朝は湖面の霧、夜は星空。季節と時間で表情を変える湯浴みをお楽しみください。',
+			'field_theme_front_cuisine_heading' => "土地の恵みを、\n囲炉裏の火とともに。",
+			'field_theme_front_cuisine_body'   => '信州の山菜や湖の幸を中心にした季節の会席。夕食後は炭火の灯る囲炉裏ラウンジで、地酒とともにゆっくりとお過ごしください。',
+			'field_theme_front_about_heading'  => "創業から半世紀、\n湖畔とともに。",
+			'field_theme_front_about_body'     => '創業から半世紀、湖畔の自然と地元の恵みを活かしたおもてなしを大切にしてまいりました。派手さはございませんが、また帰ってきたくなる——そんな宿でありたいと願っております。',
+			'field_theme_front_about_okami_name' => '川井 美和子',
+			'field_theme_front_about_okami_role' => 'OKAMI 女将',
+			'field_theme_front_about_chef_name'  => '佐伯 隆',
+			'field_theme_front_about_chef_role'  => 'ITACHO 板長',
 		),
 	),
 	/*
-	 * Add records after the theme registers the corresponding post type and
-	 * taxonomy. Stable keys prevent duplicate posts on repeated execution.
+	 * 山翠苑では焼酎業態のような追加固定ページは存在しない
+	 * （トップページ内アンカーと客室CPTの一覧/個別だけで全ページを再現できる）。
+	 */
+	'pages'        => array(),
+	/*
+	 * Add records after the theme registers the corresponding post type.
+	 * Stable keys prevent duplicate posts on repeated execution.
 	 */
 	'content'      => array(
 		/*
 		array(
-			'post_type' => 'news',
-			'stable_key' => 'opening-notice',
-			'title' => '営業のお知らせ',
-			'content' => '',
+			'post_type'  => 'room',
+			'stable_key' => 'room-ao',
+			'title'      => '露天風呂付き特別室「蒼」',
+			'content'    => '湖を望む角部屋に配した、当宿で最も人気の高い特別室です。',
 			'menu_order' => 0,
-			'meta' => array(),
-			'terms' => array(
-				'news_category' => array(
-					array( 'slug' => 'instagram', 'name' => 'Instagram' ),
-				),
+			'meta'       => array(
+				'room_catch'        => 'Special Room "AO"',
+				'room_tags'         => '貸切露天風呂付,湖側テラス,禁煙,Wi-Fi完備',
+				'room_size'         => '52㎡(和洋室)',
+				'room_amenities'    => '貸切露天風呂・冷蔵庫・空気清浄機・浴衣2枚',
+				'room_checkin_out'  => '15:00〜 / 11:00まで',
+				'room_rate_weekday' => '¥32,000〜',
+				'room_rate_holiday' => '¥38,000〜',
+				'room_capacity'     => '2〜3名',
 			),
+		),
+		array(
+			'post_type'  => 'news',
+			'stable_key' => 'opening-notice',
+			'title'      => '夏季限定「蛍狩りプラン」販売開始のお知らせ',
+			'content'    => '',
+			'menu_order' => 0,
+			'meta'       => array(),
 		),
 		*/
 	),
@@ -338,24 +271,6 @@ function theme_tools_sync_menu( string $location, string $menu_name, array $page
 	return $menu_id;
 }
 
-function theme_tools_upsert_term( string $taxonomy, array $term ): int {
-	if ( ! taxonomy_exists( $taxonomy ) ) {
-		theme_tools_fail( "taxonomy が登録されていません: {$taxonomy}" );
-	}
-
-	$existing = get_term_by( 'slug', $term['slug'], $taxonomy );
-	if ( $existing instanceof WP_Term ) {
-		return (int) $existing->term_id;
-	}
-
-	$result = wp_insert_term( $term['name'], $taxonomy, array( 'slug' => $term['slug'] ) );
-	if ( is_wp_error( $result ) ) {
-		theme_tools_fail( "taxonomy term を作成できませんでした: {$taxonomy}/{$term['slug']}" );
-	}
-
-	return (int) $result['term_id'];
-}
-
 function theme_tools_upsert_content( array $item ): int {
 	$post_type = (string) $item['post_type'];
 	if ( ! post_type_exists( $post_type ) ) {
@@ -395,14 +310,6 @@ function theme_tools_upsert_content( array $item ): int {
 	}
 
 	theme_tools_fill_empty_meta( $post_id, $item['meta'] ?? array() );
-
-	foreach ( $item['terms'] ?? array() as $taxonomy => $terms ) {
-		$term_ids = array();
-		foreach ( $terms as $term ) {
-			$term_ids[] = theme_tools_upsert_term( (string) $taxonomy, $term );
-		}
-		wp_set_object_terms( $post_id, $term_ids, (string) $taxonomy, true );
-	}
 
 	return $post_id;
 }

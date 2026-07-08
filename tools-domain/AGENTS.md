@@ -6,8 +6,8 @@
 
 1. このリポジトリ自体を直接案件用に書き換えず、ディレクトリ全体をコピーする。
 2. `bootstrap-site.example.php` 冒頭のURL、テーマslug、ページ、メニュー、初期データを確認する。
-3. `THEME_BOOTSTRAP_CONFIRM=izakaya-local` を明示し、対象URLが `http://localhost:10018` であることを確認して実行する。
-4. 本番用 `DEPLOY_PATH` は未確定。サーバー上の絶対パスを確認するまで設定・実行しない。
+3. `THEME_BOOTSTRAP_CONFIRM=sansuien-local` を明示し、対象URLが `http://localhost:10023` であることを確認して実行する。
+4. 本番用 `DEPLOY_PATH` は `/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien`（確定済み、詳細は DEPLOYMENT.md）。
 
 ## ファイル
 
