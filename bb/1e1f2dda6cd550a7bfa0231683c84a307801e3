@@ -1,0 +1,33 @@
+README.md
+  s_394dcf63539e6e::t_f6b2bd89dd2c86 3,9-11,15,46
+  s_394dcf63539e6e::t_5b6902db65d533 1,7-8,16-19,22-23,25,27,31-33,36
+composer.json
+  s_394dcf63539e6e::t_f86fb1cdaf5d44 2-3
+package.json
+  s_394dcf63539e6e::t_76b15cb6cc3bf4 11,24
+  s_394dcf63539e6e::t_99b66a4fc836f8 2,4,15,22
+docs/sansuien.md
+  s_394dcf63539e6e::t_3d6ed17a5e23a5 13,26,39,46,66,78,97,99,105-114,120,122-123,128-129,135,140-141,162,172,190,198,213-218,260,263,266
+  s_394dcf63539e6e::t_6b3348c72828b6 1-10,14-25,27-37,40-42,48-65,73,79,85-94,100-104,115-118,121,124-127,130-134,139,142-160,166-171,175-187,192-197,201-206,212,220-259,261-262,264,270-289
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "bb1e1f2dda6cd550a7bfa0231683c84a307801e3",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
