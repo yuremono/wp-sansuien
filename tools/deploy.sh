@@ -75,6 +75,7 @@ fi
 
 theme_rsync_excludes() {
 	cat <<'EOF'
+--exclude=.claude/
 --exclude=.codex/
 --exclude=.git/
 --exclude=.github/
