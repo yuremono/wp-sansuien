@@ -15,7 +15,7 @@
 | 実際の site_url | `http://yuremono.com/sansuien` |
 | SSH host | `xs966275.xsrv.jp` |
 | SSH user | `xs966275` |
-| SSH port | `10023` |
+| SSH port | `10022` |
 | WordPressルート | `/home/xs966275/yuremono.com/public_html/sansuien` |
 | `DEPLOY_PATH` | `/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien` |
 
@@ -235,7 +235,7 @@ dry-run:
 ```bash
 DEPLOY_HOST=xs966275.xsrv.jp \
 DEPLOY_USER=xs966275 \
-DEPLOY_PORT=10023 \
+DEPLOY_PORT=10022 \
 DEPLOY_PATH=/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien \
 tools-domain/deploy-theme.example.sh
 ```
@@ -245,7 +245,7 @@ apply:
 ```bash
 DEPLOY_HOST=xs966275.xsrv.jp \
 DEPLOY_USER=xs966275 \
-DEPLOY_PORT=10023 \
+DEPLOY_PORT=10022 \
 DEPLOY_PATH=/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien \
 tools-domain/deploy-theme.example.sh --apply
 ```

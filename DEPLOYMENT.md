@@ -6,7 +6,7 @@
 - 実際の site_url: `http://yuremono.com/sansuien`
 - SSH host: `xs966275.xsrv.jp`
 - SSH user: `xs966275`
-- SSH port: `10023`
+- SSH port: `10022`
 - テーマslug: `sansuien`
 - WordPressルート: `/home/xs966275/yuremono.com/public_html/sansuien`
 - 本番 `DEPLOY_PATH`: `/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien`

@@ -4,10 +4,6 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-THEME_SLUG="${DEPLOY_THEME_SLUG:-$(basename "${ROOT_DIR}")}"
-ZIP_NAME="${DEPLOY_ZIP_NAME:-${THEME_SLUG}-theme.zip}"
-ZIP_PATH="${ROOT_DIR}/dist/${ZIP_NAME}"
-DEFAULT_IMPORT_XML="${ROOT_DIR}/exports/sansuien-wp-content.xml"
 
 if [[ -f "${ROOT_DIR}/.env.deploy" ]]; then
 	set -a
@@ -15,6 +11,11 @@ if [[ -f "${ROOT_DIR}/.env.deploy" ]]; then
 	source "${ROOT_DIR}/.env.deploy"
 	set +a
 fi
+
+THEME_SLUG="${DEPLOY_THEME_SLUG:-$(basename "${ROOT_DIR}")}"
+ZIP_NAME="${DEPLOY_ZIP_NAME:-${THEME_SLUG}-theme.zip}"
+ZIP_PATH="${ROOT_DIR}/dist/${ZIP_NAME}"
+DEFAULT_IMPORT_XML="${ROOT_DIR}/exports/sansuien-wp-content.xml"
 
 discover_php() {
 	local candidate
