@@ -1,0 +1,36 @@
+tools-domain/deploy-theme.example.sh
+  s_394dcf63539e6e::t_4217c984457fc2 7-8
+PLAN-SANSUIEN.md
+  s_394dcf63539e6e::t_fb5ccec5c23791 52-58
+  s_394dcf63539e6e::t_b6777c9ca5e834 49
+  s_394dcf63539e6e::t_ffee507ae54596 63-322
+  s_394dcf63539e6e::t_9ef3a43421232b 43-48,50-51,59-61
+tools-domain/bootstrap-site.example.php
+  s_394dcf63539e6e::t_1d342e3bde6dab 16
+  s_394dcf63539e6e::t_e7b59ae9429a4b 15
+  s_394dcf63539e6e::t_7c654f98be4fcc 3,6,8,14,18-19,22-28,36-50,54-60,65-68,70-78,81-88
+tools-domain/AGENTS.md
+  s_394dcf63539e6e::t_4cc835ecb4147c 9
+  s_394dcf63539e6e::t_f8e03089d2f8be 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a4109ad3e6bcfb189dc58be9a8d45d02f34b7ffc",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
