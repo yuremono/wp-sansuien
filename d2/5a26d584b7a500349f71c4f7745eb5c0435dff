@@ -1,0 +1,56 @@
+template-parts/front/closing.php
+  s_394dcf63539e6e::t_8322aa01e050e3 19,21
+.gitignore
+  s_394dcf63539e6e::t_594c932e7993c0 15
+inc/setup.php
+  s_394dcf63539e6e::t_8322aa01e050e3 43-65,100-104,107-108,110-119
+  s_394dcf63539e6e::t_4fbf1f018cf2c4 42,66-99,105-106,109
+template-parts/front/feature.php
+  s_394dcf63539e6e::t_8322aa01e050e3 14
+inc/acf-pages.php
+  s_394dcf63539e6e::t_8322aa01e050e3 79-107,244,263,267,275
+template-parts/single-room-content.php
+  s_394dcf63539e6e::t_8322aa01e050e3 1-136
+single.php
+  s_394dcf63539e6e::t_8322aa01e050e3 1-34
+tools-domain/migrate-room-news-to-post.php
+  s_394dcf63539e6e::t_8322aa01e050e3 1-113
+tools-domain/bootstrap-site.example.php
+  s_394dcf63539e6e::t_37a851898bb2af 435-438,443,455,469,473
+  s_394dcf63539e6e::t_d3a552b7b7b9f0 65,89,100,111,122,132,142
+  s_394dcf63539e6e::t_4b9d721f91b32c 520,523
+assets/css/style.css
+  s_394dcf63539e6e::t_6b965182094cd3 277-284
+inc/template-tags.php
+  s_394dcf63539e6e::t_8322aa01e050e3 34,36,116,118,122-123,130-131,146-165,229,231
+docs/archive-cpt-acf-decision.md
+  s_394dcf63539e6e::t_1bcede2dbfdcf3 1-67
+template-parts/single-post-content.php
+  s_394dcf63539e6e::t_8322aa01e050e3 1-42
+tests/run.php
+  s_394dcf63539e6e::t_4cc39a25e8d007 154-156
+  s_394dcf63539e6e::t_8322aa01e050e3 92,95-97,104,106-111,116-123,129,135-139
+category-room.php
+  s_394dcf63539e6e::t_8322aa01e050e3 1-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d25a26d584b7a500349f71c4f7745eb5c0435dff",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
