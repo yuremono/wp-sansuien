@@ -62,7 +62,7 @@ $config = array(
 	 */
 	'content'      => array(
 		array(
-			'post_type'  => 'room',
+			'category'   => 'room',
 			'stable_key' => 'room-ao',
 			'title'      => '露天風呂付き特別室「蒼」',
 			'content'    => '湖を望む角部屋に配した、当宿で最も人気の高い特別室です。専用の露天風呂からは四季折々の湖畔の景色をひとり占めいただけます。テラスにご用意した籐椅子で、朝の澄んだ空気とともにゆったりとした時間をお過ごしください。',
@@ -86,7 +86,7 @@ $config = array(
 			),
 		),
 		array(
-			'post_type'  => 'room',
+			'category'   => 'room',
 			'stable_key' => 'room-lakeview',
 			'title'      => '湖view客室・和洋室',
 			'content'    => '',
@@ -97,7 +97,7 @@ $config = array(
 			),
 		),
 		array(
-			'post_type'  => 'room',
+			'category'   => 'room',
 			'stable_key' => 'room-garden',
 			'title'      => '庭園沿い和室',
 			'content'    => '',
@@ -108,7 +108,7 @@ $config = array(
 			),
 		),
 		array(
-			'post_type'  => 'room',
+			'category'   => 'room',
 			'stable_key' => 'room-standard',
 			'title'      => 'スタンダード和室',
 			'content'    => '',
@@ -119,7 +119,7 @@ $config = array(
 			),
 		),
 		array(
-			'post_type'  => 'news',
+			'category'   => 'news',
 			'stable_key' => 'news-hotaru',
 			'title'      => '夏季限定「蛍狩りプラン」販売開始のお知らせ',
 			'content'    => '',
@@ -129,7 +129,7 @@ $config = array(
 			'meta'       => array(),
 		),
 		array(
-			'post_type'  => 'news',
+			'category'   => 'news',
 			'stable_key' => 'news-wifi',
 			'title'      => '館内Wi-Fi環境をリニューアルいたしました',
 			'content'    => '',
@@ -139,7 +139,7 @@ $config = array(
 			'meta'       => array(),
 		),
 		array(
-			'post_type'  => 'news',
+			'category'   => 'news',
 			'stable_key' => 'news-obon',
 			'title'      => 'お盆期間の営業時間についてのお知らせ',
 			'content'    => '',
@@ -432,14 +432,15 @@ function theme_tools_import_theme_image( string $relative_path ): int {
 }
 
 function theme_tools_upsert_content( array $item ): int {
-	$post_type = (string) $item['post_type'];
-	if ( ! post_type_exists( $post_type ) ) {
-		theme_tools_fail( "CPT が登録されていません: {$post_type}" );
+	$category_slug = (string) $item['category'];
+	$term          = get_term_by( 'slug', $category_slug, 'category' );
+	if ( ! ( $term instanceof WP_Term ) ) {
+		theme_tools_fail( "カテゴリーが見つかりません: {$category_slug}（テーマ有効化後に theme_ensure_content_categories() で作成されるはずです）" );
 	}
 
 	$existing = get_posts(
 		array(
-			'post_type'      => $post_type,
+			'post_type'      => 'post',
 			'post_status'    => 'any',
 			'posts_per_page' => 1,
 			'fields'         => 'ids',
@@ -451,7 +452,7 @@ function theme_tools_upsert_content( array $item ): int {
 
 	if ( ! $post_id ) {
 		$post_args = array(
-			'post_type'    => $post_type,
+			'post_type'    => 'post',
 			'post_status'  => 'publish',
 			'post_title'   => $item['title'],
 			'post_name'    => $item['stable_key'],
@@ -465,10 +466,11 @@ function theme_tools_upsert_content( array $item ): int {
 
 		$post_id = wp_insert_post( wp_slash( $post_args ), true );
 		if ( is_wp_error( $post_id ) || ! $post_id ) {
-			theme_tools_fail( "CPT初期投稿を作成できませんでした: {$post_type}/{$item['stable_key']}" );
+			theme_tools_fail( "初期投稿を作成できませんでした: {$category_slug}/{$item['stable_key']}" );
 		}
 		$post_id = (int) $post_id;
 		update_post_meta( $post_id, '_theme_seed_key', $item['stable_key'] );
+		wp_set_post_categories( $post_id, array( (int) $term->term_id ), false );
 	}
 
 	theme_tools_fill_empty_meta( $post_id, $item['meta'] ?? array() );
@@ -515,11 +517,10 @@ update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $front_id );
 
 /*
- * ヘッダー・フッター共通ナビ。客室のご案内はCPTアーカイブ、他はトップページ内アンカー。
+ * ヘッダー・フッター共通ナビ。客室のご案内は「客室」カテゴリーのアーカイブ、他はトップページ内アンカー。
  * 静的ソース tmp/sansuien/preview/index.html の <nav class="gnav"> / <nav class="fnav"> に対応。
  */
-$room_archive_url = get_post_type_archive_link( 'room' );
-$room_archive_url = $room_archive_url ? $room_archive_url : home_url( '/room/' );
+$room_archive_url = theme_category_url( 'room', home_url( '/room/' ) );
 $nav_links         = array(
 	array(
 		'title' => '客室のご案内',

@@ -89,42 +89,54 @@ theme_test(
 );
 
 theme_test(
-	'Functions loads CPT and ACF registration files',
+	'Functions no longer requires the removed CPT file and still loads setup/ACF files',
 	static function (): void {
 		$source = theme_test_file( 'functions.php' );
-		theme_assert( str_contains( $source, "'/inc/cpt.php'" ), 'CPT file is not required' );
+		theme_assert( ! str_contains( $source, "'/inc/cpt.php'" ), 'Removed CPT file must not be required' );
+		theme_assert( ! file_exists( THEME_TEST_ROOT . '/inc/cpt.php' ), 'inc/cpt.php should be deleted; content types were replaced by post categories' );
+		theme_assert( str_contains( $source, "'/inc/setup.php'" ), 'Setup file (category bootstrap) is not required' );
 		theme_assert( str_contains( $source, "'/inc/acf-pages.php'" ), 'ACF file is not required' );
 		theme_assert( strpos( $source, "'/inc/template-tags.php'" ) < strpos( $source, "'/inc/setup.php'" ), 'Template helpers must load before setup callbacks' );
 	}
 );
 
 theme_test(
-	'CPT registration matches section queries',
+	'Content categories are bootstrapped non-destructively and match section queries',
 	static function (): void {
-		$cpt       = theme_test_file( 'inc/cpt.php' );
+		$setup = theme_test_file( 'inc/setup.php' );
+		theme_assert( str_contains( $setup, 'theme_ensure_content_categories' ), 'Missing category bootstrap function' );
+		theme_assert( str_contains( $setup, "term_exists( \$slug, 'category' )" ), 'Category bootstrap must check for existing terms before inserting' );
+		theme_assert( str_contains( $setup, 'wp_insert_term(' ), 'Category bootstrap must create missing categories' );
+		theme_assert( str_contains( $setup, "add_action( 'init', 'theme_ensure_content_categories', 1 )" ), 'Category bootstrap must run early on init (before acf/init at priority 5)' );
+
 		$templates = '';
 		foreach ( glob( THEME_TEST_ROOT . '/template-parts/front/*.php', GLOB_BRACE ) as $file ) {
 			$templates .= (string) file_get_contents( $file );
 		}
-		$templates .= theme_test_file( 'single-room.php' );
-		$templates .= theme_test_file( 'archive-room.php' );
+		$templates .= theme_test_file( 'single.php' );
+		$templates .= theme_test_file( 'template-parts/single-room-content.php' );
+		$templates .= theme_test_file( 'template-parts/single-post-content.php' );
+		$templates .= theme_test_file( 'category-room.php' );
 
-		foreach ( array( 'room', 'news' ) as $post_type ) {
-			theme_assert( str_contains( $cpt, "'{$post_type}'" ), "Missing CPT {$post_type}" );
-			theme_assert( str_contains( $templates, "'{$post_type}'" ), "CPT {$post_type} is not queried by a section" );
+		foreach ( array( 'room', 'news' ) as $slug ) {
+			theme_assert( str_contains( $setup, "'{$slug}'" ), "Missing content category {$slug}" );
+			theme_assert( str_contains( $templates, "'{$slug}'" ), "Category {$slug} is not queried by a section" );
 		}
 	}
 );
 
 theme_test(
-	'ACF registration is guarded and covers page and CPT structures',
+	'ACF registration is guarded and covers page and post-category structures',
 	static function (): void {
 		$source = theme_test_file( 'inc/acf-pages.php' );
 		theme_assert( str_contains( $source, "function_exists( 'acf_add_local_field_group' )" ), 'ACF field registration must be guarded' );
 		theme_assert( str_contains( $source, "function_exists( 'acf_add_options_page' )" ), 'ACF options registration must be guarded' );
 		theme_assert( str_contains( $source, "'group_theme_page_front'" ), 'Missing ACF front page group' );
-		foreach ( array( 'room', 'news' ) as $post_type ) {
-			theme_assert( str_contains( $source, "'{$post_type}'" ), "Missing ACF CPT group {$post_type}" );
+		theme_assert( str_contains( $source, "'param'    => 'post_category'" ), 'Room/news field groups must target post_category location, not post_type' );
+		theme_assert( ! str_contains( $source, "'value'    => 'room'" ), 'ACF location must resolve the room category dynamically, not hardcode a post_type value' );
+		theme_assert( ! str_contains( $source, "'value'    => 'news'" ), 'ACF location must resolve the news category dynamically, not hardcode a post_type value' );
+		foreach ( array( 'room', 'news' ) as $slug ) {
+			theme_assert( str_contains( $source, "theme_acf_category_location( '{$slug}' )" ), "Missing ACF category-location group for {$slug}" );
 		}
 	}
 );
@@ -139,8 +151,9 @@ theme_test(
 		theme_assert( str_contains( $source, 'theme_tools_find_menu_item' ), 'Bootstrap must avoid duplicate menu items' );
 		theme_assert( ! str_contains( $source, 'wp_delete_post(' ), 'Bootstrap must not delete posts' );
 		theme_assert( ! str_contains( $source, 'wp_delete_nav_menu(' ), 'Bootstrap must not delete menus' );
-		theme_assert( str_contains( $source, "post_type'  => 'room'" ), 'Bootstrap example must reference the registered room CPT' );
-		theme_assert( str_contains( $source, "post_type'  => 'news'" ), 'Bootstrap example must reference the registered news CPT' );
+		theme_assert( str_contains( $source, "'category'   => 'room'" ), 'Bootstrap example must assign content to the room category' );
+		theme_assert( str_contains( $source, "'category'   => 'news'" ), 'Bootstrap example must assign content to the news category' );
+		theme_assert( str_contains( $source, 'wp_set_post_categories' ), 'Bootstrap must assign posts to categories, not a removed CPT' );
 	}
 );
 

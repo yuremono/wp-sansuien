@@ -76,7 +76,35 @@ function theme_acf_image_field( string $key, string $label, string $name ): arra
 }
 
 /**
- * ページ別、共通、CPT のフィールドグループを登録する。
+ * カテゴリースラッグから ACF の post_category location ルールを組み立てる。
+ *
+ * post_category location ルールは term_id を要求するため、カテゴリーを
+ * 動的に解決する。カテゴリー未作成時（テーマ有効化直後など）は空の
+ * location を返し、フィールドグループがどの画面にも表示されないよう
+ * フェイルセーフにする（fatal error にはならない）。
+ *
+ * @param string $slug カテゴリースラッグ。
+ * @return array<int, array<int, array<string, string>>>
+ */
+function theme_acf_category_location( string $slug ): array {
+	$term = get_term_by( 'slug', $slug, 'category' );
+	if ( ! ( $term instanceof WP_Term ) ) {
+		return array();
+	}
+
+	return array(
+		array(
+			array(
+				'param'    => 'post_category',
+				'operator' => '==',
+				'value'    => (string) $term->term_id,
+			),
+		),
+	);
+}
+
+/**
+ * ページ別、共通、投稿カテゴリー別のフィールドグループを登録する。
  */
 function theme_register_acf_fields(): void {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
@@ -213,7 +241,7 @@ function theme_register_acf_fields(): void {
 		)
 	);
 
-	// 客室（CPT room）の編集項目を登録する。
+	// 客室カテゴリー（category: room）の投稿に表示する編集項目を登録する。
 	acf_add_local_field_group(
 		array(
 			'key'      => 'group_theme_room',
@@ -232,19 +260,11 @@ function theme_register_acf_fields(): void {
 				theme_acf_image_field( 'room_gallery_3', 'ギャラリー画像3', 'room_gallery_3' ),
 				theme_acf_image_field( 'room_gallery_4', 'ギャラリー画像4', 'room_gallery_4' ),
 			),
-			'location' => array(
-				array(
-					array(
-						'param'    => 'post_type',
-						'operator' => '==',
-						'value'    => 'room',
-					),
-				),
-			),
+			'location' => theme_acf_category_location( 'room' ),
 		)
 	);
 
-	// お知らせ（CPT news）の編集項目を登録する。
+	// お知らせカテゴリー（category: news）の投稿に表示する編集項目を登録する。
 	acf_add_local_field_group(
 		array(
 			'key'      => 'group_theme_news',
@@ -252,15 +272,7 @@ function theme_register_acf_fields(): void {
 			'fields'   => array(
 				theme_acf_field( 'news_external_url', '外部URL', 'news_external_url', 'url' ),
 			),
-			'location' => array(
-				array(
-					array(
-						'param'    => 'post_type',
-						'operator' => '==',
-						'value'    => 'news',
-					),
-				),
-			),
+			'location' => theme_acf_category_location( 'news' ),
 		)
 	);
 }

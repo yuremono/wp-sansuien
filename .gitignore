@@ -12,6 +12,7 @@
 
 # Local/editor files
 /.vscode/
+/.claude/
 .DS_Store
 
 # Local notes and operation manuals

@@ -31,9 +31,9 @@ function theme_body_classes(): array {
 
 	if ( is_front_page() ) {
 		$classes[] = 'SansuienPageTop';
-	} elseif ( is_singular( 'room' ) ) {
+	} elseif ( is_singular( 'post' ) && in_category( 'room' ) ) {
 		$classes[] = 'SansuienPageRoom';
-	} elseif ( is_post_type_archive( 'room' ) ) {
+	} elseif ( is_category( 'room' ) ) {
 		$classes[] = 'SansuienPageRoomArchive';
 	}
 
@@ -113,21 +113,22 @@ function theme_phone_uri( string $phone ): string {
 }
 
 /**
- * 並び順を考慮したコンテンツ投稿を返す。
+ * 並び順を考慮したコンテンツ投稿（標準投稿 + カテゴリー）を返す。
  *
- * @param string $post_type 登録済み投稿タイプ。
+ * @param string $category_slug 「room」または「news」カテゴリーのスラッグ。
  * @param array  $args クエリ上書き。
  * @return array<int, WP_Post>
  */
-function theme_get_content_posts( string $post_type, array $args = array() ): array {
-	if ( ! in_array( $post_type, array( 'room', 'news' ), true ) ) {
+function theme_get_content_posts( string $category_slug, array $args = array() ): array {
+	if ( ! in_array( $category_slug, array( 'room', 'news' ), true ) ) {
 		return array();
 	}
 
 	$posts = get_posts(
 		array_merge(
 			array(
-				'post_type'      => $post_type,
+				'post_type'      => 'post',
+				'category_name'  => $category_slug,
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
 				'orderby'        => array(
@@ -140,6 +141,26 @@ function theme_get_content_posts( string $post_type, array $args = array() ): ar
 	);
 
 	return is_array( $posts ) ? $posts : array();
+}
+
+/**
+ * カテゴリースラッグから一覧ページ URL を解決する。
+ *
+ * カテゴリーが未作成（テーマ有効化直後など）の場合はフォールバック URL を返す。
+ *
+ * @param string $slug カテゴリースラッグ。
+ * @param string $fallback フォールバック URL。
+ * @return string
+ */
+function theme_category_url( string $slug, string $fallback = '' ): string {
+	$term = get_category_by_slug( $slug );
+	if ( ! ( $term instanceof WP_Term ) ) {
+		return $fallback;
+	}
+
+	$url = (string) get_category_link( $term );
+
+	return '' !== $url ? $url : $fallback;
 }
 
 /**
@@ -205,9 +226,9 @@ function theme_split_tags( string $value ): array {
  * @param array<string, mixed> $args WordPress のフォールバックコールバック引数。
  */
 function theme_menu_fallback( array $args = array() ): void {
-	$room_archive = get_post_type_archive_link( 'room' );
+	$room_archive = theme_category_url( 'room', home_url( '/room/' ) );
 	$items        = array(
-		'客室のご案内' => $room_archive ? $room_archive : home_url( '/room/' ),
+		'客室のご案内' => $room_archive,
 		'館内施設'   => home_url( '/#feature' ),
 		'アクセス'   => home_url( '/#access' ),
 		'お知らせ'   => home_url( '/#news' ),
