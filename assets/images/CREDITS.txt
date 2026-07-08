@@ -1,7 +1,8 @@
 kaiseki.jpg: Wikimedia Commons "File:Jisaku Kaiseki Ryori 01.jpg" by ? (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:Jisaku_Kaiseki_Ryori_01.jpg
 room1.jpg: "Room of Ryokan" by ThisParticularGreg (by-sa 2.0) https://www.flickr.com/photos/41084935@N00/3139439086
-room2.jpg: "Gora Asahi: Futon on Tatami" by jpellgen (@1179_jp) (by-nc-nd 2.0) https://www.flickr.com/photos/27917561@N00/378772633
-room3.jpg: "Room in Ryokan Kyo no Yado Shimaya" by Suviko (by-nc 2.0) https://www.flickr.com/photos/86122102@N00/205559146
+room2.jpg: Wikimedia Commons "File:Ryokan roomIMG 0819C.JPG" by Eli Shani (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:Ryokan_roomIMG_0819C.JPG
+room3.jpg: Wikimedia Commons "File:Our room at Seikansō Ryokan (6156061472).jpg" by Maarten Heerlien (CC BY 2.0) https://commons.wikimedia.org/wiki/File:Our_room_at_Seikans%C5%8D_Ryokan_(6156061472).jpg
+room2-orig-nc-nd.jpg / room3-orig-nc.jpg: 旧素材のバックアップ（NC/ND ライセンスのためテンプレートでは未使用）。room2.jpg: "Gora Asahi: Futon on Tatami" by jpellgen (@1179_jp) (by-nc-nd 2.0) https://www.flickr.com/photos/27917561@N00/378772633 / room3.jpg: "Room in Ryokan Kyo no Yado Shimaya" by Suviko (by-nc 2.0) https://www.flickr.com/photos/86122102@N00/205559146
 hero.jpg: Wikimedia Commons "File:青木湖 - panoramio (15).jpg" by くろふね (CC BY 3.0) https://commons.wikimedia.org/wiki/File:%E9%9D%92%E6%9C%A8%E6%B9%96_-_panoramio_(15).jpg
 lake2.jpg: Wikimedia Commons "File:Lake Kizaki from northwest - September 2014.jpg" by Suzumiya Haruka (CC BY 2.0) https://commons.wikimedia.org/wiki/File:Lake_Kizaki_from_northwest_-_September_2014.jpg
 breakfast.jpg: Wikimedia Commons "File:Breakfast at Tamahan Ryokan, Kyoto.jpg" by MichaelMaggs (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:Breakfast_at_Tamahan_Ryokan,_Kyoto.jpg

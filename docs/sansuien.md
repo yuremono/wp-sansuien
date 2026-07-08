@@ -286,4 +286,4 @@ Localでは `http://localhost:10023/` のトップページと客室一覧・個
 
 ## 画像ライセンスに関する注意
 
-`assets/images/` の room2.jpg / room3.jpg は CC BY-NC-ND / CC BY-NC ライセンスの外部素材（`assets/images/CREDITS.txt` 参照）。商用公開前にクレジット表記または画像差し替えの要否をユーザーへ再確認すること。
+room2.jpg / room3.jpg は商用利用可の CC BY / CC BY-SA 素材に差し替え済み（2026-07-09）。旧 NC/ND 素材は `room2-orig-nc-nd.jpg` / `room3-orig-nc.jpg` としてバックアップのみ保持し、テンプレートからは参照していない。クレジットは `assets/images/CREDITS.txt` 参照。

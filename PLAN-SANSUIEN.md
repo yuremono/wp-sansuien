@@ -32,8 +32,8 @@
 
 ## これからやること（TODO）
 
-1. **本番デプロイ**: `./deploy.sh` の dry-run 確認 → `--apply`。その後、本番で `tools-domain/bootstrap-site.example.php` を `wp eval-file` 実行（`THEME_BOOTSTRAP_CONFIRM` / `THEME_BOOTSTRAP_EXPECTED_URL=http://yuremono.com/sansuien` を指定）
+1. **本番デプロイ**: `./deploy.sh` の dry-run 確認 → `--apply`。その後、本番で `tools-domain/bootstrap-site.example.php` を `wp eval-file` 実行（`THEME_BOOTSTRAP_CONFIRM` / `THEME_BOOTSTRAP_EXPECTED_URL=http://yuremono.com/sansuien` を指定）。**リモート本番サーバーへの接続を伴うため、実行前に必ずユーザーへ確認すること**
 2. **コンテンツ入稿**: `room` / `news` の投稿は現在0件。wp-admin から入稿（客室は room.html 相当の「蒼」など、静的ソース `tmp/sansuien/preview/` を参考に）
-3. **画像ライセンス確認**: `assets/images/CREDITS.txt` 参照。特に room2.jpg（CC BY-NC-ND）・room3.jpg（CC BY-NC）は商用公開前に差し替え要否を判断
-4. **本番公開後の確認**: 全ページ・画像・メニュー・404・JS エラー（DEPLOYMENT.md 手順5）
-5. （任意）ギャラリー・お客様の声の ACF 化、ページ追加時のページ別 CSS 機構復活
+3. ~~画像ライセンス確認~~ **完了（2026-07-09）**: room2.jpg（旧 CC BY-NC-ND）・room3.jpg（旧 CC BY-NC）を商用利用可の CC BY / CC BY-SA 素材（Wikimedia Commons）に差し替え済み。旧素材は `room2-orig-nc-nd.jpg` / `room3-orig-nc.jpg` としてバックアップのみ保持（テンプレート未参照）。詳細は `assets/images/CREDITS.txt`
+4. **本番公開後の確認**: 全ページ・画像・メニュー・404・JS エラー（DEPLOYMENT.md 手順5）。ローカル（`http://localhost:10023`）・本番（`http://yuremono.com/sansuien/`）の両方で確認
+5. ギャラリー・お客様の声の ACF 化、ページ追加時のページ別 CSS 機構復活
