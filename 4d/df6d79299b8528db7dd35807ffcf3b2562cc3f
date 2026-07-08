@@ -1,0 +1,31 @@
+DEPLOYMENT.md
+  s_394dcf63539e6e::t_1007e521ab93c6 38
+PLAN-SANSUIEN.md
+  s_394dcf63539e6e::t_f97491614080ff 35,37-38
+  s_394dcf63539e6e::t_7a24f5c0e8bc00 39
+docs/sansuien.md
+  s_394dcf63539e6e::t_ba21f7e4cb070d 289
+assets/images/CREDITS.txt
+  s_394dcf63539e6e::t_f82742b284805d 3-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "4ddf6d79299b8528db7dd35807ffcf3b2562cc3f",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
