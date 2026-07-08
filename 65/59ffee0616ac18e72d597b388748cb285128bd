@@ -1,0 +1,26 @@
+inc/ENQUEUE.md
+  s_394dcf63539e6e::t_f13cdcde7799f5 5,12,14-15,19-20,31,60,66,69,72,74,77,80,87,90,105,110,119-121,131,139-140
+inc/INC.md
+  s_394dcf63539e6e::t_9baf5e458cc224 3,10,13,30-32,34,39,41-43,52,66,76,82,93-95,105-106,112,116-118,136,142,148,153,161,168,171,174-175
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6559ffee0616ac18e72d597b388748cb285128bd",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "unknown"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
