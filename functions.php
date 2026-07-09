@@ -11,8 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'THEME_GETTEXT_DOMAIN', 'sansuien' );
-
 /** Cache-busting version for theme assets. */
 define( 'THEME_VERSION', '1.0.0' );
 
@@ -24,5 +22,6 @@ require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/template-tags.php';
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/enqueue.php';
+require_once get_template_directory() . '/inc/demo-content.php';
 require_once get_template_directory() . '/inc/acf-pages.php';
 require_once get_template_directory() . '/inc/contact-form.php';

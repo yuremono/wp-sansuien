@@ -15,19 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header();
-get_template_part( 'template-parts/site-header' );
-get_template_part( 'template-parts/reserve-tab' );
+?>
+<main id="primary" class="site-main">
+	<?php
+	while ( have_posts() ) :
+		the_post();
 
-while ( have_posts() ) :
-	the_post();
+		if ( in_category( 'room' ) ) {
+			get_template_part( 'template-parts/single-room-content' );
+		} else {
+			get_template_part( 'template-parts/single-post-content' );
+		}
 
-	if ( in_category( 'room' ) ) {
-		get_template_part( 'template-parts/single-room-content' );
-	} else {
-		get_template_part( 'template-parts/single-post-content' );
-	}
-
-endwhile;
-
-get_template_part( 'template-parts/site-footer' );
+	endwhile;
+	?>
+</main>
+<?php
 get_footer();

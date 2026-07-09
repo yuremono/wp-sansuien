@@ -88,7 +88,9 @@ function theme_url( string $field_name, string $fallback = '' ): string {
  * @return mixed
  */
 function theme_option( string $field_name, $fallback = '' ) {
-	$value = function_exists( 'get_field' ) ? get_field( $field_name, 'option' ) : get_option( $field_name, '' );
+	$value = function_exists( 'get_field' )
+		? get_field( $field_name, 'option' )
+		: get_option( 'options_' . $field_name, '' );
 
 	return theme_acf_value_absent( $value ) ? $fallback : $value;
 }
@@ -284,6 +286,77 @@ function theme_image_data( string $field_name, string $fallback_relative = '', s
 }
 
 /**
+ * Gallery フィールドの生値を { url, alt, caption } の配列へ正規化する。
+ * ACF/SCF の return_format（'array' または 'id'）どちらでも動くようにする。
+ * caption はメディアライブラリの「キャプション」欄（添付ファイルの excerpt）を使う。
+ *
+ * @param mixed  $value ACF Gallery フィールドの生値。
+ * @param string $size WordPress 画像サイズ。
+ * @return array<int, array{url:string,alt:string,caption:string}>
+ */
+function theme_normalize_gallery_value( $value, string $size = 'large' ): array {
+	if ( ! is_array( $value ) ) {
+		return array();
+	}
+
+	$images = array();
+	foreach ( $value as $item ) {
+		$url           = '';
+		$alt           = '';
+		$caption       = '';
+		$attachment_id = 0;
+
+		if ( is_array( $item ) ) {
+			$attachment_id = ! empty( $item['ID'] ) ? (int) $item['ID'] : 0;
+			$url           = $attachment_id ? (string) wp_get_attachment_image_url( $attachment_id, $size ) : (string) ( $item['url'] ?? '' );
+			$alt           = (string) ( $item['alt'] ?? '' );
+			$caption       = (string) ( $item['caption'] ?? '' );
+		} elseif ( is_numeric( $item ) ) {
+			$attachment_id = (int) $item;
+			$url           = (string) wp_get_attachment_image_url( $attachment_id, $size );
+			$alt           = (string) get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+		}
+
+		if ( '' === $caption && $attachment_id ) {
+			$caption = (string) get_the_excerpt( $attachment_id );
+		}
+
+		if ( '' !== $url ) {
+			$images[] = array(
+				'url'     => $url,
+				'alt'     => $alt,
+				'caption' => $caption,
+			);
+		}
+	}
+
+	return $images;
+}
+
+/**
+ * 編集可能な Gallery フィールド（現在のページ／投稿）を { url, alt, caption } の配列で返す。
+ *
+ * @param string $field_name フィールド名。
+ * @param string $size WordPress 画像サイズ。
+ * @return array<int, array{url:string,alt:string,caption:string}>
+ */
+function theme_gallery_images( string $field_name, string $size = 'large' ): array {
+	return theme_normalize_gallery_value( theme_meta( $field_name, array() ), $size );
+}
+
+/**
+ * 編集可能な Gallery フィールド（任意の投稿）を { url, alt } の配列で返す。
+ *
+ * @param int    $post_id 投稿 ID。
+ * @param string $field_name フィールド名。
+ * @param string $size WordPress 画像サイズ。
+ * @return array<int, array{url:string,alt:string}>
+ */
+function theme_content_gallery_images( int $post_id, string $field_name, string $size = 'large' ): array {
+	return theme_normalize_gallery_value( theme_content_meta( $post_id, $field_name, array() ), $size );
+}
+
+/**
  * 編集可能な画像を出力する。
  *
  * @param string $field_name フィールド名。
@@ -338,4 +411,14 @@ function theme_allowed_html(): array {
  */
 function theme_rich( string $field_name, string $fallback = '' ): void {
 	echo wp_kses( (string) theme_meta( $field_name, $fallback ), theme_allowed_html() );
+}
+
+/**
+ * 共通宿泊施設設定（Options）のサニタイズしたリッチテキストを出力する。
+ *
+ * @param string $field_name フィールド名。
+ * @param string $fallback フォールバック HTML。
+ */
+function theme_option_rich( string $field_name, string $fallback = '' ): void {
+	echo wp_kses( (string) theme_option( $field_name, $fallback ), theme_allowed_html() );
 }

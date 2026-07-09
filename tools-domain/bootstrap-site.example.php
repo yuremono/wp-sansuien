@@ -10,51 +10,89 @@
 
 declare(strict_types=1);
 
-$config = array(
-	'confirmation' => 'sansuien-local',
-	'expected_url' => 'http://localhost:10023',
-	'theme_slug'   => 'sansuien',
-	'menus'        => array(
-		'primary' => '山翠苑 メインナビゲーション',
-		'footer'  => '山翠苑 フッターナビゲーション',
-	),
-	'options'      => array(
-		'field_theme_shop_name'            => '山翠苑',
-		'field_theme_shop_phone'           => '0261-00-0000',
-		'field_theme_shop_contact_url'     => '#reserve',
-		'field_theme_shop_address'         => '長野県青木湖畔 ○○温泉郷',
-		'field_theme_shop_access_note'     => 'JR大糸線「簗場駅」より送迎バスで約8分(要予約)',
-		'field_theme_shop_reception_hours' => '9:00〜18:00',
-		'field_theme_shop_instagram_url'   => '#',
-	),
-	'front'        => array(
-		'slug'     => 'home',
-		'title'    => 'ホーム',
-		'template' => 'page-templates/top.php',
-		'meta'     => array(),
-		'acf'      => array(
-			'field_theme_front_hero_eyebrow'   => 'HAVE A QUIET TIME BY THE LAKE — EST. 1972',
-			'field_theme_front_hero_heading'   => "水と緑に抱かれて、\n心をほどく一夜を。",
-			'field_theme_front_hero_lead'      => "湖畔にたたずむ全十二室の小さな宿。\n季節の湯と土地の恵みで、静かな時間をご用意しております。",
-			'field_theme_front_rooms_heading'  => "湖に向かって開かれた、\n全十二室のしつらえ。",
-			'field_theme_front_rooms_body'     => '露天風呂付き特別室「蒼」をはじめ、湖viewの和洋室、庭園沿いの和室まで。どの部屋も窓の外の景色を主役に、余計なものを置かないしつらえです。',
-			'field_theme_front_onsen_heading'  => "湯けむりの向こうに、\n湖と山のいとなみ。",
-			'field_theme_front_onsen_body'     => '大浴場と展望風呂のほか、貸切の露天風呂をご用意。朝は湖面の霧、夜は星空。季節と時間で表情を変える湯浴みをお楽しみください。',
-			'field_theme_front_cuisine_heading' => "土地の恵みを、\n囲炉裏の火とともに。",
-			'field_theme_front_cuisine_body'   => '信州の山菜や湖の幸を中心にした季節の会席。夕食後は炭火の灯る囲炉裏ラウンジで、地酒とともにゆっくりとお過ごしください。',
-			'field_theme_front_about_heading'  => "創業から半世紀、\n湖畔とともに。",
-			'field_theme_front_about_body'     => '創業から半世紀、湖畔の自然と地元の恵みを活かしたおもてなしを大切にしてまいりました。派手さはございませんが、また帰ってきたくなる——そんな宿でありたいと願っております。',
-			'field_theme_front_about_okami_name' => '川井 美和子',
-			'field_theme_front_about_okami_role' => 'OKAMI 女将',
-			'field_theme_front_about_chef_name'  => '佐伯 隆',
-			'field_theme_front_about_chef_role'  => 'ITACHO 板長',
+/**
+ * bootstrap 設定を組み立てる。
+ *
+ * デモ文言（ACF default_value と同じ内容）は `theme_demo_content()`
+ * （テーマの `inc/demo-content.php`）を単一の情報源として参照する。
+ * この関数は WordPress（テーマの functions.php）読み込み後に呼び出すこと。
+ *
+ * @return array<string, mixed>
+ */
+function theme_tools_build_config(): array {
+	return array(
+		'confirmation' => 'sansuien-local',
+		'expected_url' => 'http://localhost:10023',
+		'theme_slug'   => 'sansuien',
+		'menus'        => array(
+			'primary' => '山翠苑 メインナビゲーション',
+			'footer'  => '山翠苑 フッターナビゲーション',
 		),
-	),
-	/*
-	 * 山翠苑では追加の固定ページを使わない
-	 * （トップページ内アンカーと客室CPTの一覧/個別だけで全ページを再現できる）。
-	 */
-	'pages'        => array(),
+		'options'      => array(
+			'field_theme_shop_name'            => '山翠苑',
+			'field_theme_shop_phone'           => theme_demo_content( 'shop_phone' ),
+			'field_theme_shop_contact_url'     => theme_demo_content( 'shop_contact_url' ),
+			'field_theme_shop_address'         => theme_demo_content( 'shop_address' ),
+			'field_theme_shop_access_note'     => theme_demo_content( 'shop_access_note' ),
+			'field_theme_shop_reception_hours' => theme_demo_content( 'shop_reception_hours' ),
+			'field_theme_shop_instagram_url'   => '#',
+		),
+		'front'        => array(
+			'slug'  => 'home',
+			'title' => 'ホーム',
+			'meta'  => array(),
+			'acf'      => array(
+				'field_theme_front_hero_eyebrow'    => theme_demo_content( 'front_hero_eyebrow' ),
+				'field_theme_front_hero_heading'    => theme_demo_content( 'front_hero_heading' ),
+				'field_theme_front_hero_lead'       => theme_demo_content( 'front_hero_lead' ),
+				'field_theme_front_rooms_heading'   => theme_demo_content( 'front_rooms_heading' ),
+				'field_theme_front_rooms_body'      => theme_demo_content( 'front_rooms_body' ),
+				'field_theme_front_onsen_heading'   => theme_demo_content( 'front_onsen_heading' ),
+				'field_theme_front_onsen_body'      => theme_demo_content( 'front_onsen_body' ),
+				'field_theme_front_cuisine_heading' => theme_demo_content( 'front_cuisine_heading' ),
+				'field_theme_front_cuisine_body'    => theme_demo_content( 'front_cuisine_body' ),
+				'field_theme_front_about_heading'   => theme_demo_content( 'front_about_heading' ),
+				'field_theme_front_about_body'      => theme_demo_content( 'front_about_body' ),
+				'field_theme_front_about_okami_name' => theme_demo_content( 'front_about_okami_name' ),
+				'field_theme_front_about_okami_role' => theme_demo_content( 'front_about_okami_role' ),
+				'field_theme_front_about_chef_name'  => theme_demo_content( 'front_about_chef_name' ),
+				'field_theme_front_about_chef_role'  => theme_demo_content( 'front_about_chef_role' ),
+			),
+		),
+		/*
+		 * 「客室のご案内」「お問い合わせ・ご予約」は、テンプレート階層のスラッグ一致
+		 * （page-room.php / page-contact.php）で自動適用されるため、固定 Template Name
+		 * は割り当てない（'template' を省略）。ACF フィールドグループはページ ID を
+		 * 動的解決する theme_acf_page_location() でスラッグ一致させている。
+		 */
+		'pages'        => array(
+			array(
+				'slug'  => 'room',
+				'title' => '客室のご案内',
+				'meta'  => array(),
+				'acf'   => array(
+					'field_theme_page_room_hero_catch'   => theme_demo_content( 'page_room_hero_catch' ),
+					'field_theme_page_room_lead'         => theme_demo_content( 'page_room_lead' ),
+					'field_theme_page_room_tags'         => theme_demo_content( 'page_room_tags' ),
+					'field_theme_page_room_size'         => theme_demo_content( 'page_room_size' ),
+					'field_theme_page_room_amenities'    => theme_demo_content( 'page_room_amenities' ),
+					'field_theme_page_room_checkin_out'  => theme_demo_content( 'page_room_checkin_out' ),
+					'field_theme_page_room_rate_weekday' => theme_demo_content( 'page_room_rate_weekday' ),
+					'field_theme_page_room_rate_holiday' => theme_demo_content( 'page_room_rate_holiday' ),
+					'field_theme_page_room_capacity'     => theme_demo_content( 'page_room_capacity' ),
+				),
+			),
+			array(
+				'slug'        => 'contact',
+				'title'       => 'お問い合わせ・ご予約',
+				'add_to_nav'  => false,
+				'meta'        => array(),
+				'acf'         => array(
+					'field_theme_page_contact_hero_catch' => theme_demo_content( 'page_contact_hero_catch' ),
+					'field_theme_page_contact_lead'       => theme_demo_content( 'page_contact_lead' ),
+				),
+			),
+		),
 	/*
 	 * Add records after the theme registers the corresponding post type.
 	 * Stable keys prevent duplicate posts on repeated execution.
@@ -69,10 +107,7 @@ $config = array(
 			'menu_order' => 0,
 			'thumbnail'  => 'images/room2.jpg',
 			'gallery'    => array(
-				'room_gallery_1' => 'images/room1.jpg',
-				'room_gallery_2' => 'images/bath.jpg',
-				'room_gallery_3' => 'images/lake2.jpg',
-				'room_gallery_4' => 'images/kaiseki.jpg',
+				'room_gallery' => array( 'images/room1.jpg', 'images/bath.jpg', 'images/lake2.jpg', 'images/kaiseki.jpg' ),
 			),
 			'meta'       => array(
 				'room_catch'        => 'Special Room "AO"',
@@ -148,17 +183,8 @@ $config = array(
 			'thumbnail'  => 'images/breakfast.jpg',
 			'meta'       => array(),
 		),
-	),
-);
-
-$expected_confirmation = getenv( 'THEME_BOOTSTRAP_EXPECTED_CONFIRM' );
-if ( is_string( $expected_confirmation ) && '' !== $expected_confirmation ) {
-	$config['confirmation'] = $expected_confirmation;
-}
-
-$expected_url = getenv( 'THEME_BOOTSTRAP_EXPECTED_URL' );
-if ( is_string( $expected_url ) && '' !== $expected_url ) {
-	$config['expected_url'] = $expected_url;
+		),
+	);
 }
 
 function theme_tools_expand_path( string $path ): string {
@@ -204,6 +230,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 
 	require $wp_load;
+}
+
+$config = theme_tools_build_config();
+
+$expected_confirmation = getenv( 'THEME_BOOTSTRAP_EXPECTED_CONFIRM' );
+if ( is_string( $expected_confirmation ) && '' !== $expected_confirmation ) {
+	$config['confirmation'] = $expected_confirmation;
+}
+
+$expected_url = getenv( 'THEME_BOOTSTRAP_EXPECTED_URL' );
+if ( is_string( $expected_url ) && '' !== $expected_url ) {
+	$config['expected_url'] = $expected_url;
 }
 
 $confirmation = getenv( 'THEME_BOOTSTRAP_CONFIRM' );
@@ -277,9 +315,12 @@ function theme_tools_upsert_page( array $definition ): int {
 		$page_id = (int) $page_id;
 	}
 
-	$current_template = (string) get_post_meta( $page_id, '_wp_page_template', true );
-	if ( '' === $current_template || 'default' === $current_template ) {
-		update_post_meta( $page_id, '_wp_page_template', $definition['template'] );
+	$target_template = (string) ( $definition['template'] ?? '' );
+	if ( '' !== $target_template ) {
+		$current_template = (string) get_post_meta( $page_id, '_wp_page_template', true );
+		if ( '' === $current_template || 'default' === $current_template ) {
+			update_post_meta( $page_id, '_wp_page_template', $target_template );
+		}
 	}
 
 	theme_tools_fill_empty_meta( $page_id, $definition['meta'] ?? array() );
@@ -484,10 +525,16 @@ function theme_tools_upsert_content( array $item ): int {
 
 	if ( ! empty( $item['gallery'] ) && is_array( $item['gallery'] ) ) {
 		$gallery_meta = array();
-		foreach ( $item['gallery'] as $field_name => $gallery_relative_path ) {
-			$attachment_id = theme_tools_import_theme_image( (string) $gallery_relative_path );
-			if ( $attachment_id ) {
-				$gallery_meta[ (string) $field_name ] = $attachment_id;
+		foreach ( $item['gallery'] as $field_name => $gallery_relative_paths ) {
+			$attachment_ids = array();
+			foreach ( (array) $gallery_relative_paths as $gallery_relative_path ) {
+				$attachment_id = theme_tools_import_theme_image( (string) $gallery_relative_path );
+				if ( $attachment_id ) {
+					$attachment_ids[] = $attachment_id;
+				}
+			}
+			if ( $attachment_ids ) {
+				$gallery_meta[ (string) $field_name ] = $attachment_ids;
 			}
 		}
 		theme_tools_fill_empty_acf_fields( $post_id, $gallery_meta );
@@ -503,29 +550,29 @@ theme_tools_fill_empty_acf_fields( $front_id, $config['front']['acf'] ?? array()
  * ブランドロゴ(header/footerのtheme_source_uri)が既にホームリンクの役割を持つため、
  * ホームページ自体はナビメニューへ追加しない。
  */
-$pages    = array();
+$pages = array();
 
 foreach ( $config['pages'] as $definition ) {
-	$pages[] = array(
-		'id'    => theme_tools_upsert_page( $definition ),
-		'title' => $definition['title'],
-	);
-	theme_tools_fill_empty_acf_fields( $pages[ count( $pages ) - 1 ]['id'], $definition['acf'] ?? array() );
+	$page_id = theme_tools_upsert_page( $definition );
+	theme_tools_fill_empty_acf_fields( $page_id, $definition['acf'] ?? array() );
+
+	// お問い合わせページは予約タブ・closingセクションから既に導線があるため、ナビには追加しない。
+	if ( $definition['add_to_nav'] ?? true ) {
+		$pages[] = array(
+			'id'    => $page_id,
+			'title' => $definition['title'],
+		);
+	}
 }
 
 update_option( 'show_on_front', 'page' );
 update_option( 'page_on_front', $front_id );
 
 /*
- * ヘッダー・フッター共通ナビ。客室のご案内は固定ページ（page-room.php, スラッグ room）、他はトップページ内アンカー。
+ * ヘッダー・フッター共通ナビ。客室のご案内は固定ページ（page-room.php, スラッグ room、$pages 経由）、他はトップページ内アンカー。
  * 静的ソース tmp/sansuien/preview/index.html の <nav class="gnav"> / <nav class="fnav"> に対応。
  */
-$room_archive_url = home_url( '/room/' );
-$nav_links         = array(
-	array(
-		'title' => '客室のご案内',
-		'url'   => $room_archive_url,
-	),
+$nav_links = array(
 	array(
 		'title' => '館内施設',
 		'url'   => home_url( '/#feature' ),

@@ -82,6 +82,8 @@ a{color:inherit;text-decoration:none}
 .brand{display:flex;align-items:baseline;gap:0.75rem;color:#fff}
 .brand .name{font:600 1.5rem var(--serif);letter-spacing:.3em}
 .brand .sub{font:400 9px var(--sans);letter-spacing:.22em;opacity:.65}
+.brand_logo{align-items:center}
+.brand_logo img{display:block;height:2.75rem;width:auto}
 .gnav{display:flex;gap:2rem}
 .gnav a{color:rgba(255,255,255,.92);font:400 0.875rem var(--sans);letter-spacing:.16em;position:relative;padding-bottom:0.25rem}
 .gnav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:#fff;transition:width .3s}

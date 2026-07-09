@@ -18,8 +18,8 @@ $blocks = array(
 	array(
 		'slug'     => 'rooms',
 		'label'    => 'ROOMS',
-		'heading'  => "湖に向かって開かれた、\n全十二室のしつらえ。",
-		'body'     => '露天風呂付き特別室「蒼」をはじめ、湖viewの和洋室、庭園沿いの和室まで。どの部屋も窓の外の景色を主役に、余計なものを置かないしつらえです。',
+		'heading'  => theme_demo_content( 'front_rooms_heading' ),
+		'body'     => theme_demo_content( 'front_rooms_body' ),
 		'url'      => $room_archive_url,
 		'fallback' => 'images/room1.jpg',
 		'alt'      => '客室の座卓と床の間',
@@ -27,8 +27,8 @@ $blocks = array(
 	array(
 		'slug'     => 'onsen',
 		'label'    => 'ONSEN',
-		'heading'  => "湯けむりの向こうに、\n湖と山のいとなみ。",
-		'body'     => '大浴場と展望風呂のほか、貸切の露天風呂をご用意。朝は湖面の霧、夜は星空。季節と時間で表情を変える湯浴みをお楽しみください。',
+		'heading'  => theme_demo_content( 'front_onsen_heading' ),
+		'body'     => theme_demo_content( 'front_onsen_body' ),
 		'url'      => $reserve_url,
 		'fallback' => 'images/bath.jpg',
 		'alt'      => '露天風呂',
@@ -36,8 +36,8 @@ $blocks = array(
 	array(
 		'slug'     => 'cuisine',
 		'label'    => 'CUISINE',
-		'heading'  => "土地の恵みを、\n囲炉裏の火とともに。",
-		'body'     => '信州の山菜や湖の幸を中心にした季節の会席。夕食後は炭火の灯る囲炉裏ラウンジで、地酒とともにゆっくりとお過ごしください。',
+		'heading'  => theme_demo_content( 'front_cuisine_heading' ),
+		'body'     => theme_demo_content( 'front_cuisine_body' ),
 		'url'      => $reserve_url,
 		'fallback' => 'images/kaiseki.jpg',
 		'alt'      => '季節の会席料理',

@@ -23,16 +23,29 @@ $room_rate_weekday = (string) theme_content_meta( $room_id, 'room_rate_weekday',
 $room_rate_holiday = (string) theme_content_meta( $room_id, 'room_rate_holiday', '' );
 $room_capacity     = (string) theme_content_meta( $room_id, 'room_capacity', '' );
 $hero_image        = theme_content_image_data( $room_id, 'images/room2.jpg' );
-$shop_phone        = (string) theme_option( 'shop_phone', '0261-00-0000' );
-$reception_hours   = (string) theme_option( 'shop_reception_hours', '9:00〜18:00' );
+$shop_phone        = (string) theme_option( 'shop_phone', theme_demo_content( 'shop_phone' ) );
+$reception_hours   = (string) theme_option( 'shop_reception_hours', theme_demo_content( 'shop_reception_hours' ) );
 $room_archive_url  = home_url( '/room/' );
 
-$gallery_fields = array(
-	array( 'field' => 'room_gallery_1', 'fallback' => 'images/room1.jpg', 'caption' => '客室内観' ),
-	array( 'field' => 'room_gallery_2', 'fallback' => 'images/bath.jpg', 'caption' => '貸切露天風呂' ),
-	array( 'field' => 'room_gallery_3', 'fallback' => 'images/lake2.jpg', 'caption' => '湖側テラス' ),
-	array( 'field' => 'room_gallery_4', 'fallback' => 'images/kaiseki.jpg', 'caption' => 'お食事イメージ' ),
-);
+$room_gallery = theme_content_gallery_images( $room_id, 'room_gallery' );
+
+// 管理画面で未設定の客室のみ、テーマ内蔵のデモ画像を表示する。
+if ( ! $room_gallery ) {
+	$demo_files   = array(
+		array( 'file' => 'room1.jpg', 'caption' => '客室内観' ),
+		array( 'file' => 'bath.jpg', 'caption' => '貸切露天風呂' ),
+		array( 'file' => 'lake2.jpg', 'caption' => '湖側テラス' ),
+		array( 'file' => 'kaiseki.jpg', 'caption' => 'お食事イメージ' ),
+	);
+	$room_gallery = array_map(
+		static fn( array $demo ): array => array(
+			'url'     => theme_source_uri( 'images/' . $demo['file'] ),
+			'alt'     => $demo['caption'],
+			'caption' => $demo['caption'],
+		),
+		$demo_files
+	);
+}
 
 $other_rooms = theme_get_content_posts(
 	'room',
@@ -50,7 +63,7 @@ $other_rooms = theme_get_content_posts(
 		<?php if ( '' !== $room_catch ) : ?>
 			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg><?php echo esc_html( $room_catch ); ?></span>
 		<?php endif; ?>
-		<h2><?php the_title(); ?></h2>
+		<h1><?php the_title(); ?></h1>
 	</div>
 </section>
 
@@ -61,16 +74,13 @@ $other_rooms = theme_get_content_posts(
 </nav>
 
 <div class="room_gallery">
-	<?php foreach ( $gallery_fields as $gallery ) : ?>
-		<?php $image = theme_image_data( $gallery['field'], $gallery['fallback'] ); ?>
-		<?php if ( '' !== $image['url'] ) : ?>
-			<figure class="reveal">
-				<a class="glightbox" href="<?php echo esc_url( $image['url'] ); ?>" data-gallery="room-gallery" data-description="<?php echo esc_attr( $gallery['caption'] ); ?>">
-					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( '' !== $image['alt'] ? $image['alt'] : $gallery['caption'] ); ?>">
-				</a>
-				<figcaption><?php echo esc_html( $gallery['caption'] ); ?></figcaption>
-			</figure>
-		<?php endif; ?>
+	<?php foreach ( $room_gallery as $image ) : ?>
+		<figure class="reveal">
+			<a class="glightbox" href="<?php echo esc_url( $image['url'] ); ?>" data-gallery="room-gallery" data-description="<?php echo esc_attr( $image['caption'] ); ?>">
+				<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( '' !== $image['alt'] ? $image['alt'] : $image['caption'] ); ?>">
+			</a>
+			<?php if ( '' !== $image['caption'] ) : ?><figcaption><?php echo esc_html( $image['caption'] ); ?></figcaption><?php endif; ?>
+		</figure>
 	<?php endforeach; ?>
 </div>
 
@@ -106,7 +116,7 @@ $other_rooms = theme_get_content_posts(
 			<?php if ( '' !== $room_capacity ) : ?>
 				<div class="rate"><span class="lb">ご定員</span><span><?php echo esc_html( $room_capacity ); ?></span></div>
 			<?php endif; ?>
-			<a class="book_btn" href="<?php echo esc_url( theme_option_url( 'shop_contact_url', '#reserve' ) ); ?>">このお部屋を予約する<svg class="sym sym-sm bsym"><use href="#sym-tri"></use></svg></a>
+			<a class="book_btn" href="<?php echo esc_url( theme_option_url( 'shop_contact_url', theme_demo_content( 'shop_contact_url' ) ) ); ?>">このお部屋を予約する<svg class="sym sym-sm bsym"><use href="#sym-tri"></use></svg></a>
 			<p class="tel">お電話でのご予約 <?php echo esc_html( $shop_phone ); ?>(<?php echo esc_html( $reception_hours ); ?>)</p>
 		</aside>
 	</div>

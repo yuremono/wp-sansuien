@@ -14,9 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php $shop_name = (string) theme_option( 'shop_name', THEME_BRAND_DEFAULT ); ?>
 <header class="site_header" role="banner">
-	<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<span class="name"><?php echo esc_html( $shop_name ); ?></span><span class="sub">SANSUIEN</span>
-	</a>
+	<?php if ( has_custom_logo() ) : ?>
+		<div class="brand brand_logo"><?php the_custom_logo(); ?></div>
+	<?php else : ?>
+		<a class="brand brand_logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<img src="<?php echo esc_url( theme_source_uri( 'images/logo.png' ) ); ?>" alt="<?php echo esc_attr( $shop_name ); ?>">
+		</a>
+	<?php endif; ?>
 	<nav class="gnav" aria-label="グローバルナビゲーション">
 		<?php
 		wp_nav_menu(

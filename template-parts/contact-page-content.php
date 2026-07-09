@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $hero_catch      = (string) theme_meta( 'page_contact_hero_catch', '' );
 $hero_image      = theme_image_data( 'page_contact_hero_image', 'images/lake2.jpg', get_the_title() );
 $lead            = (string) theme_meta( 'page_contact_lead', '' );
-$shop_phone      = (string) theme_option( 'shop_phone', '0261-00-0000' );
-$reception_hours = (string) theme_option( 'shop_reception_hours', '9:00〜18:00' );
+$shop_phone      = (string) theme_option( 'shop_phone', theme_demo_content( 'shop_phone' ) );
+$reception_hours = (string) theme_option( 'shop_reception_hours', theme_demo_content( 'shop_reception_hours' ) );
 $form_html       = theme_contact_form_html();
 ?>
 
@@ -30,7 +30,7 @@ $form_html       = theme_contact_form_html();
 		<?php if ( '' !== $hero_catch ) : ?>
 			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg><?php echo esc_html( $hero_catch ); ?></span>
 		<?php endif; ?>
-		<h2><?php the_title(); ?></h2>
+		<h1><?php the_title(); ?></h1>
 	</div>
 </section>
 

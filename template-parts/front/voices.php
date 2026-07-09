@@ -11,26 +11,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$voices = array(
-	array(
-		'stars'   => 5,
-		'comment' => '露天風呂からの眺めが忘れられません。夕食の炊き合わせも丁寧な味でした。',
-		'who'     => '50代・ご夫婦での利用',
-		'reveal'  => 'reveal-r',
-	),
-	array(
-		'stars'   => 5,
-		'comment' => '仲居さんの心配りが行き届いていて、両親も大変喜んでおりました。',
-		'who'     => '30代・三世代旅行',
-		'reveal'  => 'reveal',
-	),
-	array(
-		'stars'   => 4,
-		'comment' => '湖側の客室は静かでゆっくりできました。朝食のお粥が美味しかったです。',
-		'who'     => '40代・おひとり様',
-		'reveal'  => 'reveal',
-	),
-);
+$voice_rows = theme_meta( 'front_voices', array() );
+
+if ( is_array( $voice_rows ) && $voice_rows ) {
+	$voices = array_map(
+		static fn( array $row, int $index ): array => array(
+			'stars'   => (int) ( $row['stars'] ?? 5 ),
+			'comment' => (string) ( $row['comment'] ?? '' ),
+			'who'     => (string) ( $row['who'] ?? '' ),
+			'reveal'  => 0 === $index % 2 ? 'reveal-r' : 'reveal',
+		),
+		$voice_rows,
+		array_keys( $voice_rows )
+	);
+} else {
+	// 管理画面で未設定（導入直後）の場合のみ、テーマ内蔵のデモの声を表示する。
+	$voices = array(
+		array(
+			'stars'   => 5,
+			'comment' => '露天風呂からの眺めが忘れられません。夕食の炊き合わせも丁寧な味でした。',
+			'who'     => '50代・ご夫婦での利用',
+			'reveal'  => 'reveal-r',
+		),
+		array(
+			'stars'   => 5,
+			'comment' => '仲居さんの心配りが行き届いていて、両親も大変喜んでおりました。',
+			'who'     => '30代・三世代旅行',
+			'reveal'  => 'reveal',
+		),
+		array(
+			'stars'   => 4,
+			'comment' => '湖側の客室は静かでゆっくりできました。朝食のお粥が美味しかったです。',
+			'who'     => '40代・おひとり様',
+			'reveal'  => 'reveal',
+		),
+	);
+}
 ?>
 <section class="voices">
 	<div class="wrap">

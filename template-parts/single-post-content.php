@@ -22,7 +22,7 @@ $external    = (string) theme_content_meta( $post_id, 'news_external_url', '' );
 	<img src="<?php echo esc_url( $hero_image['url'] ); ?>" alt="<?php echo esc_attr( $hero_image['alt'] ); ?>">
 	<div class="shade"></div>
 	<div class="hd">
-		<h2><?php the_title(); ?></h2>
+		<h1><?php the_title(); ?></h1>
 	</div>
 </section>
 

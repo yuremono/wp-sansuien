@@ -19,8 +19,8 @@ $room_checkin_out  = (string) theme_meta( 'page_room_checkin_out', '' );
 $room_rate_weekday = (string) theme_meta( 'page_room_rate_weekday', '' );
 $room_rate_holiday = (string) theme_meta( 'page_room_rate_holiday', '' );
 $room_capacity     = (string) theme_meta( 'page_room_capacity', '' );
-$shop_phone        = (string) theme_option( 'shop_phone', '0261-00-0000' );
-$reception_hours   = (string) theme_option( 'shop_reception_hours', '9:00〜18:00' );
+$shop_phone        = (string) theme_option( 'shop_phone', theme_demo_content( 'shop_phone' ) );
+$reception_hours   = (string) theme_option( 'shop_reception_hours', theme_demo_content( 'shop_reception_hours' ) );
 ?>
 <div class="wrap">
 	<div class="room_body">
@@ -56,7 +56,7 @@ $reception_hours   = (string) theme_option( 'shop_reception_hours', '9:00〜18:0
 			<?php if ( '' !== $room_capacity ) : ?>
 				<div class="rate"><span class="lb">ご定員</span><span><?php echo esc_html( $room_capacity ); ?></span></div>
 			<?php endif; ?>
-			<a class="book_btn" href="<?php echo esc_url( theme_option_url( 'shop_contact_url', '#reserve' ) ); ?>">このお部屋を予約する<svg class="sym sym-sm bsym"><use href="#sym-tri"></use></svg></a>
+			<a class="book_btn" href="<?php echo esc_url( theme_option_url( 'shop_contact_url', theme_demo_content( 'shop_contact_url' ) ) ); ?>">このお部屋を予約する<svg class="sym sym-sm bsym"><use href="#sym-tri"></use></svg></a>
 			<p class="tel">お電話でのご予約 <?php echo esc_html( $shop_phone ); ?>(<?php echo esc_html( $reception_hours ); ?>)</p>
 		</aside>
 	</div>

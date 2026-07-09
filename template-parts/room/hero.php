@@ -21,7 +21,7 @@ $hero_image = theme_image_data( 'page_room_hero_image', 'images/room2.jpg', get_
 		<?php if ( '' !== $hero_catch ) : ?>
 			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg><?php echo esc_html( $hero_catch ); ?></span>
 		<?php endif; ?>
-		<h2><?php the_title(); ?></h2>
+		<h1><?php the_title(); ?></h1>
 	</div>
 </section>
 

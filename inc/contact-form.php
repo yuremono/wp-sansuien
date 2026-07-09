@@ -43,11 +43,24 @@ if ( class_exists( 'WPCF7_ContactForm' ) ) {
  * Contact Form 7 が無効、またはフォームが未作成の場合は空文字を返す。
  * 呼び出し側でその場合の fallback（電話番号の案内など）を出す。
  *
+ * 「宿泊施設共通情報」に ID の指定があればそれを優先する（クライアントが
+ * フォームのタイトルを変更してもリンク切れしない）。未指定の場合のみ、
+ * 導入直後でも動くようにタイトル検索へ fallback する。
+ *
  * @return string
  */
 function theme_contact_form_html(): string {
 	if ( ! class_exists( 'WPCF7_ContactForm' ) ) {
 		return '';
+	}
+
+	$form_id = (int) theme_option( 'shop_contact_form_id', '' );
+
+	if ( $form_id > 0 ) {
+		$form = WPCF7_ContactForm::get_instance( $form_id );
+		if ( $form instanceof WPCF7_ContactForm ) {
+			return do_shortcode( '[contact-form-7 id="' . $form_id . '"]' );
+		}
 	}
 
 	$forms = WPCF7_ContactForm::find(
@@ -71,8 +84,8 @@ function theme_contact_form_html(): string {
  */
 function theme_default_privacy_policy_content(): string {
 	$shop_name    = (string) theme_option( 'shop_name', THEME_BRAND_DEFAULT );
-	$shop_address = (string) theme_option( 'shop_address', '長野県青木湖畔 ○○温泉郷' );
-	$shop_phone   = (string) theme_option( 'shop_phone', '0261-00-0000' );
+	$shop_address = (string) theme_option( 'shop_address', theme_demo_content( 'shop_address' ) );
+	$shop_phone   = (string) theme_option( 'shop_phone', theme_demo_content( 'shop_phone' ) );
 
 	return '<h2>1. 事業者情報</h2>'
 		. '<p>名称：' . esc_html( $shop_name ) . '<br>'

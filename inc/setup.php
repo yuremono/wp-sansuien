@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * テーマサポートとメニュー位置を設定する。
  */
 function theme_setup(): void {
-	load_theme_textdomain( THEME_GETTEXT_DOMAIN, get_template_directory() . '/languages' );
-
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'custom-logo' );
@@ -32,8 +30,8 @@ function theme_setup(): void {
 
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Navigation', THEME_GETTEXT_DOMAIN ),
-			'footer'  => __( 'Footer Navigation', THEME_GETTEXT_DOMAIN ),
+			'primary' => 'Primary Navigation',
+			'footer'  => 'Footer Navigation',
 		)
 	);
 }
@@ -128,7 +126,7 @@ function theme_acf_admin_notice(): void {
 	}
 	?>
 	<div class="notice notice-warning">
-		<p><?php echo esc_html__( 'Advanced Custom Fields が有効化されていません。テーマの編集項目を利用するには ACF を有効化してください。', THEME_GETTEXT_DOMAIN ); ?></p>
+		<p><?php echo esc_html( 'Advanced Custom Fields が有効化されていません。テーマの編集項目を利用するには ACF を有効化してください。' ); ?></p>
 	</div>
 	<?php
 }
@@ -140,3 +138,55 @@ add_action( 'admin_notices', 'theme_acf_admin_notice' );
 function theme_primary_menu_fallback(): void {
 	theme_menu_fallback();
 }
+
+/**
+ * 投稿一覧（客室・お知らせが混在する）にサムネイルと客室料金の列を追加する。
+ *
+ * カテゴリー方式では投稿一覧に客室とお知らせが混在するため、一覧の視認性を
+ * 補うための最小限のカラム追加。並び順の変更 UI は並び順プラグイン
+ * （Simple Custom Post Order 等）側の機能に委ねる。
+ *
+ * @param array<string, string> $columns 既存のカラム定義。
+ * @return array<string, string>
+ */
+function theme_posts_list_columns( array $columns ): array {
+	$new_columns = array();
+
+	foreach ( $columns as $key => $label ) {
+		$new_columns[ $key ] = $label;
+		if ( 'title' === $key ) {
+			$new_columns['theme_thumbnail'] = 'サムネイル';
+		}
+		if ( 'categories' === $key ) {
+			$new_columns['theme_room_rate'] = '料金（平日）';
+		}
+	}
+
+	return $new_columns;
+}
+add_filter( 'manage_post_posts_columns', 'theme_posts_list_columns' );
+
+/**
+ * 追加した投稿一覧カラムの中身を出力する。
+ *
+ * @param string $column  カラム識別子。
+ * @param int    $post_id 投稿 ID。
+ */
+function theme_posts_list_column_content( string $column, int $post_id ): void {
+	if ( 'theme_thumbnail' === $column ) {
+		if ( has_post_thumbnail( $post_id ) ) {
+			echo get_the_post_thumbnail( $post_id, array( 48, 48 ), array( 'style' => 'object-fit:cover;border-radius:4px' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_the_post_thumbnail() はコア側でエスケープ済みの HTML を返す。
+		}
+		return;
+	}
+
+	if ( 'theme_room_rate' === $column ) {
+		if ( ! in_category( 'room', $post_id ) ) {
+			echo esc_html( '—' );
+			return;
+		}
+		$rate = (string) theme_content_meta( $post_id, 'room_rate_weekday', '' );
+		echo esc_html( '' !== $rate ? $rate : '—' );
+	}
+}
+add_action( 'manage_post_posts_custom_column', 'theme_posts_list_column_content', 10, 2 );

@@ -48,9 +48,9 @@ function theme_enqueue_assets(): void {
 
 	wp_enqueue_script(
 		'theme-main',
-		theme_source_uri( 'js/sansuien.js' ),
+		theme_source_uri( 'js/theme.js' ),
 		array( 'glightbox' ),
-		theme_asset_version( 'assets/js/sansuien.js' ),
+		theme_asset_version( 'assets/js/theme.js' ),
 		true
 	);
 }

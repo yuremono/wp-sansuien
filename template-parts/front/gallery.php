@@ -11,13 +11,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$gallery_images = array(
-	array( 'file' => 'room1.jpg', 'alt' => '和室の客室' ),
-	array( 'file' => 'bath.jpg', 'alt' => '露天風呂' ),
-	array( 'file' => 'irori.jpg', 'alt' => '囲炉裏ラウンジ' ),
-	array( 'file' => 'okami.jpg', 'alt' => '女将のお出迎え' ),
-	array( 'file' => 'lake2.jpg', 'alt' => '湖の眺望' ),
-);
+$gallery_images = theme_gallery_images( 'front_gallery_images' );
+
+// 管理画面で未設定（導入直後）の場合のみ、テーマ内蔵のデモ画像を表示する。
+if ( ! $gallery_images ) {
+	$demo_files     = array(
+		array( 'file' => 'room1.jpg', 'alt' => '和室の客室' ),
+		array( 'file' => 'bath.jpg', 'alt' => '露天風呂' ),
+		array( 'file' => 'irori.jpg', 'alt' => '囲炉裏ラウンジ' ),
+		array( 'file' => 'okami.jpg', 'alt' => '女将のお出迎え' ),
+		array( 'file' => 'lake2.jpg', 'alt' => '湖の眺望' ),
+	);
+	$gallery_images = array_map(
+		static fn( array $demo ): array => array(
+			'url' => theme_source_uri( 'images/' . $demo['file'] ),
+			'alt' => $demo['alt'],
+		),
+		$demo_files
+	);
+}
 ?>
 <section class="gallery reveal" aria-label="ギャラリー">
 	<svg class="gallery_bg path_draw" viewBox="15 97.8 166.4 40" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true">
@@ -31,12 +43,12 @@ $gallery_images = array(
 	<div class="gallery_track" id="gTrack">
 		<div class="g_set">
 			<?php foreach ( $gallery_images as $image ) : ?>
-				<figure><img src="<?php echo esc_url( theme_source_uri( 'images/' . $image['file'] ) ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"></figure>
+				<figure><img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"></figure>
 			<?php endforeach; ?>
 		</div>
 		<div class="g_set" aria-hidden="true">
 			<?php foreach ( $gallery_images as $image ) : ?>
-				<figure><img src="<?php echo esc_url( theme_source_uri( 'images/' . $image['file'] ) ); ?>" alt=""></figure>
+				<figure><img src="<?php echo esc_url( $image['url'] ); ?>" alt=""></figure>
 			<?php endforeach; ?>
 		</div>
 	</div>

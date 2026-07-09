@@ -28,3 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<path d="M5 0 L10 10 H5 Z" style="fill:var(--sym-r, var(--bronze))"/>
 	</symbol>
 </svg>
+
+<?php
+get_template_part( 'template-parts/site-header' );
+get_template_part( 'template-parts/reserve-tab' );
+?>

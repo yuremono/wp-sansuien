@@ -16,13 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header();
-get_template_part( 'template-parts/site-header' );
-get_template_part( 'template-parts/reserve-tab' );
-
-while ( have_posts() ) :
-	the_post();
-	get_template_part( 'template-parts/room-page-content' );
-endwhile;
-
-get_template_part( 'template-parts/site-footer' );
+?>
+<main id="primary" class="site-main">
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		get_template_part( 'template-parts/room-page-content' );
+	endwhile;
+	?>
+</main>
+<?php
 get_footer();
