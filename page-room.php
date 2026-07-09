@@ -140,6 +140,5 @@ while ( have_posts() ) :
 	<?php
 endwhile;
 
-get_template_part( 'template-parts/front/closing' );
 get_template_part( 'template-parts/site-footer' );
 get_footer();

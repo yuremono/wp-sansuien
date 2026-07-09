@@ -57,6 +57,5 @@ $rooms = theme_get_content_posts( 'room' );
 </section>
 
 <?php
-get_template_part( 'template-parts/front/closing' );
 get_template_part( 'template-parts/site-footer' );
 get_footer();
