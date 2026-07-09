@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $shop_phone       = (string) theme_option( 'shop_phone', '0261-00-0000' );
 $reception_hours  = (string) theme_option( 'shop_reception_hours', '9:00〜18:00' );
-$contact_url      = theme_option_url( 'shop_contact_url', '#reserve' );
+$contact_url      = home_url( '/contact/' );
 $shop_address     = (string) theme_option( 'shop_address', '長野県青木湖畔 ○○温泉郷' );
 $access_note      = (string) theme_option( 'shop_access_note', 'JR大糸線「簗場駅」より送迎バスで約8分(要予約)' );
 $map_embed_url    = theme_option_url( 'shop_map_embed_url', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12810.641561945822!2d137.85172605!3d36.61048755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7d9e50029316b%3A0xcd895b7fa3ed5edb!2z6Z2S5pyo5rmW!5e0!3m2!1sja!2sjp!4v1783558639512!5m2!1sja!2sjp' );

@@ -155,6 +155,11 @@ single-room.php（構成は archive-room.php に準じる）
 5. `inc/enqueue.php`: CSS・JavaScript
 6. `inc/acf-pages.php`: Options PageとACF field group
 
+## 必須プラグイン
+
+- **Advanced Custom Fields**（無料版）: `inc/acf-pages.php` のローカルフィールド登録に必須。
+- **Contact Form 7**: `/contact/`（お問い合わせ・ご予約ページ）のフォーム本体。`inc/contact-form.php` がタイトル「お問い合わせ・ご予約フォーム」でフォームを検索して埋め込むため、フォームの投稿タイトルは変更しないこと。プラグイン停止時はフォーム部分の代わりに電話番号の案内のみ表示され、fatal errorにはならない。
+
 ## ACF
 
 ACFローカルフィールドは `inc/acf-pages.php` で登録します。ACF停止時は `inc/template-tags.php` が投稿メタへfallbackし、未設定時はテンプレート内の元マークアップ相当値を使用します。

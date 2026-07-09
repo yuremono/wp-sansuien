@@ -20,7 +20,7 @@ $hero_image      = theme_image_data( 'page_contact_hero_image', 'images/lake2.jp
 $lead            = (string) theme_meta( 'page_contact_lead', '' );
 $shop_phone      = (string) theme_option( 'shop_phone', '0261-00-0000' );
 $reception_hours = (string) theme_option( 'shop_reception_hours', '9:00〜18:00' );
-$contact_url     = theme_option_url( 'shop_contact_url', '' );
+$form_html       = theme_contact_form_html();
 ?>
 
 <section class="page_hero">
@@ -49,16 +49,19 @@ $contact_url     = theme_option_url( 'shop_contact_url', '' );
 </div>
 
 <div class="wrap">
-	<div class="ContactMethods">
-		<div class="ContactMethods_card reveal-l">
+	<div class="ContactLayout">
+		<div class="ContactForm reveal-l">
+			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg>お問い合わせフォーム</span>
+			<?php if ( '' !== $form_html ) : ?>
+				<?php echo $form_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Contact Form 7 が自身でエスケープ済みの HTML を返す。 ?>
+			<?php else : ?>
+				<p>現在フォームをご利用いただけません。お手数ですが、お電話にてお問い合わせください。</p>
+			<?php endif; ?>
+		</div>
+		<aside class="ContactLayout_aside reveal-r">
 			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg>お電話でのご予約・お問い合わせ</span>
 			<p class="ContactMethods_value"><a href="<?php echo esc_url( theme_phone_uri( $shop_phone ) ); ?>"><?php echo esc_html( $shop_phone ); ?></a></p>
 			<p class="ContactMethods_note">受付時間 <?php echo esc_html( $reception_hours ); ?><br>繁忙期はお電話が繋がりにくい場合がございます。あらかじめご了承ください。</p>
-		</div>
-		<div class="ContactMethods_card reveal-r">
-			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg>フォームでのご予約・お問い合わせ</span>
-			<p class="ContactMethods_note">空室状況のご確認や、お部屋・お食事に関するご相談はこちらのフォームからも承っております。</p>
-			<a class="ContactMethods_btn" href="<?php echo esc_url( '' !== $contact_url ? $contact_url : '#' ); ?>">ご予約・お問い合わせフォームへ<svg class="sym sym-sm bsym"><use href="#sym-tri"></use></svg></a>
-		</div>
+		</aside>
 	</div>
 </div>
