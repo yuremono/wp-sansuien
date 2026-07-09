@@ -1,0 +1,33 @@
+docs/sansuien.md
+  s_394dcf63539e6e::t_f0ad553714606c 172
+inc/acf-pages.php
+  s_394dcf63539e6e::t_e4f7cb7c9c86a6 160-169
+assets/css/style.css
+  s_394dcf63539e6e::t_637676a3777cfb 193
+template-parts/front/closing.php
+  s_394dcf63539e6e::t_768fe2faf15e2d 19
+  s_394dcf63539e6e::t_36783aa89141f2 50
+PLAN-SANSUIEN.md
+  s_394dcf63539e6e::t_78bc273ef503cc 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ee2c2c0950cb76951fc0e622b26667dd795bb795",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
