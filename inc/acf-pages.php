@@ -168,6 +168,18 @@ function theme_register_acf_fields(): void {
 					)
 				),
 				theme_acf_field( 'shop_instagram_url', 'Instagram URL', 'shop_instagram_url', 'url' ),
+				theme_acf_field(
+					'shop_privacy_policy_content',
+					'プライバシーポリシー本文',
+					'shop_privacy_policy_content',
+					'wysiwyg',
+					array(
+						'instructions' => 'お問い合わせフォームの同意チェックから開くモーダルに表示される本文です。空欄の場合はテーマ内の標準文面が表示されます。',
+						'tabs'         => 'visual',
+						'toolbar'      => 'basic',
+						'media_upload' => 0,
+					)
+				),
 			),
 			'location' => array(
 				array(

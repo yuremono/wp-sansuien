@@ -24,3 +24,13 @@ get_template_part( 'template-parts/front/closing' );
 	</a>
 	<span class="cr">© <?php echo esc_html( gmdate( 'Y' ) ); ?> SANSUIEN</span>
 </footer>
+
+<div class="Modal" id="privacy-policy-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="privacy-policy-modal-title">
+	<div class="Modal_dialog" tabindex="-1">
+		<button type="button" class="Modal_close" data-modal-close aria-label="閉じる">×</button>
+		<h2 class="Modal_title" id="privacy-policy-modal-title">プライバシーポリシー</h2>
+		<div class="Modal_body">
+			<?php theme_rich( 'shop_privacy_policy_content', theme_default_privacy_policy_content() ); ?>
+		</div>
+	</div>
+</div>

@@ -45,12 +45,18 @@ $form_html       = theme_contact_form_html();
 		<?php else : ?>
 			<div class="entry-content"><?php the_content(); ?></div>
 		<?php endif; ?>
+		<p class="ContactIntro_note">※本サイトはデモサイトです。送信された内容はデモサイト制作者のメールアドレスに送信されます。</p>
 	</div>
 </div>
 
 <div class="wrap">
 	<div class="ContactLayout">
-		<div class="ContactForm reveal-l">
+		<aside class="ContactLayout_aside reveal-l">
+			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg>お電話でのご予約・お問い合わせ</span>
+			<p class="ContactMethods_value"><a href="<?php echo esc_url( theme_phone_uri( $shop_phone ) ); ?>"><?php echo esc_html( $shop_phone ); ?></a></p>
+			<p class="ContactMethods_note">受付時間 <?php echo esc_html( $reception_hours ); ?><br>繁忙期はお電話が繋がりにくい場合がございます。あらかじめご了承ください。</p>
+		</aside>
+		<div class="ContactForm reveal-r">
 			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg>お問い合わせフォーム</span>
 			<?php if ( '' !== $form_html ) : ?>
 				<?php echo $form_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Contact Form 7 が自身でエスケープ済みの HTML を返す。 ?>
@@ -58,10 +64,5 @@ $form_html       = theme_contact_form_html();
 				<p>現在フォームをご利用いただけません。お手数ですが、お電話にてお問い合わせください。</p>
 			<?php endif; ?>
 		</div>
-		<aside class="ContactLayout_aside reveal-r">
-			<span class="en_label"><svg class="sym sym-sm"><use href="#sym-tri"></use></svg>お電話でのご予約・お問い合わせ</span>
-			<p class="ContactMethods_value"><a href="<?php echo esc_url( theme_phone_uri( $shop_phone ) ); ?>"><?php echo esc_html( $shop_phone ); ?></a></p>
-			<p class="ContactMethods_note">受付時間 <?php echo esc_html( $reception_hours ); ?><br>繁忙期はお電話が繋がりにくい場合がございます。あらかじめご了承ください。</p>
-		</aside>
 	</div>
 </div>

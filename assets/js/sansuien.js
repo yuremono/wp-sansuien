@@ -11,6 +11,7 @@
 		initHeaderScroll();
 		initGalleryMarquee();
 		initFeatureScrollScrub();
+		initModals();
 	});
 
 	/** 出現時に reveal 系クラスを解除する（IntersectionObserver）. */
@@ -143,5 +144,78 @@
 			requestAnimationFrame(loop);
 		}
 		requestAnimationFrame(loop);
+	}
+
+	/**
+	 * .Modal を開閉する。ブラウザ標準の <dialog>/top layerは使わず、
+	 * opacity/visibility/pointer-events の切り替え（.is_open クラス）で実装している。
+	 * href="#モーダルのid" を持つリンクをクリックすると、ページ内のどこからでも開ける。
+	 */
+	function initModals() {
+		var modals = document.querySelectorAll('.Modal');
+		if (!modals.length) {
+			return;
+		}
+
+		var lastTrigger = null;
+
+		function openModal(modal, trigger) {
+			lastTrigger = trigger || null;
+			modal.classList.add('is_open');
+			modal.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('has_open_modal');
+			var dialog = modal.querySelector('.Modal_dialog');
+			if (dialog) {
+				dialog.focus();
+			}
+		}
+
+		function closeModal(modal) {
+			modal.classList.remove('is_open');
+			modal.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('has_open_modal');
+			if (lastTrigger) {
+				lastTrigger.focus();
+				lastTrigger = null;
+			}
+		}
+
+		document.addEventListener('click', function (e) {
+			var opener = e.target.closest('a[href^="#"]');
+			if (opener) {
+				var modal = document.querySelector(opener.getAttribute('href'));
+				if (modal && modal.classList.contains('Modal')) {
+					e.preventDefault();
+					openModal(modal, opener);
+					return;
+				}
+			}
+
+			var closer = e.target.closest('[data-modal-close]');
+			if (closer) {
+				var openModalEl = closer.closest('.Modal');
+				if (openModalEl) {
+					closeModal(openModalEl);
+				}
+				return;
+			}
+
+			modals.forEach(function (modal) {
+				if (e.target === modal) {
+					closeModal(modal);
+				}
+			});
+		});
+
+		document.addEventListener('keydown', function (e) {
+			if (e.key !== 'Escape') {
+				return;
+			}
+			modals.forEach(function (modal) {
+				if (modal.classList.contains('is_open')) {
+					closeModal(modal);
+				}
+			});
+		});
 	}
 })();
