@@ -13,6 +13,7 @@
 		initFeatureScrollScrub();
 		initModals();
 		initGalleryLightbox();
+		initHamburgerMenu();
 	});
 
 	/** 出現時に reveal 系クラスを解除する（IntersectionObserver）. */
@@ -84,7 +85,6 @@
 			startX = e.clientX;
 			startAt = gx;
 			track.setPointerCapture(e.pointerId);
-			track.style.cursor = 'grabbing';
 		});
 		track.addEventListener('pointermove', function (e) {
 			if (!dragging) {
@@ -94,7 +94,6 @@
 		});
 		function endDrag() {
 			dragging = false;
-			track.style.cursor = 'grab';
 		}
 		track.addEventListener('pointerup', endDrag);
 		track.addEventListener('pointerleave', endDrag);
@@ -232,6 +231,46 @@
 			selector: '.glightbox',
 			touchNavigation: true,
 			loop: true
+		});
+	}
+
+	/** ハンバーガーボタンとモバイルナビゲーションの開閉を初期化する. */
+	function initHamburgerMenu() {
+		var btn = document.querySelector('.hbg_btn');
+		var nav = document.querySelector('.mobile_nav');
+		if (!btn || !nav) {
+			return;
+		}
+
+		function openNav() {
+			btn.setAttribute('aria-expanded', 'true');
+			nav.classList.add('is_open');
+			nav.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('has_open_modal');
+		}
+		function closeNav() {
+			btn.setAttribute('aria-expanded', 'false');
+			nav.classList.remove('is_open');
+			nav.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('has_open_modal');
+		}
+
+		btn.addEventListener('click', function () {
+			if (nav.classList.contains('is_open')) {
+				closeNav();
+			} else {
+				openNav();
+			}
+		});
+		nav.addEventListener('click', function (e) {
+			if (e.target.closest('a')) {
+				closeNav();
+			}
+		});
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && nav.classList.contains('is_open')) {
+				closeNav();
+			}
 		});
 	}
 })();

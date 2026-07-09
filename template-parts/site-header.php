@@ -30,4 +30,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 		?>
 	</nav>
+	<button type="button" class="hbg_btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開く">
+		<span class="hbg_bar"></span>
+		<span class="hbg_bar"></span>
+		<span class="hbg_bar"></span>
+	</button>
 </header>
+
+<nav class="mobile_nav" id="mobile-nav" aria-label="モバイルナビゲーション" aria-hidden="true">
+	<?php
+	wp_nav_menu(
+		array(
+			'theme_location' => 'primary',
+			'container'      => false,
+			'menu_class'     => 'mobile_nav_list',
+			'fallback_cb'    => 'theme_menu_fallback',
+			'depth'          => 1,
+		)
+	);
+	?>
+</nav>
