@@ -2,16 +2,10 @@
 
 ## 確定済み設定
 
-- 公開URL: `http://yuremono.com/sansuien/`
-- 実際の site_url: `http://yuremono.com/sansuien`
-- SSH host: `xs966275.xsrv.jp`
-- SSH user: `xs966275`
-- SSH port: `10022`
 - テーマslug: `sansuien`
-- WordPressルート: `/home/xs966275/yuremono.com/public_html/sansuien`
-- 本番 `DEPLOY_PATH`: `/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien`
+- 公開URL・SSH host/user/port・WordPressルート・`DEPLOY_PATH` の実値は非公開ファイル `.env.deploy`（gitignore 対象）に保持しています。公開リポジトリには記載しません。値の確認・変更は `.env.deploy` を直接参照してください。
 
-SSHの読み取り専用調査で、公開URL専用の `wp-config.php` と `wp-content/themes` が上記WordPressルート内に実在することを確認済みです。
+SSHの読み取り専用調査で、公開URL専用の `wp-config.php` と `wp-content/themes` がWordPressルート内に実在することを確認済みです。
 本番では `tools-domain/bootstrap-site.example.php` を `wp eval-file` 経由で実行し、固定ページ、フロントページ設定、メニュー、ACF の空欄補完を非破壊で流し込み済みです。
 
 ## テーマ反映

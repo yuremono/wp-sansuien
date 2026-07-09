@@ -84,10 +84,10 @@ theme-style  →  assets/css/style.css
 ## JavaScript の読み込み順
 
 ```php
-theme-main  →  assets/js/sansuien.js
+theme-main  →  assets/js/theme.js
 ```
 
-依存ライブラリ（jQuery、Slick、Magnific Popup など）は使用しません。静的サイトの `<script>` 内ロジック（reveal 演出、ヘッダースクロール、ギャラリーマーキー、feature セクションの scroll-scrub 演出）を素の JavaScript のまま `assets/js/sansuien.js` へ切り出しています。要素が存在しないページ（例: 客室個別ページにはギャラリーマーキー用の `#gTrack` がない）では、各初期化関数が早期リターンするよう防御的に実装しています。
+依存ライブラリ（jQuery、Slick、Magnific Popup など）は使用しません。静的サイトの `<script>` 内ロジック（reveal 演出、ヘッダースクロール、ギャラリーマーキー、feature セクションの scroll-scrub 演出）を素の JavaScript のまま `assets/js/theme.js` へ切り出しています。要素が存在しないページ（例: 客室個別ページにはギャラリーマーキー用の `#gTrack` がない）では、各初期化関数が早期リターンするよう防御的に実装しています。
 
 ---
 

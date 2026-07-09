@@ -7,7 +7,7 @@
 
 CSS と JavaScript の読み込みをまとめています。
 
-- Google Fonts、単一の `assets/css/style.css`、`assets/js/sansuien.js` を全ページ無条件で読み込む
+- Google Fonts、単一の `assets/css/style.css`、`assets/js/theme.js` を全ページ無条件で読み込む
 - WordPress の指定したタイミングで自動実行する
 
 このテーマはトップページ・客室個別・客室一覧が同一デザインシステムで完結するため、ページ別の CSS 切り替えは行っていません。
