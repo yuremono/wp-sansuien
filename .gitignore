@@ -20,6 +20,10 @@
 /NOTE.*
 /MAC-ユーザーが操作する手順.md
 
+# Private docs removed from the public repo (retained locally only)
+/.private/
+/PLAN-SANSUIEN.md
+
 # Secrets and local environment
 .env
 .env.*
