@@ -1,0 +1,35 @@
+page-contact.php
+  s_394dcf63539e6e::t_5c8c09d83fdb5e 1-28
+template-parts/reserve-tab.php
+  s_394dcf63539e6e::t_a0db03e389e219 14
+template-parts/contact-page-content.php
+  s_394dcf63539e6e::t_3760b0330568dd 1-64
+inc/acf-pages.php
+  s_394dcf63539e6e::t_602a38dc0453f4 315-348
+assets/css/style.css
+  s_394dcf63539e6e::t_f62192a9c9507c 276
+  s_394dcf63539e6e::t_71c7897b917367 245-257
+inc/template-tags.php
+  s_394dcf63539e6e::t_9cb0d0571ae7ec 38-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "4c9b360fbed088cffaa58ccf8bb63deab68ee736",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
