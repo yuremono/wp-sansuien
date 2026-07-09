@@ -1,0 +1,34 @@
+assets/css/style.css
+  h_53dad1e32c3c71 94
+AGENTS_TEMPLATE.md
+  s_18cc41693eb136::t_5fcb59cebd32f9 6,8-11,16,21,28,39-40,42,44-45,53,55,66,74,76,88,99,104
+  s_18cc41693eb136::t_48c01476c58910 54,56-65,67-73,75,77-87,89-94,100-103,105-115
+  h_53dad1e32c3c71 1-5,7,12-15,17-20,22-27,29-38,41,43,46-52,95-98
+CLAUDE.md
+  h_53dad1e32c3c71 1
+AGENTS.md
+  h_53dad1e32c3c71 3-7,11
+README.md
+  h_53dad1e32c3c71 47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a1a8bbfcde4320f61c622329147fd00885b7476d",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_18cc41693eb136": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "600488d8-e961-46e7-8592-a2368f6969d5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
