@@ -12,6 +12,7 @@
 		initGalleryMarquee();
 		initFeatureScrollScrub();
 		initModals();
+		initGalleryLightbox();
 	});
 
 	/** 出現時に reveal 系クラスを解除する（IntersectionObserver）. */
@@ -216,6 +217,21 @@
 					closeModal(modal);
 				}
 			});
+		});
+	}
+
+	/** 客室ギャラリー画像のクリック拡大表示（GLightbox）を初期化する. */
+	function initGalleryLightbox() {
+		if (typeof GLightbox === 'undefined') {
+			return;
+		}
+		if (!document.querySelector('.glightbox')) {
+			return;
+		}
+		GLightbox({
+			selector: '.glightbox',
+			touchNavigation: true,
+			loop: true
 		});
 	}
 })();

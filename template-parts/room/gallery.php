@@ -22,7 +22,12 @@ $gallery_fields = array(
 	<?php foreach ( $gallery_fields as $gallery ) : ?>
 		<?php $image = theme_image_data( $gallery['field'], $gallery['fallback'] ); ?>
 		<?php if ( '' !== $image['url'] ) : ?>
-			<figure class="reveal"><img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( '' !== $image['alt'] ? $image['alt'] : $gallery['caption'] ); ?>"><figcaption><?php echo esc_html( $gallery['caption'] ); ?></figcaption></figure>
+			<figure class="reveal">
+				<a class="glightbox" href="<?php echo esc_url( $image['url'] ); ?>" data-gallery="room-gallery" data-description="<?php echo esc_attr( $gallery['caption'] ); ?>">
+					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( '' !== $image['alt'] ? $image['alt'] : $gallery['caption'] ); ?>">
+				</a>
+				<figcaption><?php echo esc_html( $gallery['caption'] ); ?></figcaption>
+			</figure>
 		<?php endif; ?>
 	<?php endforeach; ?>
 </div>

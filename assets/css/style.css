@@ -234,10 +234,10 @@ a{color:inherit;text-decoration:none}
 .book_card .tel{margin-top:1rem;text-align:center;font:400 10px var(--sans);color:#96917f}
 .other_rooms{background:var(--paper_dim);padding:100px 0}
 .or_cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top: 2rem;}
-.or_cards a{position:relative;background:var(--wh);border:1px solid #ddd6c4;transition:transform .4s}
-.or_cards a:hover{transform:translateY(-5px)}
+.or_cards a{position:relative;background:var(--wh);border:1px solid #ddd6c4}
 .or_cards .ph{overflow:clip}
-.or_cards img{width:100%;height:190px;object-fit:cover}
+.or_cards img{width:100%;height:190px;object-fit:cover;transition:transform .4s}
+.or_cards a:hover img{transform:scale(1.06)}
 .or_cards .bd{position:relative;padding:1.25rem 1.25rem}
 .or_cards .csym{position:absolute;top:1rem;right:1rem}
 .or_cards .nm{font:500 1rem var(--serif);letter-spacing:.1em}
@@ -247,7 +247,7 @@ a{color:inherit;text-decoration:none}
 .ContactIntro{padding:80px 6vw 0;max-width:50rem;margin:0 auto;text-align:center}
 .ContactIntro_lead{font:400 1rem/2.2 var(--sans);opacity:.85}
 .ContactIntro_note{margin-top:0.75rem;font:400 0.75rem var(--sans);color:#96917f}
-.ContactLayout{padding:50px 6vw 110px;display:grid;grid-template-columns:7fr 4fr;gap:6vw;align-items:start}
+.ContactLayout{padding:50px 6vw 110px;display:grid;grid-template-columns:4fr 7fr;gap:6vmin;align-items:start}
 .ContactLayout_aside{position:sticky;top:90px;background:var(--wh);border:1px solid #e2dccc;padding:2rem 2rem;text-align:center}
 .ContactLayout_aside .en_label{color:var(--bronze);justify-content:center;margin-bottom:1rem}
 .ContactMethods_value{font:500 1.75rem var(--serif);letter-spacing:.04em}
@@ -305,6 +305,7 @@ body.has_open_modal{overflow:hidden}
         z-index: 1;
 }
 @media (max-width:83.75rem){
+        .ContactLayout_aside{position:static;}
 .f_wrap {
         grid-template-columns: unset;
 }

@@ -31,10 +31,25 @@ function theme_enqueue_assets(): void {
 		theme_asset_version( 'assets/css/style.css' )
 	);
 
+	// 客室ギャラリーの拡大表示（クリックで拡大・矢印で前後移動）用。jQuery非依存のCDNライブラリ。
+	wp_enqueue_style(
+		'glightbox',
+		'https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css',
+		array(),
+		'3.3.0'
+	);
+	wp_enqueue_script(
+		'glightbox',
+		'https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js',
+		array(),
+		'3.3.0',
+		true
+	);
+
 	wp_enqueue_script(
 		'theme-main',
 		theme_source_uri( 'js/sansuien.js' ),
-		array(),
+		array( 'glightbox' ),
 		theme_asset_version( 'assets/js/sansuien.js' ),
 		true
 	);
