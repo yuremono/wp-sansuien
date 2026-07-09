@@ -1,0 +1,148 @@
+header.php
+  s_43185fc87d562e::t_471769e4b7b299 31-35
+inc/demo-content.php
+  s_43185fc87d562e::t_dd571f055a57a8 1-76
+template-parts/front/feature.php
+  s_43185fc87d562e::t_c77df6eaae1a23 21-22,30-31,39-40
+template-parts/front/gallery.php
+  s_43185fc87d562e::t_802c1bf85a7e95 46,51
+  s_43185fc87d562e::t_af4e1b71d3553b 14-32
+page-room.php
+  s_43185fc87d562e::t_471769e4b7b299 19-28
+template-parts/front/about.php
+  s_43185fc87d562e::t_d15bec396312ad 20-21,25,29
+inc/acf-pages.php
+  s_43185fc87d562e::t_e9afa41f0c5fae 273-302
+  s_43185fc87d562e::t_da9dbe576b81e2 263,266,270
+  s_43185fc87d562e::t_746dee2c45dc76 194,397-401,403-405
+  s_43185fc87d562e::t_de8ec327069f30 309-310,314-315,319-320
+  s_43185fc87d562e::t_55fb9eeb2f7c81 79-103
+  s_43185fc87d562e::t_317181297ff631 195-202
+  s_43185fc87d562e::t_4becc4092262a9 460
+  s_43185fc87d562e::t_68e351e58a272a 452-453
+  s_43185fc87d562e::t_82ecb056d9a98b 366
+  s_43185fc87d562e::t_4735a25e672fc0 223,231
+  s_43185fc87d562e::t_45b85e6ca8ab68 390
+  s_43185fc87d562e::t_471769e4b7b299 121-148,416,442
+  s_43185fc87d562e::t_ad0b4b9e8c03b1 192-193
+  s_43185fc87d562e::t_8a65031fd20b6b 220
+  s_43185fc87d562e::t_a99c5806be26ea 210
+  s_43185fc87d562e::t_11af0d361f15a5 428,438
+  s_43185fc87d562e::t_09fb94b7d679ea 341,350,354-355,357-358
+  s_43185fc87d562e::t_c62103b78d41f2 387,395,408-414
+  s_43185fc87d562e::t_5a7d0bdfa9e1a2 78
+  s_43185fc87d562e::t_cf88c96ce16542 120
+  s_43185fc87d562e::t_a5b950376ccd36 407
+page-contact.php
+  s_43185fc87d562e::t_471769e4b7b299 19-28
+PROJECT_REVIEW.md
+  h_53dad1e32c3c71 159
+  s_43185fc87d562e::t_7e029cba0ff005 30
+  s_43185fc87d562e::t_9a6cc257b02a38 1-9,40-157,160-229
+  s_43185fc87d562e::t_ce2b788bd0a4c6 233,235-243
+  s_43185fc87d562e::t_ef8e3aaba422a5 34
+  s_43185fc87d562e::t_51d9cf3b7f62d7 11,13-25,35-39
+  s_43185fc87d562e::t_60dfe9d6c9791f 10,12,26-29
+  s_43185fc87d562e::t_b05a467633131b 230-232,234
+  s_43185fc87d562e::t_0ffe6fec0e6fe8 31-33
+  s_43185fc87d562e::t_b17e64d06de00f 158
+category-room.php
+  s_43185fc87d562e::t_471769e4b7b299 19-57
+inc/template-tags.php
+  s_43185fc87d562e::t_471769e4b7b299 91-93,288,415-423
+  s_43185fc87d562e::t_e075de98fdca24 289,291,295,304-307,313,320-323,326-328,337,341
+  s_43185fc87d562e::t_6061cdce8565ad 290,292-294,296-303,308-312,314-319,324-325,329-336,338-340,342-358
+  s_43185fc87d562e::t_b2fe5d9e6e0b26 424
+tools-domain/bootstrap-site.example.php
+  s_43185fc87d562e::t_471769e4b7b299 43,60-61,94,318-323,553,556-565,572,575
+  s_43185fc87d562e::t_10d97b70438e36 187
+  s_43185fc87d562e::t_8c648b4e2f196d 13-42,44-59,62-93
+  s_43185fc87d562e::t_817e868741a597 186
+  s_43185fc87d562e::t_e31bc1a6d58e53 235-246
+  s_43185fc87d562e::t_0ca769cbe15f82 110
+  s_43185fc87d562e::t_280861ded8b3d6 528-537
+index.php
+  s_43185fc87d562e::t_471769e4b7b299 10-11,17-19,24-30,32-34
+  s_43185fc87d562e::t_529c307fa0f595 20-23
+  s_43185fc87d562e::t_f6a3ab82703e58 31
+template-parts/room/hero.php
+  s_43185fc87d562e::t_471769e4b7b299 24
+template-parts/contact-page-content.php
+  s_43185fc87d562e::t_471769e4b7b299 33
+  s_43185fc87d562e::t_81aec0ef4cbe50 21-22
+template-parts/front/hero.php
+  s_43185fc87d562e::t_471769e4b7b299 26-29,32
+  s_43185fc87d562e::t_4babb2e3c08ea8 21-23
+404.php
+  s_43185fc87d562e::t_6f8858a5aa4a5c 1-19,21-25
+  s_43185fc87d562e::t_c3395986b3d385 20
+category-news.php
+  s_43185fc87d562e::t_268010f9a0a4c4 1-18,28,32,53,56-58
+  s_43185fc87d562e::t_18c9a1c4dd9929 19-27,29-31,33-52,54-55
+single.php
+  s_43185fc87d562e::t_471769e4b7b299 18-22,24-28,30-33
+template-parts/front/closing.php
+  s_43185fc87d562e::t_aa26a4a10e7377 50
+  s_43185fc87d562e::t_e974cfc212a015 14-15,17-19
+template-parts/site-header.php
+  s_43185fc87d562e::t_471769e4b7b299 17-19,22-23
+  s_43185fc87d562e::t_064a7ba0204a81 20-21
+template-parts/room/gallery.php
+  s_43185fc87d562e::t_da6871c013800e 14-32,35-41
+front-page.php
+  s_43185fc87d562e::t_471769e4b7b299 15-19
+template-parts/single-room-content.php
+  s_43185fc87d562e::t_471769e4b7b299 66
+  s_43185fc87d562e::t_f10d089926f2c4 30-48
+  s_43185fc87d562e::t_43b9d694fd69f1 77-83
+  s_43185fc87d562e::t_a558a118e84ba5 119
+  s_43185fc87d562e::t_792247328a98da 26-27
+footer.php
+  s_43185fc87d562e::t_471769e4b7b299 14-17
+template-parts/single-post-content.php
+  s_43185fc87d562e::t_471769e4b7b299 25
+assets/css/style.css
+  h_53dad1e32c3c71 86
+  s_43185fc87d562e::t_c1b374a1207530 85
+inc/setup.php
+  s_43185fc87d562e::t_f3ed76fa1689ca 33-34
+  s_43185fc87d562e::t_bb197b5345a726 185,189
+  s_43185fc87d562e::t_b7d2c4bdb6c60c 129
+  s_43185fc87d562e::t_7be42119923cf9 141-184,186-188,190-192
+functions.php
+  s_43185fc87d562e::t_8845d198f1450f 25
+template-parts/room/body.php
+  s_43185fc87d562e::t_fe580358e8c7dd 22-23
+  s_43185fc87d562e::t_2cbd2b38c536cd 59
+inc/enqueue.php
+  s_43185fc87d562e::t_ce25833b4ccc66 51,53
+inc/contact-form.php
+  s_43185fc87d562e::t_7b9be689812691 87-88
+  s_43185fc87d562e::t_88a860799cbe2a 46-49,57-63
+  s_43185fc87d562e::t_a7cb859afc8405 64-65
+template-parts/front/voices.php
+  s_43185fc87d562e::t_849c54eb0cf21c 14-49
+template-parts/site-footer.php
+  s_43185fc87d562e::t_471769e4b7b299 34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "28edeec91d8d7daeaaaf02d7da6149da53c511ec",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_43185fc87d562e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc7eeef4-b3fb-46bb-8435-0731e7f7fb65",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
