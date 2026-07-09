@@ -1,0 +1,14 @@
+assets/css/style.css
+  h_53dad1e32c3c71 20,86,96,104,316,329
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "cf82c870c7a6484dbe549a440731a7a65f6f3686",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
