@@ -44,5 +44,6 @@ rtk git diff --check
 ```
 
 本番 `DEPLOY_PATH` は `/home/xs966275/yuremono.com/public_html/sansuien/wp-content/themes/sansuien` です。反映前に [DEPLOYMENT.md](./DEPLOYMENT.md) の停止条件とdry-run手順を確認してください。
+./deploy.sh
 
 配布ZIPと本番同期には、PHPテンプレートと実行時アセットだけを含めます。README、デプロイ文書、開発ツール、タスク記録、依存パッケージは配布しません。
