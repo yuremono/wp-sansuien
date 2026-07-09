@@ -1,0 +1,54 @@
+README.md
+  s_43185fc87d562e::t_d89bb1a67555f0 13-14,16-22,24-27
+  h_53dad1e32c3c71 3,8,12,40,50,53
+  s_43185fc87d562e::t_4f131816fa4b87 36
+  s_43185fc87d562e::t_471769e4b7b299 35
+docs/sansuien.md
+  s_43185fc87d562e::t_1669b1269563b3 237
+  s_43185fc87d562e::t_6e539150dc5eb1 168
+  s_43185fc87d562e::t_25007e081b537c 33-34,36-43,49-61,64-65,70-71
+  s_43185fc87d562e::t_9b1789b2cae355 272,275,277-279,282
+  s_43185fc87d562e::t_f4318aa1fa1c8c 169
+  s_43185fc87d562e::t_4f0f4dd0d97a4c 171
+  s_43185fc87d562e::t_0c012233600601 97-102
+  s_43185fc87d562e::t_d085b51b8ec630 19-20,22-23
+  s_43185fc87d562e::t_31fd4641ad237f 167
+  s_43185fc87d562e::t_471769e4b7b299 13-15,106,113,116,125,131,133-134,136,138,140,233,248,251,258,262,298
+  s_43185fc87d562e::t_0b98824e0e4d97 218-219,221
+  s_43185fc87d562e::t_503cba50b13bac 202
+  s_43185fc87d562e::t_b880d8a037afe3 198,200,205,207,209,211-212
+  s_43185fc87d562e::t_7f31cff57f7775 158-161,163
+  s_43185fc87d562e::t_9cb34095bf4d59 170
+  s_43185fc87d562e::t_3e995ecbcfde7c 263
+DEPLOYMENT.md
+  s_43185fc87d562e::t_471769e4b7b299 6,8
+.env.deploy.example
+  s_43185fc87d562e::t_471769e4b7b299 1-4,8-9
+inc/ENQUEUE.md
+  s_43185fc87d562e::t_21d4eca777dc61 87,90
+inc/INC.md
+  s_43185fc87d562e::t_b9eecdfd0dc289 10
+docs/archive-cpt-acf-decision.md
+  s_43185fc87d562e::t_b29346feb72f21 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b1f1b4a4523a9cc4a671f1d90d3cd338dcdc0f77",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_43185fc87d562e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc7eeef4-b3fb-46bb-8435-0731e7f7fb65",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
