@@ -1,0 +1,39 @@
+assets/css/style.css
+  s_394dcf63539e6e::t_42393d224802ef 249-250
+  s_394dcf63539e6e::t_b67f327dc7374a 20
+  h_53dad1e32c3c71 199
+  s_394dcf63539e6e::t_f804523e516fe7 276-305
+inc/acf-pages.php
+  s_394dcf63539e6e::t_19d87e37cb99c5 171-182
+inc/contact-form.php
+  s_394dcf63539e6e::t_a3901f670b17ff 66-99
+template-parts/contact-page-content.php
+  s_394dcf63539e6e::t_9882a998b33f67 54-59
+  s_394dcf63539e6e::t_be9138dc651be5 48
+assets/js/sansuien.js
+  s_394dcf63539e6e::t_005b3acc026b97 148-220
+  s_394dcf63539e6e::t_d63dface4a8ca9 14
+template-parts/site-footer.php
+  s_394dcf63539e6e::t_0b147261f40ce4 27-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "acaac8623a5f5a553ec9e4f33be93308ca303b79",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
