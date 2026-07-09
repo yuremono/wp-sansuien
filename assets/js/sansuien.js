@@ -14,6 +14,7 @@
 		initModals();
 		initGalleryLightbox();
 		initHamburgerMenu();
+		initReserveTabVisibility();
 	});
 
 	/** 出現時に reveal 系クラスを解除する（IntersectionObserver）. */
@@ -272,5 +273,20 @@
 				closeNav();
 			}
 		});
+	}
+
+	/** フッターが画面に入ったら固定予約タブを非表示にする（IntersectionObserver）. */
+	function initReserveTabVisibility() {
+		var tab = document.querySelector('.reserve_tab');
+		var footer = document.querySelector('.site_footer');
+		if (!tab || !footer || typeof IntersectionObserver === 'undefined') {
+			return;
+		}
+		var observer = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				tab.classList.toggle('is_hidden', entry.isIntersecting);
+			});
+		});
+		observer.observe(footer);
 	}
 })();
