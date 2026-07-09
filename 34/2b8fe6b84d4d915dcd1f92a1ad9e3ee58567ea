@@ -1,0 +1,37 @@
+inc/contact-form.php
+  s_394dcf63539e6e::t_cf189c1b26d897 1-38
+  s_394dcf63539e6e::t_ebf411a03f211d 39-65
+assets/css/style.css
+  s_394dcf63539e6e::t_0ad3b1d9e836a6 246,248-251,254-272
+  s_394dcf63539e6e::t_0c4749beb98601 292
+template-parts/contact-page-content.php
+  s_394dcf63539e6e::t_0f18d334b52db4 23
+  s_394dcf63539e6e::t_673d10d4f3793d 52-61,65
+functions.php
+  s_394dcf63539e6e::t_1b719ead6430f1 28
+docs/sansuien.md
+  s_394dcf63539e6e::t_d9a92cacabba74 158-162
+template-parts/front/closing.php
+  s_394dcf63539e6e::t_d83ebe947492f7 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "342b8fe6b84d4d915dcd1f92a1ad9e3ee58567ea",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_394dcf63539e6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3bfd9878-c664-45a6-84c3-998f90ae8c30",
+        "model": "unknown"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}
