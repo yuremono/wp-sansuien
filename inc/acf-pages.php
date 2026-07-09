@@ -157,7 +157,16 @@ function theme_register_acf_fields(): void {
 					)
 				),
 				theme_acf_field( 'shop_reception_hours', '電話受付時間', 'shop_reception_hours', 'text', array( 'default_value' => '9:00〜18:00' ) ),
-				theme_acf_image_field( 'shop_map_image', 'アクセス地図画像', 'shop_map_image' ),
+				theme_acf_field(
+					'shop_map_embed_url',
+					'Googleマップ 埋め込みURL',
+					'shop_map_embed_url',
+					'url',
+					array(
+						'instructions'  => 'Googleマップで地図を表示し「共有」→「地図を埋め込む」を開いて、表示されたiframeタグ内の src="..." のURLだけをコピーして貼り付けてください。表示範囲（縮尺・中心位置）はGoogleマップ側で調整してから埋め込みURLを取得します。',
+						'default_value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12810.641561945822!2d137.85172605!3d36.61048755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7d9e50029316b%3A0xcd895b7fa3ed5edb!2z6Z2S5pyo5rmW!5e0!3m2!1sja!2sjp!4v1783558639512!5m2!1sja!2sjp',
+					)
+				),
 				theme_acf_field( 'shop_instagram_url', 'Instagram URL', 'shop_instagram_url', 'url' ),
 			),
 			'location' => array(

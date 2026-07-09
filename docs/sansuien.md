@@ -169,7 +169,7 @@ Options Page `theme-shop-settings`、field group `group_theme_shop_settings`:
 - `shop_address`（デフォルト: 長野県青木湖畔 ○○温泉郷）
 - `shop_access_note`（デフォルト: JR大糸線「簗場駅」より送迎バスで約8分(要予約)）
 - `shop_reception_hours`（デフォルト: `9:00〜18:00`）
-- `shop_map_image`
+- `shop_map_embed_url`（Googleマップの「地図を埋め込む」で取得した embed URL）
 - `shop_instagram_url`
 
 `site-header.php`、`site-footer.php`、各予約導線で共用します。取得は `theme_option()` / `theme_option_url()` を使用します。

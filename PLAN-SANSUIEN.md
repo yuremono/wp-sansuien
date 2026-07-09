@@ -15,7 +15,7 @@
 
 - **CPT**: `room`（客室、has_archive 有効 → `archive-room.php` / `single-room.php`）、`news`（お知らせ、トップ `#news` に最新3件表示のみ）。タクソノミーなし
 - **ACF**（`inc/acf-pages.php`、接頭辞 `group_theme_` / `field_theme_`）:
-  - `shop_settings`（Options Page）: `shop_name` / `shop_phone` / `shop_contact_url` / `shop_address` / `shop_access_note` / `shop_reception_hours` / `shop_map_image` / `shop_instagram_url`
+  - `shop_settings`（Options Page）: `shop_name` / `shop_phone` / `shop_contact_url` / `shop_address` / `shop_access_note` / `shop_reception_hours` / `shop_map_embed_url` / `shop_instagram_url`
   - `page_front`: hero（eyebrow/heading/lead/image）、rooms・onsen・cuisine 各ブロック（heading/body/cta_url/image）、about（heading/body/image/女将・板長の name/role/image）
   - `room`: `room_catch` / `room_tags`（カンマ区切り）/ `room_size` / `room_amenities` / `room_checkin_out` / `room_rate_weekday` / `room_rate_holiday` / `room_capacity` / `room_gallery_1`〜`4`
   - `news`: `news_external_url`
