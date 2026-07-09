@@ -312,6 +312,40 @@ function theme_register_acf_fields(): void {
 		)
 	);
 
+	// 「お問い合わせ・ご予約」固定ページ（page-contact.php）の編集項目を登録する。
+	// 電話番号・受付時間・予約フォームURLは「宿泊施設共通情報」（shop_settings）の値を再利用するため、
+	// ここではヒーローと導入文のみ登録する。項目数が少ないためタブ UI は使わない。
+	acf_add_local_field_group(
+		array(
+			'key'      => 'group_theme_page_contact',
+			'title'    => 'お問い合わせページ 編集項目',
+			'fields'   => array(
+				theme_acf_field( 'page_contact_hero_catch', '英字キャッチ', 'page_contact_hero_catch', 'text', array( 'default_value' => 'Contact & Reservation' ) ),
+				theme_acf_image_field( 'page_contact_hero_image', 'メイン画像', 'page_contact_hero_image' ),
+				theme_acf_field(
+					'page_contact_lead',
+					'導入文',
+					'page_contact_lead',
+					'textarea',
+					array(
+						'rows'          => 3,
+						'instructions'  => 'ヒーロー下に表示される案内文です。ご予約とお問い合わせを同じ窓口で承っていることが伝わる内容にしてください。',
+						'default_value' => 'ご宿泊のご予約、空室状況のご確認、お部屋やお食事に関するご相談まで、どのようなことでもお電話またはお問い合わせフォームより承っております。ご不明な点がございましたら、お気軽にご連絡くださいませ。',
+					)
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'page_template',
+						'operator' => '==',
+						'value'    => 'page-contact.php',
+					),
+				),
+			),
+		)
+	);
+
 	// 客室カテゴリー（category: room）の投稿に表示する編集項目を登録する。
 	acf_add_local_field_group(
 		array(

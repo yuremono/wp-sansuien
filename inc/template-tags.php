@@ -35,6 +35,8 @@ function theme_body_classes(): array {
 		$classes[] = 'SansuienPageRoom';
 	} elseif ( is_page( 'room' ) ) {
 		$classes[] = 'SansuienPageRoom';
+	} elseif ( is_page( 'contact' ) ) {
+		$classes[] = 'SansuienPageContact';
 	} elseif ( is_category( 'room' ) ) {
 		$classes[] = 'SansuienPageRoomArchive';
 	}

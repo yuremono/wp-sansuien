@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$reserve_url = is_front_page() ? '#reserve' : home_url( '/#reserve' );
+$reserve_url = home_url( '/contact/' );
 ?>
 <a class="reserve_tab" href="<?php echo esc_url( $reserve_url ); ?>">
 	<svg class="sym rsym"><use href="#sym-tri"></use></svg>
