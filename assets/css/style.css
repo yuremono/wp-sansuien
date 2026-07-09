@@ -84,9 +84,11 @@ a{color:inherit;text-decoration:none}
 .gnav a:hover::after{width:100%}
 
 /* ---- fixed reserve tab ---- */
-.reserve_tab{position:fixed;right:0;bottom:0;z-index:60;background:var(--bronze);color:#fff;height:var(--bar_h);min-width:170px;padding:0 1rem;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;transition:background .3s}
+.reserve_tab{position:fixed;right:0;bottom:0;z-index:60;isolation:isolate;overflow:clip;background:var(--bronze);color:#fff;height:var(--bar_h);min-width:170px;padding:0 1rem;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;transition:color .35s}
+.reserve_tab::before{content:"";position:absolute;inset:0;background:var(--wh);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1);z-index:-1}
+.reserve_tab:hover{color:var(--bronze)}
+.reserve_tab:hover::before{transform:scaleX(1);transform-origin:left}
 .reserve_tab .rsym{position:absolute;top:8px;right:10px}
-.reserve_tab:hover{background:#8f6f4c}
 .reserve_tab .en{font:500 1rem var(--sans);letter-spacing:.12em}
 .reserve_tab .jp{font:400 10px var(--sans);letter-spacing:.24em;opacity:.85}
 
@@ -228,8 +230,10 @@ a{color:inherit;text-decoration:none}
 .book_card .rate{display:flex;justify-content:space-between;align-items:baseline;padding:0.875rem 0;border-bottom:1px solid #eee9dc}
 .book_card .rate .lb{font:400 0.875rem var(--sans);color:#6d7268}
 .book_card .rate .pr{font:500 1.25rem var(--serif)}
-.book_card .book_btn{display:block;position:relative;text-align:left;margin-top:1.5rem;background:var(--teal);color:#fff;padding:1rem 2.5rem 1rem 1.25rem;font:400 1rem var(--sans);letter-spacing:.16em;transition:background .3s}
-.book_card .book_btn:hover{background:var(--teal_deep)}
+.book_card .book_btn{display:block;position:relative;isolation:isolate;overflow:clip;text-align:left;margin-top:1.5rem;background:var(--teal);color:#fff;padding:1rem 2.5rem 1rem 1.25rem;font:400 1rem var(--sans);letter-spacing:.16em;transition:color .35s}
+.book_card .book_btn::before{content:"";position:absolute;inset:0;background:var(--wh);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1);z-index:-1}
+.book_card .book_btn:hover{color:var(--teal_deep)}
+.book_card .book_btn:hover::before{transform:scaleX(1);transform-origin:left}
 .book_card .book_btn .bsym{position:absolute;top:9px;right:1rem}
 .book_card .tel{margin-top:1rem;text-align:center;font:400 10px var(--sans);color:#96917f}
 .other_rooms{background:var(--paper_dim);padding:100px 0}
@@ -265,8 +269,10 @@ a{color:inherit;text-decoration:none}
 .wpcf7-acceptance label{display:flex;align-items:flex-start;gap:0.625rem;font:400 0.8125rem/1.8 var(--sans)}
 .wpcf7-acceptance input{margin-top:5px;flex:none}
 .wpcf7-acceptance a{color:var(--teal);text-decoration:underline}
-.wpcf7-submit{display:inline-block;position:relative;background:var(--teal);color:#fff;border:none;cursor:pointer;padding:1rem 3rem;font:400 1rem var(--sans);letter-spacing:.16em;transition:background .3s}
-.wpcf7-submit:hover{background:var(--teal_deep)}
+.wpcf7-submit{display:inline-block;position:relative;isolation:isolate;overflow:clip;background:var(--teal);color:#fff;border:none;cursor:pointer;padding:1rem 3rem;font:400 1rem var(--sans);letter-spacing:.16em;transition:color .35s}
+.wpcf7-submit::before{content:"";position:absolute;inset:0;background:var(--wh);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.22,1,.36,1);z-index:-1}
+.wpcf7-submit:hover{color:var(--teal_deep)}
+.wpcf7-submit:hover::before{transform:scaleX(1);transform-origin:left}
 .wpcf7-not-valid-tip{display:block;margin-top:0.5rem;font:400 0.75rem var(--sans);color:#b3413a}
 .wpcf7-response-output{margin-top:1.5rem;padding:1rem 1.25rem;border:1px solid #d9d3c0;font:400 0.875rem var(--sans)}
 .wpcf7-mail-sent-ok{border-color:var(--teal);color:var(--teal)}
